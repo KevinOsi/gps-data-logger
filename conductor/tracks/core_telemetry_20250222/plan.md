@@ -10,9 +10,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Foundation' (Protocol in workflow.md)
 
 ## Phase 2: Telemetry Task & UART Configuration
-- [ ] Task: Configure ESP32 Hardware UART and I2C.
-    - [ ] Implement `main/hw_config.c` for UART2 (GPS) and I2C (Sensors).
-    - [ ] Set up the shared I2C mutex.
+- [x] Task: Configure ESP32 Hardware UART and I2C. [db0f444]
+    - [x] Implement `main/hw_config.c` for UART2 (GPS) and I2C (Sensors).
+    - [x] Set up the shared I2C mutex.
 - [ ] Task: Implement the high-priority Telemetry Task.
     - [ ] Create `main/telemetry_task.c`.
     - [ ] Use FreeRTOS `xSemaphoreTake`/`xSemaphoreGive` for thread-safe telemetry updates.
