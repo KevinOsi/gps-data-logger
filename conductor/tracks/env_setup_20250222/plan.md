@@ -9,9 +9,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Installation' (Protocol in workflow.md)
 
 ## Phase 2: Environment & Project Configuration
-- [ ] Task: Configure environment variables.
-    - [ ] Source the `export.sh` script and verify paths.
-- [ ] Task: Set project target.
+- [x] Task: Configure environment variables. [0a70a36]
+    - [x] Source the `export.sh` script and verify paths.
+- [~] Task: Set project target.
     - [ ] Run `idf.py set-target esp32`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Configuration' (Protocol in workflow.md)
 
