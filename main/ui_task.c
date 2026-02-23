@@ -29,30 +29,29 @@ void ui_task(void *pvParameters) {
             xSemaphoreGive(g_telemetry_mutex);
         }
 
-        // 2. Render UI
-        ssd1306_clear_screen(&dev, false);
+        // 2. Render UI (Differential Updates to reduce flicker)
         
-        // Header: Sats, Fix, Accuracy
-        snprintf(buf, sizeof(buf), "S:%u F:%u A:%.1f", 
+        // Header: Sats, Fix, Accuracy (Padded to 16 chars)
+        snprintf(buf, sizeof(buf), "S:%-2u F:%u A:%-4.1f ", 
                  local_gps.numSV, local_gps.fixType, local_gps.hAcc / 1000.0f);
-        ssd1306_display_text(&dev, 0, buf, strlen(buf), false);
+        ssd1306_display_text(&dev, 0, buf, 16, false);
         
-        // Body Line 1: Latitude
-        snprintf(buf, sizeof(buf), "Lat:%10.6f", local_gps.lat / 10000000.0f);
-        ssd1306_display_text(&dev, 2, buf, strlen(buf), false);
+        // Body Line 1: Latitude (Padded)
+        snprintf(buf, sizeof(buf), "Lat:%11.6f ", local_gps.lat / 10000000.0f);
+        ssd1306_display_text(&dev, 2, buf, 16, false);
         
-        // Body Line 2: Longitude
-        snprintf(buf, sizeof(buf), "Lon:%10.6f", local_gps.lon / 10000000.0f);
-        ssd1306_display_text(&dev, 3, buf, strlen(buf), false);
+        // Body Line 2: Longitude (Padded)
+        snprintf(buf, sizeof(buf), "Lon:%11.6f ", local_gps.lon / 10000000.0f);
+        ssd1306_display_text(&dev, 3, buf, 16, false);
         
-        // Body Line 3: Altitude
-        snprintf(buf, sizeof(buf), "Alt:%7.1fm", local_env.altitude);
-        ssd1306_display_text(&dev, 5, buf, strlen(buf), false);
+        // Body Line 3: Altitude (Padded)
+        snprintf(buf, sizeof(buf), "Alt:%8.1fm    ", local_env.altitude);
+        ssd1306_display_text(&dev, 5, buf, 16, false);
         
-        // Footer: Speed, Heading
-        snprintf(buf, sizeof(buf), "V:%4.1f H:%3" PRIi32, 
+        // Footer: Speed, Heading (Padded)
+        snprintf(buf, sizeof(buf), "V:%4.1f H:%-3" PRIi32 "    ", 
                  local_gps.gSpeed / 1000.0f, local_gps.heading / 100000);
-        ssd1306_display_text(&dev, 7, buf, strlen(buf), false);
+        ssd1306_display_text(&dev, 7, buf, 16, false);
 
         vTaskDelay(200 / portTICK_PERIOD_MS); // 5Hz Refresh
     }
