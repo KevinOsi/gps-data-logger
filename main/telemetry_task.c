@@ -19,7 +19,6 @@ void telemetry_task(void *pvParameters) {
     ESP_LOGI(TAG, "Telemetry task started on Core %d", xPortGetCoreID());
     
     gps_parser_init();
-    i2c_manager_init();
     if (bme280_handler_init() != ESP_OK) {
         ESP_LOGE(TAG, "BME280 initialization failed");
     }

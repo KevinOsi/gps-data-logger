@@ -1,6 +1,8 @@
 #include "hw_config.h"
 #include "telemetry.h"
+#include "i2c_manager.h"
 #include "esp_log.h"
+#include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/semphr.h"
 
@@ -18,7 +20,12 @@ esp_err_t hw_config_init() {
     }
     memset(&g_telemetry, 0, sizeof(global_telemetry_t));
 
-    // 2. Configure GPS UART
+    // 2. Initialize I2C Manager (Mutex)
+    if (i2c_manager_init() != ESP_OK) {
+        return ESP_FAIL;
+    }
+
+    // 3. Configure GPS UART
     uart_config_t uart_config = {
         .baud_rate = GPS_BAUD_RATE,
         .data_bits = UART_DATA_8_BITS,
