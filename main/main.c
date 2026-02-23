@@ -6,6 +6,7 @@
 #include "hw_config.h"
 #include "telemetry.h"
 #include "telemetry_task.h"
+#include "ui_task.h"
 
 static const char *TAG = "MAIN";
 
@@ -18,8 +19,9 @@ void app_main(void) {
         return;
     }
 
-    // 2. Start Telemetry Task (Core 0)
+    // 2. Start Tasks
     telemetry_task_start();
+    ui_task_start();
 
     // 3. Main Loop (Core 1 - default)
     while (1) {
