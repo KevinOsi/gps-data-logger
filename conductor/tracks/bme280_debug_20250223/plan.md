@@ -1,9 +1,9 @@
 # Implementation Plan: BME280 Data Investigation & Calibration
 
 ## Phase 1: Diagnostic Logging & Verification
-- [ ] Task: Implement advanced diagnostic logging in `bme280_handler.c`.
-    - [ ] Log Chip ID and I2C address during init.
-    - [ ] Log raw pressure/temp before and after compensation.
+- [x] Task: Implement advanced diagnostic logging in `bme280_handler.c`. [3038213]
+    - [x] Log Chip ID and I2C address during init.
+    - [x] Log raw pressure/temp before and after compensation.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Diagnostics' (Protocol in workflow.md)
 
 ## Phase 2: Logic Fix & Calibration
