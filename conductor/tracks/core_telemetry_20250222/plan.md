@@ -18,8 +18,8 @@
     - [x] Use FreeRTOS `xSemaphoreTake`/`xSemaphoreGive` for thread-safe telemetry updates.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Telemetry Task' (Protocol in workflow.md)
 
-## Phase 3: Integration & Basic Validation
+## Phase 3: Integration & Basic Validation [checkpoint: 3119cc0]
 - [x] Task: Implement the main application entry point. [8d601a2]
     - [x] Create `main/main.c` to launch the Telemetry Task.
     - [x] Add basic debug logging of GPS coordinates to verify parsing.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Integration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Integration' (Protocol in workflow.md)
