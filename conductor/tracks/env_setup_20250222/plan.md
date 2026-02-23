@@ -15,8 +15,8 @@
     - [x] Run `idf.py set-target esp32`.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Configuration' (Protocol in workflow.md)
 
-## Phase 3: Build & Validation
+## Phase 3: Build & Validation [checkpoint: bb36270]
 - [x] Task: Perform initial build. [e1d9d3a]
     - [x] Run `idf.py build`.
     - [x] Resolve any missing header issues or compilation errors.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Validation' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Validation' (Protocol in workflow.md)
