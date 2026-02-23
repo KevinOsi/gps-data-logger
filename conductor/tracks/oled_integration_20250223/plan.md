@@ -20,6 +20,9 @@
 
 ## Phase 3: Integration & Build
 - [x] Task: Update `main.c` to launch the UI Task. [fba900f]
-- [~] Task: Final Build & Flash.
-    - [ ] Run `idf.py build flash monitor`.
+- [x] Task: Optimize refresh to reduce flicker. [6031ea7]
+    - [x] Remove full-screen clear.
+    - [x] Implement line-padding to overwrite old data cleanly.
+- [x] Task: Final Build & Flash. [6031ea7]
+    - [x] Run `idf.py build flash monitor`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Integration' (Protocol in workflow.md)
