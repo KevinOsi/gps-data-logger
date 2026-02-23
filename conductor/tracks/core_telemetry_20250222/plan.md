@@ -1,9 +1,9 @@
 # Implementation Plan: Implement Core Telemetry & GPS Parsing
 
 ## Phase 1: Foundation & Shared Structures
-- [ ] Task: Define `global_telemetry_t` and `ubx_nav_pvt_t` structures.
-    - [ ] Create `main/telemetry.h`.
-    - [ ] Ensure all 92 bytes of the UBX-NAV-PVT payload are correctly mapped.
+- [x] Task: Define `global_telemetry_t` and `ubx_nav_pvt_t` structures. [5bf5138]
+    - [x] Create `main/telemetry.h`.
+    - [x] Ensure all 92 bytes of the UBX-NAV-PVT payload are correctly mapped.
 - [ ] Task: Implement the UBX-PVT state machine parser.
     - [ ] Create `main/gps_parser.h` and `main/gps_parser.c`.
     - [ ] Implement checksum verification logic.
