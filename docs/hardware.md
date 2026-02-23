@@ -23,4 +23,3 @@ This project uses an ESP-WROOM-32 30-pin development board. All connections use 
 
 ## Wiring Diagram
 ![Wiring Diagram](./wiring_diagram.svg)
-*(See Phase 2 for SVG generation)*
