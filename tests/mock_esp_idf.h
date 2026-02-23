@@ -37,6 +37,20 @@ typedef enum {
     I2C_NUM_MAX
 } i2c_port_t;
 
+typedef enum {
+    I2C_MODE_MASTER,
+    I2C_MODE_MAX
+} i2c_mode_t;
+
+esp_err_t i2c_master_write_read_device(i2c_port_t i2c_num, uint8_t device_address,
+                                       const uint8_t* write_buffer, size_t write_size,
+                                       uint8_t* read_buffer, size_t read_size,
+                                       TickType_t ticks_to_wait);
+
+esp_err_t i2c_master_write_to_device(i2c_port_t i2c_num, uint8_t device_address,
+                                     const uint8_t* write_buffer, size_t write_size,
+                                     TickType_t ticks_to_wait);
+
 int uart_read_bytes(uart_port_t uart_num, void* buf, uint32_t len, TickType_t ticks_to_wait);
 
 // Mocking Logging
