@@ -9,14 +9,14 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Driver & Rendering' (Protocol in workflow.md)
 
 ## Phase 2: UI Task & live Data rendering
-- [ ] Task: Implement the UI Task.
-    - [ ] Create `main/ui_task.c` and `main/ui_task.h`.
-    - [ ] Implement a 5Hz update loop (200ms delay).
-- [ ] Task: Design Live Telemetry Layout.
+- [x] Task: Implement the UI Task. [3131478]
+    - [x] Create `main/ui_task.c` and `main/ui_task.h`.
+    - [x] Implement a 5Hz update loop (200ms delay).
+- [x] Task: Design Live Telemetry Layout. [3131478]
     *   [ ] Header: Sats, Fix, Accuracy.
     *   [ ] Body: Lat, Lon, Alt.
     *   [ ] Footer: Speed, Heading.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: UI Task' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: UI Task' (Protocol in workflow.md)
 
 ## Phase 3: Integration & Build
 - [ ] Task: Update `main.c` to launch the UI Task.
