@@ -9,13 +9,13 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Driver Integration' (Protocol in workflow.md)
 
 ## Phase 2: Sensor Logic & Polling
-- [ ] Task: Implement BME280 initialization.
-    - [ ] Configure the sensor for Normal mode, 16x oversampling for pressure.
-- [ ] Task: Update Telemetry Task for sensor polling.
-    - [ ] Poll BME280 data every 100ms (10Hz).
-    - [ ] Update `g_telemetry.env` structure.
-- [ ] Task: Implement Altitude calculation.
-    - [ ] Add altitude calculation logic based on the hypsometric formula.
+- [x] Task: Implement BME280 initialization. [95134e6]
+    - [x] Configure the sensor for Normal mode, 16x oversampling for pressure.
+- [x] Task: Update Telemetry Task for sensor polling. [95134e6]
+    - [x] Poll BME280 data every 100ms (10Hz).
+    - [x] Update `g_telemetry.env` structure.
+- [x] Task: Implement Altitude calculation. [95134e6]
+    - [x] Add altitude calculation logic based on the hypsometric formula.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Sensor Logic' (Protocol in workflow.md)
 
 ## Phase 3: Integration & Logging
