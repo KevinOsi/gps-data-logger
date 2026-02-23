@@ -19,7 +19,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Telemetry Task' (Protocol in workflow.md)
 
 ## Phase 3: Integration & Basic Validation
-- [ ] Task: Implement the main application entry point.
-    - [ ] Create `main/main.c` to launch the Telemetry Task.
-    - [ ] Add basic debug logging of GPS coordinates to verify parsing.
+- [x] Task: Implement the main application entry point. [8d601a2]
+    - [x] Create `main/main.c` to launch the Telemetry Task.
+    - [x] Add basic debug logging of GPS coordinates to verify parsing.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Integration' (Protocol in workflow.md)
