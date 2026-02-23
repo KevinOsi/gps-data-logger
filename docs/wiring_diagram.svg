@@ -1,49 +1,90 @@
-<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-  <!-- ESP32 Board -->
-  <rect x="250" y="50" width="300" height="500" rx="15" fill="#2c2c2c" stroke="#555" stroke-width="2"/>
-  <text x="400" y="85" font-family="Arial" font-size="18" fill="white" text-anchor="middle" font-weight="bold">ESP32 DevKit V1 (30-pin)</text>
-  
-  <!-- Pins (Left) -->
-  <g fill="#888">
-    <circle cx="250" cy="120" r="5"/><text x="235" y="125" font-family="Arial" font-size="12" text-anchor="end" fill="#aaa">3.3V</text>
-    <circle cx="250" cy="150" r="5"/><text x="235" y="155" font-family="Arial" font-size="12" text-anchor="end" fill="#aaa">EN</text>
-    <circle cx="250" cy="180" r="5"/><text x="235" y="185" font-family="Arial" font-size="12" text-anchor="end" fill="#aaa">GPIO36</text>
-    <circle cx="250" cy="480" r="5"/><text x="235" y="485" font-family="Arial" font-size="12" text-anchor="end" fill="#aaa">GPIO13</text>
-    <circle cx="250" cy="510" r="5"/><text x="235" y="515" font-family="Arial" font-size="12" text-anchor="end" fill="#aaa">GND</text>
-    <circle cx="250" cy="540" r="5"/><text x="235" y="545" font-family="Arial" font-size="12" text-anchor="end" fill="#aaa">VIN (5V)</text>
+<svg width="1000" height="900" xmlns="http://www.w3.org/2000/svg">
+  <!-- ESP32 Board Background (38-pin version) -->
+  <rect x="350" y="50" width="300" height="800" rx="15" fill="#1a1a1a" stroke="#444" stroke-width="3"/>
+  <rect x="400" y="80" width="200" height="150" rx="5" fill="#333" stroke="#666"/>
+  <text x="500" y="160" font-family="Arial" font-size="20" fill="white" text-anchor="middle" font-weight="bold">ESP-WROOM-32</text>
+  <text x="500" y="185" font-family="Arial" font-size="12" fill="#888" text-anchor="middle">38-PIN DEVKITC</text>
+
+  <!-- Left Pins (3V3 to 5V) -->
+  <g font-family="Arial" font-size="10" fill="#aaa">
+    <circle cx="350" cy="100" r="5" fill="#d32f2f"/><text x="335" y="104" text-anchor="end" fill="#f44336">3V3</text>
+    <circle cx="350" cy="130" r="5" fill="#555"/><text x="335" y="134" text-anchor="end">EN</text>
+    <circle cx="350" cy="160" r="5" fill="#555"/><text x="335" y="164" text-anchor="end">GPIO36</text>
+    <circle cx="350" cy="190" r="5" fill="#555"/><text x="335" y="194" text-anchor="end">GPIO39</text>
+    <circle cx="350" cy="220" r="5" fill="#555"/><text x="335" y="224" text-anchor="end">GPIO34</text>
+    <circle cx="350" cy="250" r="5" fill="#555"/><text x="335" y="254" text-anchor="end">GPIO35</text>
+    <circle cx="350" cy="280" r="5" fill="#555"/><text x="335" y="284" text-anchor="end">GPIO32</text>
+    <circle cx="350" cy="310" r="5" fill="#555"/><text x="335" y="314" text-anchor="end">GPIO33</text>
+    <circle cx="350" cy="340" r="5" fill="#555"/><text x="335" y="344" text-anchor="end">GPIO25</text>
+    <circle cx="350" cy="370" r="5" fill="#555"/><text x="335" y="374" text-anchor="end">GPIO26</text>
+    <circle cx="350" cy="400" r="5" fill="#555"/><text x="335" y="404" text-anchor="end">GPIO27</text>
+    <circle cx="350" cy="430" r="5" fill="#555"/><text x="335" y="434" text-anchor="end">GPIO14</text>
+    <circle cx="350" cy="460" r="5" fill="#555"/><text x="335" y="464" text-anchor="end">GPIO12</text>
+    <circle cx="350" cy="490" r="5" fill="#222"/><text x="335" y="494" text-anchor="end" font-weight="bold">GND</text>
+    <circle cx="350" cy="520" r="5" fill="#555"/><text x="335" y="524" text-anchor="end">GPIO13</text>
+    <circle cx="350" cy="550" r="5" fill="#555"/><text x="335" y="554" text-anchor="end">GPIO9</text>
+    <circle cx="350" cy="580" r="5" fill="#555"/><text x="335" y="584" text-anchor="end">GPIO10</text>
+    <circle cx="350" cy="610" r="5" fill="#555"/><text x="335" y="614" text-anchor="end">GPIO11</text>
+    <circle cx="350" cy="640" r="5" fill="#d32f2f"/><text x="335" y="644" text-anchor="end" fill="#f44336" font-weight="bold">5V (VIN)</text>
   </g>
 
-  <!-- Pins (Right - Used ones) -->
-  <g fill="#888">
-    <circle cx="550" cy="120" r="5"/><text x="565" y="125" font-family="Arial" font-size="12" fill="#4CAF50">GPIO23 (MOSI)</text>
-    <circle cx="550" cy="150" r="5"/><text x="565" y="155" font-family="Arial" font-size="12" fill="#2196F3">GPIO22 (SCL)</text>
-    <circle cx="550" cy="210" r="5"/><text x="565" y="215" font-family="Arial" font-size="12" fill="#2196F3">GPIO21 (SDA)</text>
-    <circle cx="550" cy="240" r="5"/><text x="565" y="245" font-family="Arial" font-size="12" fill="#4CAF50">GPIO19 (MISO)</text>
-    <circle cx="550" cy="270" r="5"/><text x="565" y="275" font-family="Arial" font-size="12" fill="#4CAF50">GPIO18 (SCK)</text>
-    <circle cx="550" cy="300" r="5"/><text x="565" y="305" font-family="Arial" font-size="12" fill="#FF9800">GPIO17 (TX2)</text>
-    <circle cx="550" cy="330" r="5"/><text x="565" y="335" font-family="Arial" font-size="12" fill="#FF9800">GPIO16 (RX2)</text>
-    <circle cx="550" cy="360" r="5"/><text x="565" y="365" font-family="Arial" font-size="12" fill="#4CAF50">GPIO5 (CS)</text>
-    <circle cx="550" cy="390" r="5"/><text x="565" y="395" font-family="Arial" font-size="12" fill="#9C27B0">GPIO4 (POI)</text>
+  <!-- Right Pins (GND to GPIO6) -->
+  <g font-family="Arial" font-size="10" fill="#aaa">
+    <circle cx="650" cy="100" r="5" fill="#222"/><text x="665" y="104" font-weight="bold">GND</text>
+    <circle cx="650" cy="130" r="5" fill="#4caf50"/><text x="665" y="134" fill="#4caf50">GPIO23 (MOSI)</text>
+    <circle cx="650" cy="160" r="5" fill="#2196f3"/><text x="665" y="164" fill="#2196f3">GPIO22 (SCL)</text>
+    <circle cx="650" cy="190" r="5" fill="#555"/><text x="665" y="194">GPIO1 (TX0)</text>
+    <circle cx="650" cy="220" r="5" fill="#555"/><text x="665" y="224">GPIO3 (RX0)</text>
+    <circle cx="650" cy="250" r="5" fill="#2196f3"/><text x="665" y="254" fill="#2196f3">GPIO21 (SDA)</text>
+    <circle cx="650" cy="280" r="5" fill="#222"/><text x="665" y="284" font-weight="bold">GND</text>
+    <circle cx="650" cy="310" r="5" fill="#4caf50"/><text x="665" y="314" fill="#4caf50">GPIO19 (MISO)</text>
+    <circle cx="650" cy="340" r="5" fill="#4caf50"/><text x="665" y="344" fill="#4caf50">GPIO18 (SCK)</text>
+    <circle cx="650" cy="370" r="5" fill="#4caf50"/><text x="665" y="374" fill="#4caf50">GPIO5 (CS)</text>
+    <circle cx="650" cy="400" r="5" fill="#ff9800"/><text x="665" y="404" fill="#ff9800">GPIO17 (TX2)</text>
+    <circle cx="650" cy="430" r="5" fill="#ff9800"/><text x="665" y="434" fill="#ff9800">GPIO16 (RX2)</text>
+    <circle cx="650" cy="460" r="5" fill="#9c27b0"/><text x="665" y="464" fill="#9c27b0">GPIO4 (POI)</text>
+    <circle cx="650" cy="490" r="5" fill="#555"/><text x="665" y="494">GPIO0</text>
+    <circle cx="650" cy="520" r="5" fill="#555"/><text x="665" y="524">GPIO2</text>
+    <circle cx="650" cy="550" r="5" fill="#555"/><text x="665" y="554">GPIO15</text>
+    <circle cx="650" cy="580" r="5" fill="#555"/><text x="665" y="584">GPIO8</text>
+    <circle cx="650" cy="610" r="5" fill="#555"/><text x="665" y="614">GPIO7</text>
+    <circle cx="650" cy="640" r="5" fill="#555"/><text x="665" y="644">GPIO6</text>
   </g>
 
   <!-- Legend -->
-  <rect x="50" y="50" width="150" height="150" fill="none" stroke="#555" stroke-dasharray="4"/>
-  <text x="125" y="75" font-family="Arial" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Legend</text>
-  <rect x="60" y="90" width="15" height="15" fill="#FF9800"/><text x="85" y="102" font-family="Arial" font-size="12" fill="white">GPS (UART2)</text>
-  <rect x="60" y="115" width="15" height="15" fill="#2196F3"/><text x="85" y="127" font-family="Arial" font-size="12" fill="white">I2C (OLED/ENV)</text>
-  <rect x="60" y="140" width="15" height="15" fill="#4CAF50"/><text x="85" y="152" font-family="Arial" font-size="12" fill="white">SD Card (SPI)</text>
-  <rect x="60" y="165" width="15" height="15" fill="#9C27B0"/><text x="85" y="177" font-family="Arial" font-size="12" fill="white">Input (POI)</text>
+  <rect x="50" y="50" width="220" height="180" fill="#111" stroke="#444"/>
+  <text x="160" y="75" font-family="Arial" font-size="16" fill="white" text-anchor="middle">Legend</text>
+  <rect x="65" y="90" width="15" height="15" fill="#ff9800"/><text x="90" y="102" font-family="Arial" font-size="12" fill="#aaa">GPS (UART2)</text>
+  <rect x="65" y="115" width="15" height="15" fill="#2196f3"/><text x="90" y="127" font-family="Arial" font-size="12" fill="#aaa">Sensors (I2C)</text>
+  <rect x="65" y="140" width="15" height="15" fill="#4caf50"/><text x="90" y="152" font-family="Arial" font-size="12" fill="#aaa">Storage (SPI)</text>
+  <rect x="65" y="165" width="15" height="15" fill="#9c27b0"/><text x="90" y="177" font-family="Arial" font-size="12" fill="#aaa">User Input (POI)</text>
+  <rect x="65" y="190" width="15" height="15" fill="#d32f2f"/><text x="90" y="202" font-family="Arial" font-size="12" fill="#aaa">Power (3.3V/5V)</text>
 
-  <!-- Component boxes -->
-  <rect x="600" y="280" width="150" height="80" rx="5" fill="#444" stroke="#FF9800"/>
-  <text x="675" y="315" font-family="Arial" font-size="14" fill="white" text-anchor="middle">u-blox GPS</text>
-  <text x="675" y="335" font-family="Arial" font-size="10" fill="#aaa" text-anchor="middle">TX -> RX2 | RX -> TX2</text>
+  <!-- Device Blocks & Wiring -->
+  
+  <!-- GPS -->
+  <rect x="780" y="380" width="180" height="80" rx="5" fill="#222" stroke="#ff9800" stroke-width="2"/>
+  <text x="870" y="405" font-family="Arial" font-size="14" fill="white" text-anchor="middle">u-blox GPS</text>
+  <path d="M 655 400 H 780" fill="none" stroke="#ff9800" stroke-width="1.5" stroke-dasharray="3"/> <!-- TX2 to GPS RX -->
+  <path d="M 655 430 H 780" fill="none" stroke="#ff9800" stroke-width="1.5"/> <!-- RX2 to GPS TX -->
 
-  <rect x="600" y="140" width="150" height="80" rx="5" fill="#444" stroke="#2196F3"/>
-  <text x="675" y="175" font-family="Arial" font-size="14" fill="white" text-anchor="middle">I2C Devices</text>
-  <text x="675" y="195" font-family="Arial" font-size="10" fill="#aaa" text-anchor="middle">BME280 &amp; SSD1306</text>
+  <!-- I2C -->
+  <rect x="780" y="140" width="180" height="130" rx="5" fill="#222" stroke="#2196f3" stroke-width="2"/>
+  <text x="870" y="165" font-family="Arial" font-size="14" fill="white" text-anchor="middle">BME280 &amp; OLED</text>
+  <path d="M 655 160 H 780" fill="none" stroke="#2196f3" stroke-width="1.5"/> <!-- SCL -->
+  <path d="M 655 250 H 780" fill="none" stroke="#2196f3" stroke-width="1.5"/> <!-- SDA -->
 
-  <rect x="600" y="400" width="150" height="100" rx="5" fill="#444" stroke="#4CAF50"/>
-  <text x="675" y="435" font-family="Arial" font-size="14" fill="white" text-anchor="middle">MicroSD Card</text>
-  <text x="675" y="455" font-family="Arial" font-size="10" fill="#aaa" text-anchor="middle">VSPI: 23, 19, 18, 5</text>
+  <!-- SD Card -->
+  <rect x="780" y="280" width="180" height="90" rx="5" fill="#222" stroke="#4caf50" stroke-width="2"/>
+  <text x="870" y="305" font-family="Arial" font-size="14" fill="white" text-anchor="middle">MicroSD (SPI)</text>
+  <path d="M 655 130 H 720 V 310 H 780" fill="none" stroke="#4caf50" stroke-width="1"/> <!-- MOSI -->
+  <path d="M 655 310 H 780" fill="none" stroke="#4caf50" stroke-width="1"/> <!-- MISO -->
+  <path d="M 655 340 H 780" fill="none" stroke="#4caf50" stroke-width="1"/> <!-- SCK -->
+  <path d="M 655 370 H 780" fill="none" stroke="#4caf50" stroke-width="1"/> <!-- CS -->
+
+  <!-- POI -->
+  <circle cx="830" cy="500" r="20" fill="#222" stroke="#9c27b0" stroke-width="2"/>
+  <text x="830" y="540" font-family="Arial" font-size="12" fill="white" text-anchor="middle">POI BUTTON</text>
+  <path d="M 655 460 H 810" fill="none" stroke="#9c27b0" stroke-width="1.5"/>
+
 </svg>

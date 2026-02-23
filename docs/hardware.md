@@ -1,19 +1,19 @@
 # Hardware Specifications
 
-## ESP32 DevKit V1 (30-pin) Pinout
-This project uses an ESP-WROOM-32 30-pin development board. All connections use **GPIO numbers**.
+## ESP32 DevKitC (38-pin) Pinout
+This project uses an ESP-WROOM-32 38-pin development board. All connections use **GPIO numbers**.
 
-| Component | Interface | ESP32 GPIO | Physical Pin | Notes |
+| Component | Interface | ESP32 GPIO | Physical Side | Pin Position |
 | :--- | :--- | :--- | :--- | :--- |
-| **u-blox M8030** | UART2 TX | **17** | 26 | Data to GPS (Optional) |
-| **u-blox M8030** | UART2 RX | **16** | 27 | Data from GPS |
-| **I2C Bus** | SDA | **21** | 22 | Shared: BME280, SSD1306 |
-| **I2C Bus** | SCL | **22** | 19 | Shared: BME280, SSD1306 |
-| **MicroSD** | SPI MOSI | **23** | 18 | VSPI |
-| **MicroSD** | SPI MISO | **19** | 23 | VSPI |
-| **MicroSD** | SPI SCK | **18** | 24 | VSPI |
-| **MicroSD** | SPI CS | **5** | 25 | VSPI |
-| **POI Button** | Input | **4** | 28 | Interrupt driven, Internal Pull-up |
+| **u-blox M8030** | UART2 TX | **17** | Right | 11th from top |
+| **u-blox M8030** | UART2 RX | **16** | Right | 12th from top |
+| **I2C Bus** | SDA | **21** | Right | 6th from top |
+| **I2C Bus** | SCL | **22** | Right | 3rd from top |
+| **MicroSD** | SPI MOSI | **23** | Right | 2nd from top |
+| **MicroSD** | SPI MISO | **19** | Right | 8th from top |
+| **MicroSD** | SPI SCK | **18** | Right | 9th from top |
+| **MicroSD** | SPI CS | **5** | Right | 10th from top |
+| **POI Button** | Input | **4** | Right | 13th from top |
 
 ## Sensors & Peripherals
 *   **GNSS:** u-blox M8030 configured for 10Hz UBX-PVT.
