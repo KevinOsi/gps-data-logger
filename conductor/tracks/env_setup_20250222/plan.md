@@ -1,7 +1,7 @@
 # Implementation Plan: Setup ESP-IDF Development Environment
 
 ## Phase 1: Toolchain Installation
-- [ ] Task: Install ESP-IDF dependencies.
+- [~] Task: Install ESP-IDF dependencies.
     - [ ] Identify and install required system packages (git, wget, flex, bison, etc.).
 - [ ] Task: Download and install ESP-IDF.
     - [ ] Clone the `esp-idf` repository from GitHub.
