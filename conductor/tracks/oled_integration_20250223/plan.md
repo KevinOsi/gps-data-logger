@@ -1,6 +1,6 @@
 # Implementation Plan: SSD1306 OLED Display Integration
 
-## Phase 1: Driver & Basic Rendering
+## Phase 1: Driver & Basic Rendering [checkpoint: 9a7f782]
 - [x] Task: Integrate SSD1306 driver. [e0a1638]
     - [x] Add a lightweight C-based SSD1306 driver to the `main` component.
 - [x] Task: Implement display initialization. [e0a1638]
