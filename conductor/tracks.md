@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Setup ESP-IDF Development Environment**
+- [x] **Track: Setup ESP-IDF Development Environment**
   *Link: [./conductor/tracks/env_setup_20250222/](./conductor/tracks/env_setup_20250222/)*
