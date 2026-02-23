@@ -8,12 +8,12 @@
     - [x] Run the `install.sh` script to install tools.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Installation' (Protocol in workflow.md)
 
-## Phase 2: Environment & Project Configuration
+## Phase 2: Environment & Project Configuration [checkpoint: 2ef1a16]
 - [x] Task: Configure environment variables. [0a70a36]
     - [x] Source the `export.sh` script and verify paths.
 - [x] Task: Set project target. [4c542f5]
     - [x] Run `idf.py set-target esp32`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Configuration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Configuration' (Protocol in workflow.md)
 
 ## Phase 3: Build & Validation
 - [ ] Task: Perform initial build.
