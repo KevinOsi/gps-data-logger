@@ -18,11 +18,11 @@
     *   [ ] Footer: Speed, Heading.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: UI Task' (Protocol in workflow.md)
 
-## Phase 3: Integration & Build
+## Phase 3: Integration & Build [checkpoint: 42f9ac8]
 - [x] Task: Update `main.c` to launch the UI Task. [fba900f]
 - [x] Task: Optimize refresh to reduce flicker. [6031ea7]
     - [x] Remove full-screen clear.
     - [x] Implement line-padding to overwrite old data cleanly.
 - [x] Task: Final Build & Flash. [6031ea7]
     - [x] Run `idf.py build flash monitor`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Integration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Integration' (Protocol in workflow.md)
