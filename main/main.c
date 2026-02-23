@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <inttypes.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
@@ -23,9 +24,11 @@ void app_main(void) {
     // 3. Main Loop (Core 1 - default)
     while (1) {
         if (xSemaphoreTake(g_telemetry_mutex, 100 / portTICK_PERIOD_MS) == pdTRUE) {
-            ESP_LOGI(TAG, "Telemetry Snapshot: Lat: %d, Lon: %d, Sats: %d, Fix: %d",
+            ESP_LOGI(TAG, "Telemetry Snapshot: Lat: %" PRIi32 ", Lon: %" PRIi32 ", Sats: %" PRIu8 ", Fix: %" PRIu8,
                      g_telemetry.gps.lat, g_telemetry.gps.lon, 
                      g_telemetry.gps.numSV, g_telemetry.gps.fixType);
+            ESP_LOGI(TAG, "Env: Temp: %.2f C, Press: %.2f hPa, Alt: %.2f m",
+                     g_telemetry.env.temperature, g_telemetry.env.pressure, g_telemetry.env.altitude);
             xSemaphoreGive(g_telemetry_mutex);
         }
         

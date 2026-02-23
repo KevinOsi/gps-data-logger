@@ -3,6 +3,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/semphr.h"
 #include "esp_log.h"
+#include <string.h>
 
 static const char *TAG = "I2C_MANAGER";
 static SemaphoreHandle_t i2c_mutex = NULL;

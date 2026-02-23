@@ -27,6 +27,7 @@ static void user_delay_us(uint32_t period, void *intf_ptr) {
 esp_err_t bme280_handler_init() {
     int8_t rslt = BME280_OK;
     static uint8_t dev_addr = BME280_I2C_ADDR_PRIM; // 0x76
+    struct bme280_settings settings;
 
     dev.intf_ptr = &dev_addr;
     dev.intf = BME280_I2C_INTF;
@@ -41,20 +42,20 @@ esp_err_t bme280_handler_init() {
     }
 
     // Recommended settings for outdoor/indoor monitoring
-    dev.settings.osr_h = BME280_OVERSAMPLING_1X;
-    dev.settings.osr_p = BME280_OVERSAMPLING_16X;
-    dev.settings.osr_t = BME280_OVERSAMPLING_2X;
-    dev.settings.filter = BME280_FILTER_COEFF_16;
-    dev.settings.standby_time = BME280_STANDBY_TIME_62_5_MS;
+    settings.osr_h = BME280_OVERSAMPLING_1X;
+    settings.osr_p = BME280_OVERSAMPLING_16X;
+    settings.osr_t = BME280_OVERSAMPLING_2X;
+    settings.filter = BME280_FILTER_COEFF_16;
+    settings.standby_time = BME280_STANDBY_TIME_62_5_MS;
 
-    uint8_t settings_sel = BME280_OSR_PRESS_SEL | BME280_OSR_TEMP_SEL | BME280_OSR_HUM_SEL | BME280_FILTER_SEL | BME280_STAND_BY_SEL;
-    rslt = bme280_set_sensor_settings(settings_sel, &dev);
+    uint8_t settings_sel = BME280_SEL_OSR_PRESS | BME280_SEL_OSR_TEMP | BME280_SEL_OSR_HUM | BME280_SEL_FILTER | BME280_SEL_STANDBY;
+    rslt = bme280_set_sensor_settings(settings_sel, &settings, &dev);
     if (rslt != BME280_OK) {
         ESP_LOGE(TAG, "Failed to set BME280 settings (rslt %d)", rslt);
         return ESP_FAIL;
     }
 
-    rslt = bme280_set_sensor_mode(BME280_NORMAL_MODE, &dev);
+    rslt = bme280_set_sensor_mode(BME280_POWERMODE_NORMAL, &dev);
     if (rslt != BME280_OK) {
         ESP_LOGE(TAG, "Failed to set BME280 mode (rslt %d)", rslt);
         return ESP_FAIL;
