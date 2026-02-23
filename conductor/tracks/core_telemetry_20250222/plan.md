@@ -9,14 +9,14 @@
     - [x] Implement checksum verification logic.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Foundation' (Protocol in workflow.md)
 
-## Phase 2: Telemetry Task & UART Configuration
+## Phase 2: Telemetry Task & UART Configuration [checkpoint: c10bddf]
 - [x] Task: Configure ESP32 Hardware UART and I2C. [db0f444]
     - [x] Implement `main/hw_config.c` for UART2 (GPS) and I2C (Sensors).
     - [x] Set up the shared I2C mutex.
 - [x] Task: Implement the high-priority Telemetry Task. [128a658]
     - [x] Create `main/telemetry_task.c`.
     - [x] Use FreeRTOS `xSemaphoreTake`/`xSemaphoreGive` for thread-safe telemetry updates.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Telemetry Task' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Telemetry Task' (Protocol in workflow.md)
 
 ## Phase 3: Integration & Basic Validation
 - [ ] Task: Implement the main application entry point.
