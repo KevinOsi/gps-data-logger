@@ -16,7 +16,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Configuration' (Protocol in workflow.md)
 
 ## Phase 3: Build & Validation
-- [ ] Task: Perform initial build.
-    - [ ] Run `idf.py build`.
-    - [ ] Resolve any missing header issues or compilation errors.
+- [x] Task: Perform initial build. [e1d9d3a]
+    - [x] Run `idf.py build`.
+    - [x] Resolve any missing header issues or compilation errors.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Validation' (Protocol in workflow.md)
