@@ -8,7 +8,7 @@
     - [x] Create a simple "Hello World" test function.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Driver & Rendering' (Protocol in workflow.md)
 
-## Phase 2: UI Task & live Data rendering
+## Phase 2: UI Task & live Data rendering [checkpoint: 30a9d05]
 - [x] Task: Implement the UI Task. [3131478]
     - [x] Create `main/ui_task.c` and `main/ui_task.h`.
     - [x] Implement a 5Hz update loop (200ms delay).
