@@ -4,9 +4,9 @@
 - [x] Task: Define `global_telemetry_t` and `ubx_nav_pvt_t` structures. [5bf5138]
     - [x] Create `main/telemetry.h`.
     - [x] Ensure all 92 bytes of the UBX-NAV-PVT payload are correctly mapped.
-- [ ] Task: Implement the UBX-PVT state machine parser.
-    - [ ] Create `main/gps_parser.h` and `main/gps_parser.c`.
-    - [ ] Implement checksum verification logic.
+- [x] Task: Implement the UBX-PVT state machine parser. [9c50142]
+    - [x] Create `main/gps_parser.h` and `main/gps_parser.c`.
+    - [x] Implement checksum verification logic.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Foundation' (Protocol in workflow.md)
 
 ## Phase 2: Telemetry Task & UART Configuration
