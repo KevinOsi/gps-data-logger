@@ -1,12 +1,12 @@
 # Implementation Plan: BME280 Environmental Sensor Integration
 
-## Phase 1: Driver & I2C Abstraction
+## Phase 1: Driver & I2C Abstraction [checkpoint: 4b02479]
 - [x] Task: Implement I2C shared bus manager. [f0edcf2]
     - [x] Create `main/i2c_manager.h` and `main/i2c_manager.c`.
     - [x] Provide wrapper functions for thread-safe read/write.
 - [x] Task: Integrate BME280 driver. [842bfea]
     - [x] Add BME280 source and header files to the `main` component.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Driver Integration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Driver Integration' (Protocol in workflow.md)
 
 ## Phase 2: Sensor Logic & Polling
 - [ ] Task: Implement BME280 initialization.
