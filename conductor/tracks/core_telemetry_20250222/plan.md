@@ -23,3 +23,6 @@
     - [x] Create `main/main.c` to launch the Telemetry Task.
     - [x] Add basic debug logging of GPS coordinates to verify parsing.
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Integration' (Protocol in workflow.md)
+
+## Phase: Review Fixes
+- [x] Task: Apply review suggestions [176a1dd]
