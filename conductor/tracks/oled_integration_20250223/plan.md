@@ -19,7 +19,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: UI Task' (Protocol in workflow.md)
 
 ## Phase 3: Integration & Build
-- [ ] Task: Update `main.c` to launch the UI Task.
-- [ ] Task: Final Build & Flash.
+- [x] Task: Update `main.c` to launch the UI Task. [fba900f]
+- [~] Task: Final Build & Flash.
     - [ ] Run `idf.py build flash monitor`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Integration' (Protocol in workflow.md)
