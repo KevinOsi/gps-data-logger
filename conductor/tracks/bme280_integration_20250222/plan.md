@@ -19,8 +19,8 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Sensor Logic' (Protocol in workflow.md)
 
 ## Phase 3: Integration & Logging
-- [ ] Task: Update debug logging in `main.c`.
-    - [ ] Include Temp, Pressure, and Altitude in the periodic snapshot.
-- [ ] Task: Final Build & Hardware Verification.
-    - [ ] Run `idf.py build`.
+- [x] Task: Update debug logging in `main.c`. [fb634cf]
+    - [x] Include Temp, Pressure, and Altitude in the periodic snapshot.
+- [x] Task: Final Build & Hardware Verification. [fb634cf]
+    - [x] Run `idf.py build`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Integration' (Protocol in workflow.md)
