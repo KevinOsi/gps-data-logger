@@ -18,9 +18,9 @@
     - [x] Add altitude calculation logic based on the hypsometric formula.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Sensor Logic' (Protocol in workflow.md)
 
-## Phase 3: Integration & Logging
+## Phase 3: Integration & Logging [checkpoint: 759df0e]
 - [x] Task: Update debug logging in `main.c`. [fb634cf]
     - [x] Include Temp, Pressure, and Altitude in the periodic snapshot.
 - [x] Task: Final Build & Hardware Verification. [fb634cf]
     - [x] Run `idf.py build`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Integration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Integration' (Protocol in workflow.md)
