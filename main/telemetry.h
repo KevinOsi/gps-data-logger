@@ -38,7 +38,7 @@ typedef struct __attribute__((packed)) {
     int32_t  velE;          // NED east velocity (mm/s)
     int32_t  velD;          // NED down velocity (mm/s)
     int32_t  gSpeed;        // Ground Speed (2-D) (mm/s)
-    int32_t  headMot;       // Heading of motion (1e-5 deg)
+    int32_t  heading;       // Heading of motion (1e-5 deg)
     uint32_t sAcc;          // Speed accuracy estimate (mm/s)
     uint32_t headAcc;       // Heading accuracy estimate (1e-5 deg)
     uint16_t pDOP;          // Position DOP (0.01)
