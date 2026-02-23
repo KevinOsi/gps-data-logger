@@ -2,18 +2,27 @@
 #include "telemetry.h"
 #include "gps_parser.h"
 #include "hw_config.h"
+#include "i2c_manager.h"
+#include "bme280_handler.h"
 #include "esp_log.h"
 #include <string.h>
+#include <inttypes.h>
 
 static const char *TAG = "TELEMETRY_TASK";
 
 void telemetry_task(void *pvParameters) {
     uint8_t data[128];
     ubx_nav_pvt_t local_pvt;
+    bme280_data_t local_env;
+    uint32_t last_env_poll = 0;
     
     ESP_LOGI(TAG, "Telemetry task started on Core %d", xPortGetCoreID());
     
     gps_parser_init();
+    i2c_manager_init();
+    if (bme280_handler_init() != ESP_OK) {
+        ESP_LOGE(TAG, "BME280 initialization failed");
+    }
 
     while (1) {
         // 1. Read GPS Data from UART
@@ -28,15 +37,24 @@ void telemetry_task(void *pvParameters) {
                         g_telemetry.last_update_ms = xTaskGetTickCount() * portTICK_PERIOD_MS;
                         xSemaphoreGive(g_telemetry_mutex);
                         
-                        ESP_LOGD(TAG, "GPS Update: Lat: %d, Lon: %d, Fix: %d", 
+                        ESP_LOGD(TAG, "GPS Update: Lat: %" PRIi32 ", Lon: %" PRIi32 ", Fix: %" PRIu8, 
                                  local_pvt.lat, local_pvt.lon, local_pvt.fixType);
                     }
                 }
             }
         }
         
-        // 2. Poll BME280 and Compass (To be implemented in future tracks)
-        // We will use the shared I2C bus here with a mutex if necessary.
+        // 2. Poll BME280 every 100ms (10Hz)
+        uint32_t now = xTaskGetTickCount() * portTICK_PERIOD_MS;
+        if (now - last_env_poll >= 100) {
+            if (bme280_handler_read(&local_env) == ESP_OK) {
+                if (xSemaphoreTake(g_telemetry_mutex, 50 / portTICK_PERIOD_MS) == pdTRUE) {
+                    memcpy(&g_telemetry.env, &local_env, sizeof(bme280_data_t));
+                    xSemaphoreGive(g_telemetry_mutex);
+                }
+            }
+            last_env_poll = now;
+        }
 
         vTaskDelay(10 / portTICK_PERIOD_MS); // Yield to other tasks
     }
