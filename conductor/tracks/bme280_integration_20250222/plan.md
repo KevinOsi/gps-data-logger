@@ -4,8 +4,8 @@
 - [x] Task: Implement I2C shared bus manager. [f0edcf2]
     - [x] Create `main/i2c_manager.h` and `main/i2c_manager.c`.
     - [x] Provide wrapper functions for thread-safe read/write.
-- [ ] Task: Integrate BME280 driver.
-    - [ ] Add BME280 source and header files to the `main` component.
+- [x] Task: Integrate BME280 driver. [842bfea]
+    - [x] Add BME280 source and header files to the `main` component.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Driver Integration' (Protocol in workflow.md)
 
 ## Phase 2: Sensor Logic & Polling
