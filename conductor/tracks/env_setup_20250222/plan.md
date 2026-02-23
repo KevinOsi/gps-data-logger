@@ -1,12 +1,12 @@
 # Implementation Plan: Setup ESP-IDF Development Environment
 
-## Phase 1: Toolchain Installation
+## Phase 1: Toolchain Installation [checkpoint: fb36488]
 - [x] Task: Install ESP-IDF dependencies. [9996b64]
     - [x] Identify and install required system packages (git, wget, flex, bison, etc.).
 - [x] Task: Download and install ESP-IDF. [9996b64]
     - [x] Clone the `esp-idf` repository from GitHub.
     - [x] Run the `install.sh` script to install tools.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Installation' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Installation' (Protocol in workflow.md)
 
 ## Phase 2: Environment & Project Configuration
 - [ ] Task: Configure environment variables.
