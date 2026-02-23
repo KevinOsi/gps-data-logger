@@ -1,0 +1,50 @@
+#include "hw_config.h"
+#include "telemetry.h"
+#include "esp_log.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/semphr.h"
+
+static const char *TAG = "HW_CONFIG";
+
+global_telemetry_t g_telemetry;
+SemaphoreHandle_t g_telemetry_mutex = NULL;
+
+esp_err_t hw_config_init() {
+    // 1. Initialize Global Telemetry Mutex
+    g_telemetry_mutex = xSemaphoreCreateMutex();
+    if (g_telemetry_mutex == NULL) {
+        ESP_LOGE(TAG, "Failed to create telemetry mutex");
+        return ESP_FAIL;
+    }
+    memset(&g_telemetry, 0, sizeof(global_telemetry_t));
+
+    // 2. Configure GPS UART
+    uart_config_t uart_config = {
+        .baud_rate = GPS_BAUD_RATE,
+        .data_bits = UART_DATA_8_BITS,
+        .parity    = UART_PARITY_DISABLE,
+        .stop_bits = UART_STOP_BITS_1,
+        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
+        .source_clk = UART_SCLK_APB,
+    };
+    
+    ESP_ERROR_CHECK(uart_driver_install(GPS_UART_NUM, 2048, 0, 0, NULL, 0));
+    ESP_ERROR_CHECK(uart_param_config(GPS_UART_NUM, &uart_config));
+    ESP_ERROR_CHECK(uart_set_pin(GPS_UART_NUM, GPS_TX_PIN, GPS_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
+
+    // 3. Configure I2C Master
+    i2c_config_t conf = {
+        .mode = I2C_MODE_MASTER,
+        .sda_io_num = I2C_MASTER_SDA_IO,
+        .sda_pullup_en = GPIO_PULLUP_ENABLE,
+        .scl_io_num = I2C_MASTER_SCL_IO,
+        .scl_pullup_en = GPIO_PULLUP_ENABLE,
+        .master.clk_speed = I2C_MASTER_FREQ_HZ,
+    };
+    
+    ESP_ERROR_CHECK(i2c_param_config(I2C_MASTER_NUM, &conf));
+    ESP_ERROR_CHECK(i2c_driver_install(I2C_MASTER_NUM, conf.mode, 0, 0, 0));
+
+    ESP_LOGI(TAG, "Hardware initialized successfully");
+    return ESP_OK;
+}
