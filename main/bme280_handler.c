@@ -12,12 +12,16 @@ static struct bme280_dev dev;
 // Interface functions for Bosch Driver
 static BME280_INTF_RET_TYPE user_i2c_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t len, void *intf_ptr) {
     uint8_t dev_addr = *(uint8_t*)intf_ptr;
-    return i2c_manager_read(dev_addr, reg_addr, reg_data, len) == ESP_OK ? BME280_OK : BME280_E_COMM_FAIL;
+    esp_err_t ret = i2c_manager_read(dev_addr, reg_addr, reg_data, len);
+    if (ret != ESP_OK) return BME280_E_COMM_FAIL;
+    return BME280_OK;
 }
 
 static BME280_INTF_RET_TYPE user_i2c_write(uint8_t reg_addr, const uint8_t *reg_data, uint32_t len, void *intf_ptr) {
     uint8_t dev_addr = *(uint8_t*)intf_ptr;
-    return i2c_manager_write(dev_addr, reg_addr, reg_data, len) == ESP_OK ? BME280_OK : BME280_E_COMM_FAIL;
+    esp_err_t ret = i2c_manager_write(dev_addr, reg_addr, reg_data, len);
+    if (ret != ESP_OK) return BME280_E_COMM_FAIL;
+    return BME280_OK;
 }
 
 static void user_delay_us(uint32_t period, void *intf_ptr) {
@@ -37,9 +41,16 @@ esp_err_t bme280_handler_init() {
 
     rslt = bme280_init(&dev);
     if (rslt != BME280_OK) {
-        ESP_LOGE(TAG, "Failed to initialize BME280 (rslt %d)", rslt);
-        return ESP_FAIL;
+        ESP_LOGW(TAG, "Failed to initialize BME280 (rslt %d). Trying 0x77...", rslt);
+        dev_addr = BME280_I2C_ADDR_SEC; // Try 0x77
+        rslt = bme280_init(&dev);
+        if (rslt != BME280_OK) {
+            ESP_LOGE(TAG, "Failed to initialize BME280 on 0x77 (rslt %d)", rslt);
+            return ESP_FAIL;
+        }
     }
+
+    ESP_LOGI(TAG, "BME280 detected: Chip ID 0x%02x at addr 0x%02x", dev.chip_id, dev_addr);
 
     // Recommended settings for outdoor/indoor monitoring
     settings.osr_h = BME280_OVERSAMPLING_1X;
@@ -69,13 +80,19 @@ esp_err_t bme280_handler_read(bme280_data_t *data) {
     struct bme280_data comp_data;
     int8_t rslt = bme280_get_sensor_data(BME280_ALL, &comp_data, &dev);
     if (rslt == BME280_OK) {
-        data->temperature = comp_data.temperature;
-        data->pressure = comp_data.pressure / 100.0f; // Pa to hPa
-        data->humidity = comp_data.humidity;
+        data->temperature = (float)comp_data.temperature;
+        data->pressure = (float)comp_data.pressure / 100.0f; // Pa to hPa
+        data->humidity = (float)comp_data.humidity;
         
         // Altitude calculation: 44330 * (1.0 - pow(pressure / 1013.25, 0.1903))
         data->altitude = 44330.0f * (1.0f - powf(data->pressure / 1013.25f, 0.1902949f));
+        
+        // Advanced Diagnostic logging
+        ESP_LOGI(TAG, "DIAG: P=%f hPa, T=%f C, H=%f %%, Alt=%f m", 
+                 data->pressure, data->temperature, data->humidity, data->altitude);
         return ESP_OK;
+    } else {
+        ESP_LOGE(TAG, "BME280 read failed (rslt %d)", rslt);
     }
     return ESP_FAIL;
 }
