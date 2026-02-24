@@ -21,10 +21,10 @@ esp_err_t i2c_manager_init() {
 
 esp_err_t i2c_manager_read(uint8_t device_address, uint8_t reg_address, uint8_t *data, size_t len) {
     esp_err_t ret = ESP_FAIL;
-    if (xSemaphoreTake(i2c_mutex, 100 / portTICK_PERIOD_MS) == pdTRUE) {
+    if (xSemaphoreTake(i2c_mutex, 250 / portTICK_PERIOD_MS) == pdTRUE) {
         ret = i2c_master_write_read_device(I2C_MASTER_NUM, device_address, 
                                            &reg_address, 1, data, len, 
-                                           100 / portTICK_PERIOD_MS);
+                                           200 / portTICK_PERIOD_MS);
         xSemaphoreGive(i2c_mutex);
     } else {
         ESP_LOGE(TAG, "I2C Mutex timeout (read)");
@@ -40,10 +40,10 @@ esp_err_t i2c_manager_write(uint8_t device_address, uint8_t reg_address, const u
         memcpy(&write_buf[1], data, len);
     }
 
-    if (xSemaphoreTake(i2c_mutex, 100 / portTICK_PERIOD_MS) == pdTRUE) {
+    if (xSemaphoreTake(i2c_mutex, 250 / portTICK_PERIOD_MS) == pdTRUE) {
         ret = i2c_master_write_to_device(I2C_MASTER_NUM, device_address, 
                                          write_buf, len + 1, 
-                                         100 / portTICK_PERIOD_MS);
+                                         200 / portTICK_PERIOD_MS);
         xSemaphoreGive(i2c_mutex);
     } else {
         ESP_LOGE(TAG, "I2C Mutex timeout (write)");

@@ -1,0 +1,2 @@
+CMakeFiles/gps-data-logger.elf.dir/project_elf_src_esp32.c.obj: \
+ /home/kevino/Programming/GPS\ Data\ Logger/build/project_elf_src_esp32.c

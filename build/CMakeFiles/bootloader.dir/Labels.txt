@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/kevino/Programming/GPS Data Logger/build/CMakeFiles/bootloader
+/home/kevino/Programming/GPS Data Logger/build/CMakeFiles/bootloader.rule
+/home/kevino/Programming/GPS Data Logger/build/CMakeFiles/bootloader-complete.rule
+/home/kevino/Programming/GPS Data Logger/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/kevino/Programming/GPS Data Logger/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/kevino/Programming/GPS Data Logger/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/kevino/Programming/GPS Data Logger/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/kevino/Programming/GPS Data Logger/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/kevino/Programming/GPS Data Logger/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/kevino/Programming/GPS Data Logger/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

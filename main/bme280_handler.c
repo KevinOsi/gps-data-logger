@@ -9,6 +9,11 @@
 static const char *TAG = "BME280_HANDLER";
 static struct bme280_dev dev;
 
+// --- CALIBRATION ---
+// Standard sea level pressure is 1013.25 hPa.
+// To calibrate altitude, set this to your local QNH (pressure at sea level today).
+#define SEALEVEL_PRESSURE_HPA (1013.25f)
+
 // Interface functions for Bosch Driver
 static BME280_INTF_RET_TYPE user_i2c_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t len, void *intf_ptr) {
     uint8_t dev_addr = *(uint8_t*)intf_ptr;
@@ -84,11 +89,11 @@ esp_err_t bme280_handler_read(bme280_data_t *data) {
         data->pressure = (float)comp_data.pressure / 100.0f; // Pa to hPa
         data->humidity = (float)comp_data.humidity;
         
-        // Altitude calculation: 44330 * (1.0 - pow(pressure / 1013.25, 0.1903))
-        data->altitude = 44330.0f * (1.0f - powf(data->pressure / 1013.25f, 0.1902949f));
+        // Altitude calculation: 44330 * (1.0 - pow(pressure / QNH, 0.1903))
+        data->altitude = 44330.0f * (1.0f - powf(data->pressure / SEALEVEL_PRESSURE_HPA, 0.1902949f));
         
         // Advanced Diagnostic logging
-        ESP_LOGI(TAG, "DIAG: P=%f hPa, T=%f C, H=%f %%, Alt=%f m", 
+        ESP_LOGD(TAG, "DIAG: P=%f hPa, T=%f C, H=%f %%, Alt=%f m", 
                  data->pressure, data->temperature, data->humidity, data->altitude);
         return ESP_OK;
     } else {

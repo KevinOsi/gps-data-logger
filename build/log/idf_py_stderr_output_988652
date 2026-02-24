@@ -1,0 +1,13 @@
+/home/kevino/Programming/GPS Data Logger/main/mag_handler.c: In function 'mag_handler_init':
+/home/kevino/Programming/GPS Data Logger/main/mag_handler.c:57:13: warning: unused variable 'reset_pulse' [-Wunused-variable]
+   57 |     uint8_t reset_pulse = 0x10; // RESET bit is 0x80 for MMC5603
+      |             ^~~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/mag_handler.c:56:13: warning: unused variable 'set_pulse' [-Wunused-variable]
+   56 |     uint8_t set_pulse = 0x08; // SET bit is 3 in CTRL0 for some, 0x40 for MMC5603
+      |             ^~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/mag_handler.c:54:13: warning: unused variable 'refill' [-Wunused-variable]
+   54 |     uint8_t refill = 0x08; // Set bit 3 in CTRL0? No, wait.
+      |             ^~~~~~
+info: INFO: Symbol IDF_TARGET_LINUX defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/kevino/esp/esp-idf/Kconfig:162
+    /home/kevino/esp/esp-idf/Kconfig:78

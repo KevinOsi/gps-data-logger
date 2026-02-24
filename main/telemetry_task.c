@@ -4,6 +4,7 @@
 #include "hw_config.h"
 #include "i2c_manager.h"
 #include "bme280_handler.h"
+#include "mag_handler.h"
 #include "esp_log.h"
 #include <string.h>
 #include <inttypes.h>
@@ -14,14 +15,12 @@ void telemetry_task(void *pvParameters) {
     uint8_t data[128];
     ubx_nav_pvt_t local_pvt;
     bme280_data_t local_env;
+    mag_data_t local_mag;
     uint32_t last_env_poll = 0;
     
     ESP_LOGI(TAG, "Telemetry task started on Core %d", xPortGetCoreID());
     
     gps_parser_init();
-    if (bme280_handler_init() != ESP_OK) {
-        ESP_LOGE(TAG, "BME280 initialization failed");
-    }
 
     while (1) {
         // 1. Read GPS Data from UART
@@ -43,14 +42,20 @@ void telemetry_task(void *pvParameters) {
             }
         }
         
-        // 2. Poll BME280 every 100ms (10Hz)
+        // 2. Poll Sensors every 100ms (10Hz)
         uint32_t now = xTaskGetTickCount() * portTICK_PERIOD_MS;
         if (now - last_env_poll >= 100) {
-            if (bme280_handler_read(&local_env) == ESP_OK) {
-                if (xSemaphoreTake(g_telemetry_mutex, 50 / portTICK_PERIOD_MS) == pdTRUE) {
+            bool env_ok = (bme280_handler_read(&local_env) == ESP_OK);
+            bool mag_ok = (mag_handler_read(&local_mag) == ESP_OK);
+            
+            if (xSemaphoreTake(g_telemetry_mutex, 50 / portTICK_PERIOD_MS) == pdTRUE) {
+                if (env_ok) {
                     memcpy(&g_telemetry.env, &local_env, sizeof(bme280_data_t));
-                    xSemaphoreGive(g_telemetry_mutex);
                 }
+                if (mag_ok) {
+                    memcpy(&g_telemetry.mag, &local_mag, sizeof(mag_data_t));
+                }
+                xSemaphoreGive(g_telemetry_mutex);
             }
             last_env_poll = now;
         }

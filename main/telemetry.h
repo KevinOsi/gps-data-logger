@@ -58,7 +58,7 @@ typedef struct {
 
 typedef struct {
     float heading;          // Degrees from North
-    int16_t x, y, z;        // Raw values
+    float x, y, z;          // uT (Microtesla)
 } mag_data_t;
 
 typedef struct {

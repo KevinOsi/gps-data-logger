@@ -5,7 +5,7 @@
 #include <string.h>
 
 static const char *TAG = "OLED_HANDLER";
-static SSD1306_t dev;
+SSD1306_t dev;
 
 esp_err_t oled_handler_init() {
     ESP_LOGI(TAG, "Initializing SSD1306 OLED...");

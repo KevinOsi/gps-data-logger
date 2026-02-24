@@ -1,0 +1,13 @@
+/home/kevino/Programming/GPS Data Logger/main/mag_handler.c: In function 'mag_handler_read':
+/home/kevino/Programming/GPS Data Logger/main/mag_handler.c:86:13: warning: unused variable 'z_raw' [-Wunused-variable]
+   86 |     int32_t z_raw = (int16_t)((uint16_t)raw[5] << 8 | raw[4]);
+      |             ^~~~~
+/home/kevino/Programming/GPS Data Logger/main/mag_handler.c:85:13: warning: unused variable 'y_raw' [-Wunused-variable]
+   85 |     int32_t y_raw = (int16_t)((uint16_t)raw[3] << 8 | raw[2]);
+      |             ^~~~~
+/home/kevino/Programming/GPS Data Logger/main/mag_handler.c:84:13: warning: unused variable 'x_raw' [-Wunused-variable]
+   84 |     int32_t x_raw = (int16_t)((uint16_t)raw[1] << 8 | raw[0]);
+      |             ^~~~~
+info: INFO: Symbol IDF_TARGET_LINUX defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/kevino/esp/esp-idf/Kconfig:78
+    /home/kevino/esp/esp-idf/Kconfig:162
