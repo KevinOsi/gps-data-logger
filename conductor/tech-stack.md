@@ -4,6 +4,7 @@
 * **Microcontroller:** ESP-WROOM-32 (Dual-Core, 240MHz).
 * **GNSS Module:** u-blox M8030 (UART).
 * **Environmental Sensor:** BME280 (I2C).
+* **Magnetometer:** Memsic MMC35240 / MMC3xxx series (I2C).
 * **OLED Display:** SSD1306 (I2C).
 * **Storage:** MicroSD Card (SPI).
 
