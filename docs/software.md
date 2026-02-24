@@ -10,7 +10,7 @@ The system is divided across the two ESP32 cores to ensure real-time performance
 ### Core 0 (Protocol Core)
 *   **Telemetry Task:** 
     *   Priority: 10 (High).
-    *   Function: Polls UART2 for GPS data at 10Hz. Polls I2C for BME280 data at 10Hz.
+    *   Function: Polls UART2 for GPS data at 10Hz. Polls I2C for BME280 and MMC35240 (Magnetometer) data at 10Hz.
     *   Sync: Updates `global_telemetry_t` using a mutex.
 
 ### Core 1 (Application Core)

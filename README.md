@@ -5,16 +5,18 @@ A high-precision, portable data station designed for high-rate telemetry and env
 ## 🚀 Features
 *   **High-Rate GNSS:** 10Hz updates using u-blox UBX-PVT protocol.
 *   **Hybrid Altitude Fusion:** Combines GPS hMSL with BME280 barometric pressure for sub-meter relative elevation precision.
-*   **Real-time UI:** Smooth 5Hz OLED display refresh showing live coordinates, altitude, and fix status.
+*   **Stationary Heading:** High-precision magnetometer (MMC35240) for orientation tracking even when not in motion.
+*   **Real-time UI:** Smooth 5Hz OLED display refresh showing live coordinates, altitude, heading, and fix status.
 *   **Dual-Core Architecture:** 
     *   **Core 0:** Protocol management (UART GPS, I2C Sensors).
     *   **Core 1:** App logic, UI rendering, and future SD logging.
 *   **Industrial Reliability:** Thread-safe I2C shared bus management and robust state-machine parsing.
 
 ## 🛠 Hardware List
-*   **MCU:** ESP-WROOM-32 (30-pin DevKit V1).
+*   **MCU:** ESP-WROOM-32 (38-pin DevKitC).
 *   **GPS:** u-blox M8030 (UART).
 *   **Env Sensor:** BME280 (I2C).
+*   **Magnetometer:** MMC35240 / MMC3xxx series (I2C).
 *   **Display:** SSD1306 128x64 OLED (I2C).
 *   **Storage:** MicroSD Card (SPI) - *Implementation in progress*.
 *   **Input:** POI Button (GPIO 4) - *Implementation in progress*.

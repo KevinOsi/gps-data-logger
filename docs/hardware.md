@@ -17,8 +17,9 @@ This project uses an ESP-WROOM-32 38-pin development board. All connections use 
 
 ## Sensors & Peripherals
 *   **GNSS:** u-blox M8030 configured for 10Hz UBX-PVT.
-*   **Environmental:** BME280 for temperature, pressure, and humidity.
-*   **Display:** SSD1306 128x64 OLED.
+*   **Environmental:** BME280 for temperature, pressure, and humidity (I2C: 0x76).
+*   **Magnetometer:** Memsic MMC35240 for stationary heading (I2C: 0x30).
+*   **Display:** SSD1306 128x64 OLED (I2C: 0x3C).
 *   **Storage:** FATFS over MicroSD (SPI).
 
 ## Wiring Diagram
