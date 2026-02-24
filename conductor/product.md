@@ -26,5 +26,11 @@ A high-precision, portable data logging station designed for hobbyists and outdo
 
 ## User Experience (UX)
 * **Rugged Simplicity:** Focused, single-button interaction for marking POIs.
-* **At-a-glance Status:** Clear OLED pages for mapping data, weather, and system health.
-* **Industrial Feel:** Leveraging ESP-IDF/FreeRTOS for a deterministic, robust firmware experience.
+*   **At-a-glance Status:** Clear OLED pages for mapping data, weather, and system health.
+*   **Industrial Feel:** Leveraging ESP-IDF/FreeRTOS for a deterministic, robust firmware experience.
+
+## Roadmap & Stretch Goals
+*   **Wireless Field Commander (BLE):** Mobile companion interface for real-time map visualization and remote POI triggering using Bluetooth Low Energy.
+*   **Data Offload Station (Wi-Fi):** On-demand SoftAP web server for downloading GPX/CSV logs wirelessly without removing the SD card.
+*   **Dynamic Calibration:** Allow setting altitude reference (QNH) via Bluetooth.
+
