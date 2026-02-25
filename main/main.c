@@ -41,7 +41,9 @@ void app_main(void) {
     vTaskDelay(100 / portTICK_PERIOD_MS);
 
     // 3. Mount SD Card
-    if (sd_card_mount() != ESP_OK) {
+    if (sd_card_mount() == ESP_OK) {
+        logger_task_start();
+    } else {
         ESP_LOGE(TAG, "SD Card mount failed. Logging will be disabled.");
     }
 

@@ -5,6 +5,7 @@
 #include "i2c_manager.h"
 #include "bme280_handler.h"
 #include "mag_handler.h"
+#include "logger_task.h"
 #include "esp_log.h"
 #include <string.h>
 #include <inttypes.h>
@@ -55,6 +56,10 @@ void telemetry_task(void *pvParameters) {
                 if (mag_ok) {
                     memcpy(&g_telemetry.mag, &local_mag, sizeof(mag_data_t));
                 }
+                
+                // 3. Enqueue Snapshot for Logging
+                logger_enqueue(&g_telemetry);
+                
                 xSemaphoreGive(g_telemetry_mutex);
             }
             last_env_poll = now;

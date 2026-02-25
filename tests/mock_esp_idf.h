@@ -4,14 +4,17 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
+#include <unistd.h>
 
 // Mocking FreeRTOS
 #define pdTRUE 1
 #define pdFALSE 0
 #define portTICK_PERIOD_MS 1
+#define portMAX_DELAY (TickType_t)0xffffffff
 typedef void* SemaphoreHandle_t;
 typedef void* TaskHandle_t;
 typedef uint32_t TickType_t;
+typedef void* QueueHandle_t;
 
 SemaphoreHandle_t xSemaphoreCreateMutex();
 bool xSemaphoreTake(SemaphoreHandle_t xSemaphore, TickType_t xBlockTime);
@@ -19,6 +22,13 @@ bool xSemaphoreGive(SemaphoreHandle_t xSemaphore);
 uint32_t xPortGetCoreID();
 TickType_t xTaskGetTickCount();
 void vTaskDelay(TickType_t xTicksToDelay);
+
+QueueHandle_t xQueueCreate(uint32_t uxQueueLength, uint32_t uxItemSize);
+bool xQueueSend(QueueHandle_t xQueue, const void * pvItemToQueue, TickType_t xTicksToWait);
+bool xQueueReceive(QueueHandle_t xQueue, void *pvBuffer, TickType_t xTicksToWait);
+
+typedef void (*TaskFunction_t)(void *);
+bool xTaskCreatePinnedToCore(TaskFunction_t pvTaskCode, const char * const pcName, uint32_t usStackDepth, void *pvParameters, uint32_t uxPriority, TaskHandle_t *pvCreatedTask, uint32_t xCoreID);
 
 // Mocking ESP Drivers
 typedef int esp_err_t;
