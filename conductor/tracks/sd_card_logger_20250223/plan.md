@@ -1,4 +1,4 @@
-# Implementation Plan: SD Card Data Logger [checkpoint: b792361]
+# Implementation Plan: SD Card Data Logger [checkpoint: 6b8f4f5]
 
 ## Phase 1: Hardware & Filesystem
 - [x] Task: Initialize SPI and Mount FATFS. [b3c2495]
@@ -12,7 +12,7 @@
     - [x] Implement a FreeRTOS queue to pass `global_telemetry_t` snapshots.
 - [x] Task: Implement CSV Formatting. [5b15e33]
     - [x] Header writing and row serialization.
-- [~] Task: Conductor - User Manual Verification 'Phase 2: CSV Recording' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: CSV Recording' (Protocol in workflow.md)
 
 ## Phase 3: GPX & File Management
 - [ ] Task: Implement GPX Serialization.
