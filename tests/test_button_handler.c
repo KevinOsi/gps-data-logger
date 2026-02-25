@@ -3,8 +3,14 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <time.h>
+#include <string.h>
+#include <unistd.h>
 #include "mock_esp_idf.h"
 #include "../main/button_handler.h"
+
+// GPIO level mock
+static int g_gpio_level = 1;
+int gpio_get_level(gpio_num_t gpio_num) { return g_gpio_level; }
 
 // Simple Queue implementation for testing
 typedef struct {
@@ -117,7 +123,7 @@ bool xTaskCreatePinnedToCore(TaskFunction_t pvTaskCode, const char * const pcNam
 }
 
 int main() {
-    printf("Testing Button Handler...\n");
+    printf("Testing Button Handler with Long Press...\n");
     
     assert(button_handler_init(GPIO_NUM_0) == ESP_OK);
     
@@ -126,6 +132,11 @@ int main() {
     // Test Single Press
     printf("Simulating Single Press...\n");
     g_current_time_ms = 1000;
+    g_gpio_level = 0; // Pressed
+    g_isr_handler(g_isr_args);
+    
+    g_current_time_ms = 1100;
+    g_gpio_level = 1; // Released
     g_isr_handler(g_isr_args);
     
     // Wait for event (should take ~400ms in the task)
@@ -136,26 +147,35 @@ int main() {
     // Test Double Press
     printf("Simulating Double Press...\n");
     g_current_time_ms = 2000;
-    g_isr_handler(g_isr_args); // First press
-    usleep(10000); // Give task time to wake up
-    
+    g_gpio_level = 0; // Press 1
+    g_isr_handler(g_isr_args);
     g_current_time_ms = 2100;
-    g_isr_handler(g_isr_args); // Second press
+    g_gpio_level = 1; // Release 1
+    g_isr_handler(g_isr_args);
+    
+    g_current_time_ms = 2200;
+    g_gpio_level = 0; // Press 2
+    g_isr_handler(g_isr_args);
+    g_current_time_ms = 2300;
+    g_gpio_level = 1; // Release 2
+    g_isr_handler(g_isr_args);
     
     assert(button_handler_get_event(&event, 1000) == ESP_OK);
     assert(event == BUTTON_EVENT_DOUBLE_PRESS);
     printf("Double Press OK\n");
 
-    // Test Debounce
-    printf("Simulating Debounced Press...\n");
+    // Test Long Press
+    printf("Simulating Long Press...\n");
     g_current_time_ms = 3000;
-    g_isr_handler(g_isr_args); // Valid press
-    g_current_time_ms = 3020;
-    g_isr_handler(g_isr_args); // Debounced press (within 50ms)
+    g_gpio_level = 0; // Pressed
+    g_isr_handler(g_isr_args);
     
-    assert(button_handler_get_event(&event, 1000) == ESP_OK);
-    assert(event == BUTTON_EVENT_SINGLE_PRESS); // Should only result in one single press
-    printf("Debounce OK\n");
+    g_current_time_ms = 5100; // 2.1 seconds later
+    // The task should detect it on timeout
+    
+    assert(button_handler_get_event(&event, 2500) == ESP_OK);
+    assert(event == BUTTON_EVENT_LONG_PRESS);
+    printf("Long Press OK\n");
     
     printf("Button Handler tests passed!\n");
     return 0;

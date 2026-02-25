@@ -44,6 +44,8 @@ void app_main(void) {
         ESP_LOGE(TAG, "BLE initialization failed.");
     }
 
+    g_telemetry.mode = SYSTEM_MODE_LOGGING;
+
     // 2. Sequential Sensor Initialization (No contention)
     ESP_LOGI(TAG, "Initializing Sensors...");
     

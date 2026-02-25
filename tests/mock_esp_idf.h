@@ -73,6 +73,7 @@ typedef struct {
 esp_err_t gpio_config(const gpio_config_t *pGPIOConfig);
 esp_err_t gpio_install_isr_service(int intr_alloc_flags);
 esp_err_t gpio_isr_handler_add(gpio_num_t gpio_num, void (*isr_handler)(void*), void* args);
+int gpio_get_level(gpio_num_t gpio_num);
 
 int64_t esp_timer_get_time();
 

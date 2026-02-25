@@ -63,10 +63,12 @@ void telemetry_task(void *pvParameters) {
                 }
                 
                 // 3. Enqueue Snapshot for Logging
-                logger_enqueue(&g_telemetry);
+                if (g_telemetry.mode == SYSTEM_MODE_LOGGING) {
+                    logger_enqueue(&g_telemetry);
+                }
                 
                 // 4. Update BLE every 500ms if connected, or every 1s if not (throttled)
-                if (now - last_ble_push >= (ble_manager_is_connected() ? 500 : 1000)) {
+                if (g_telemetry.mode == SYSTEM_MODE_LOGGING && now - last_ble_push >= (ble_manager_is_connected() ? 500 : 1000)) {
                     ble_manager_update_telemetry(&g_telemetry);
                     last_ble_push = now;
                 }

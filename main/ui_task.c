@@ -4,6 +4,7 @@
 #include "telemetry.h"
 #include "i2c_manager.h"
 #include "button_handler.h"
+#include "system_manager.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
@@ -18,6 +19,7 @@ typedef enum {
     UI_PAGE_NAV,
     UI_PAGE_ENV,
     UI_PAGE_STATUS,
+    UI_PAGE_OFFLOAD, // New page for Wi-Fi offload status
     UI_PAGE_MAX
 } ui_page_t;
 
@@ -86,10 +88,41 @@ static void render_status_page(const global_telemetry_t *tele) {
     snprintf(buf, sizeof(buf), "SD Total: %" PRIu32 " MB ", tele->sd_total_mb);
     ssd1306_display_text(&dev, 4, buf, 16, false);
 
+    snprintf(buf, sizeof(buf), "BLE: %s ", tele->ble_connected ? "CONNECTED" : "ADVERTISING");
+    ssd1306_display_text(&dev, 5, buf, 16, false);
+
     uint32_t uptime_sec = tele->last_update_ms / 1000;
     snprintf(buf, sizeof(buf), "Uptime: %02" PRIu32 ":%02" PRIu32 ":%02" PRIu32, 
              (uptime_sec / 3600), (uptime_sec / 60) % 60, uptime_sec % 60);
     ssd1306_display_text(&dev, 6, buf, 16, false);
+}
+
+static void render_offload_page(const global_telemetry_t *tele) {
+    char buf[32];
+    snprintf(buf, sizeof(buf), "OFFLOAD MODE    ");
+    ssd1306_display_text(&dev, 0, buf, 16, true);
+
+    if (tele->mode == SYSTEM_MODE_OFFLOAD) {
+        snprintf(buf, sizeof(buf), "Wi-Fi: ACTIVE   ");
+        ssd1306_display_text(&dev, 2, buf, 16, false);
+        snprintf(buf, sizeof(buf), "SSID: GPS-Logger");
+        ssd1306_display_text(&dev, 3, buf, 16, false);
+        snprintf(buf, sizeof(buf), "IP: 192.168.4.1 ");
+        ssd1306_display_text(&dev, 4, buf, 16, false);
+        snprintf(buf, sizeof(buf), "                ");
+        ssd1306_display_text(&dev, 6, buf, 16, false);
+        snprintf(buf, sizeof(buf), "Hold to Stop    ");
+        ssd1306_display_text(&dev, 7, buf, 16, false);
+    } else {
+        snprintf(buf, sizeof(buf), "Wi-Fi: OFF      ");
+        ssd1306_display_text(&dev, 2, buf, 16, false);
+        snprintf(buf, sizeof(buf), "                ");
+        ssd1306_display_text(&dev, 3, buf, 16, false);
+        snprintf(buf, sizeof(buf), "Hold to Start   ");
+        ssd1306_display_text(&dev, 5, buf, 16, false);
+        snprintf(buf, sizeof(buf), "                ");
+        ssd1306_display_text(&dev, 7, buf, 16, false);
+    }
 }
 
 void ui_task(void *pvParameters) {
@@ -111,6 +144,13 @@ void ui_task(void *pvParameters) {
                     g_telemetry.poi_pressed = true;
                     xSemaphoreGive(g_telemetry_mutex);
                 }
+            } else if (btn_evt == BUTTON_EVENT_LONG_PRESS) {
+                ESP_LOGI(TAG, "Long Press Detected!");
+                system_mode_t next_mode = (system_manager_get_mode() == SYSTEM_MODE_LOGGING) ? SYSTEM_MODE_OFFLOAD : SYSTEM_MODE_LOGGING;
+                if (system_manager_set_mode(next_mode) == ESP_OK) {
+                    current_page = UI_PAGE_OFFLOAD;
+                    ssd1306_clear_screen(&dev, false);
+                }
             }
         }
 
@@ -130,6 +170,9 @@ void ui_task(void *pvParameters) {
                 break;
             case UI_PAGE_STATUS:
                 render_status_page(&local_tele);
+                break;
+            case UI_PAGE_OFFLOAD:
+                render_offload_page(&local_tele);
                 break;
             default:
                 break;

@@ -1,2 +1,2 @@
-idf_component_register(SRCS "main.c" "telemetry_task.c" "gps_parser.c" "hw_config.c" "i2c_manager.c" "bme280/bme280.c" "bme280_handler.c" "mag_handler.c" "sd_card_handler.c" "logger_task.c" "gpx_formatter.c" "ssd1306/ssd1306.c" "ssd1306/ssd1306_i2c.c" "oled_handler.c" "ui_task.c" "button_handler.c" "ble_manager.c"
+idf_component_register(SRCS "main.c" "telemetry_task.c" "gps_parser.c" "hw_config.c" "i2c_manager.c" "bme280/bme280.c" "bme280_handler.c" "mag_handler.c" "sd_card_handler.c" "logger_task.c" "gpx_formatter.c" "ssd1306/ssd1306.c" "ssd1306/ssd1306_i2c.c" "oled_handler.c" "ui_task.c" "button_handler.c" "ble_manager.c" "wifi_manager.c" "web_server.c" "system_manager.c"
                     INCLUDE_DIRS "." "bme280" "ssd1306")

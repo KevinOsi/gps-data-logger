@@ -61,6 +61,11 @@ typedef struct {
     float x, y, z;          // uT (Microtesla)
 } mag_data_t;
 
+typedef enum {
+    SYSTEM_MODE_LOGGING,   // Default: GPS Logging + BLE
+    SYSTEM_MODE_OFFLOAD    // Wi-Fi AP + Web Server (BLE Stopped)
+} system_mode_t;
+
 typedef struct {
     ubx_nav_pvt_t gps;
     bme280_data_t env;
@@ -69,6 +74,9 @@ typedef struct {
     uint32_t sd_total_mb;
     uint32_t sd_free_mb;
     uint32_t last_update_ms;
+    system_mode_t mode;
+    bool ble_connected;
+    bool wifi_active;
 } global_telemetry_t;
 
 extern global_telemetry_t g_telemetry;
