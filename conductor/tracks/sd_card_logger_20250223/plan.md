@@ -1,10 +1,10 @@
-# Implementation Plan: SD Card Data Logger
+# Implementation Plan: SD Card Data Logger [checkpoint: b792361]
 
 ## Phase 1: Hardware & Filesystem
 - [x] Task: Initialize SPI and Mount FATFS. [b3c2495]
     - [x] Update `main/hw_config.c` to init SPI for SD card.
     - [x] Implement `sd_card_handler.c` for mounting and unmounting.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Mounting' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Mounting' (Protocol in workflow.md)
 
 ## Phase 2: Async Logger Task
 - [ ] Task: Implement Logger Task & Buffer.
