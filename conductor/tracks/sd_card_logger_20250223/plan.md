@@ -7,12 +7,12 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Mounting' (Protocol in workflow.md)
 
 ## Phase 2: Async Logger Task
-- [ ] Task: Implement Logger Task & Buffer.
-    - [ ] Create `logger_task.c`.
-    - [ ] Implement a FreeRTOS queue to pass `global_telemetry_t` snapshots.
-- [ ] Task: Implement CSV Formatting.
-    - [ ] Header writing and row serialization.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: CSV Recording' (Protocol in workflow.md)
+- [x] Task: Implement Logger Task & Buffer. [5b15e33]
+    - [x] Create `logger_task.c`.
+    - [x] Implement a FreeRTOS queue to pass `global_telemetry_t` snapshots.
+- [x] Task: Implement CSV Formatting. [5b15e33]
+    - [x] Header writing and row serialization.
+- [~] Task: Conductor - User Manual Verification 'Phase 2: CSV Recording' (Protocol in workflow.md)
 
 ## Phase 3: GPX & File Management
 - [ ] Task: Implement GPX Serialization.
