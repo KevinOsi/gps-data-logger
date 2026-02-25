@@ -9,6 +9,8 @@
 #include "services/gap/ble_svc_gap.h"
 #include "services/gatt/ble_svc_gatt.h"
 #include "ble_manager.h"
+#include "bme280_handler.h"
+#include "telemetry.h"
 
 static const char *TAG = "BLE_MANAGER";
 
@@ -21,6 +23,8 @@ static uint16_t g_val_handle_lat;
 static uint16_t g_val_handle_lon;
 static uint16_t g_val_handle_alt;
 static uint16_t g_val_handle_heading;
+static uint16_t g_val_handle_poi;
+static uint16_t g_val_handle_qnh;
 
 // Custom UUIDs for GPS data
 // DECAFBAD-1111-2222-3333-444455556666
@@ -35,6 +39,16 @@ static const ble_uuid128_t g_chr_uuid_alt =
     BLE_UUID128_INIT(0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xad, 0xfb, 0xca, 0xde);
 static const ble_uuid128_t g_chr_uuid_heading =
     BLE_UUID128_INIT(0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xad, 0xfb, 0xca, 0xde);
+
+// Custom UUIDs for Control Service
+// DECAFBAD-5555-6666-7777-888899990000
+static const ble_uuid128_t g_svc_uuid_control =
+    BLE_UUID128_INIT(0x00, 0x00, 0x99, 0x99, 0x88, 0x88, 0x77, 0x77, 0x66, 0x66, 0x55, 0x55, 0xad, 0xfb, 0xca, 0xde);
+
+static const ble_uuid128_t g_chr_uuid_poi =
+    BLE_UUID128_INIT(0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xad, 0xfb, 0xca, 0xde);
+static const ble_uuid128_t g_chr_uuid_qnh =
+    BLE_UUID128_INIT(0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xad, 0xfb, 0xca, 0xde);
 
 static int ble_manager_gatt_cb(uint16_t conn_handle, uint16_t attr_handle, struct ble_gatt_access_ctxt *ctxt, void *arg);
 
@@ -97,33 +111,71 @@ static const struct ble_gatt_svc_def g_ble_gatt_svcs[] = {
             { 0 }
         },
     },
+    {
+        // Control Service (Custom)
+        .type = BLE_GATT_SVC_TYPE_PRIMARY,
+        .uuid = &g_svc_uuid_control.u,
+        .characteristics = (struct ble_gatt_chr_def[]) {
+            {
+                .uuid = &g_chr_uuid_poi.u,
+                .access_cb = ble_manager_gatt_cb,
+                .flags = BLE_GATT_CHR_F_WRITE,
+                .val_handle = &g_val_handle_poi,
+            },
+            {
+                .uuid = &g_chr_uuid_qnh.u,
+                .access_cb = ble_manager_gatt_cb,
+                .flags = BLE_GATT_CHR_F_READ | BLE_GATT_CHR_F_WRITE,
+                .val_handle = &g_val_handle_qnh,
+            },
+            { 0 }
+        },
+    },
     { 0 }
 };
 
 static global_telemetry_t g_latest_telemetry = {0};
 
 static int ble_manager_gatt_cb(uint16_t conn_handle, uint16_t attr_handle, struct ble_gatt_access_ctxt *ctxt, void *arg) {
-    if (ctxt->op != BLE_GATT_ACCESS_OP_READ_CHR) return BLE_ATT_ERR_UNLIKELY;
-
-    if (attr_handle == g_val_handle_temp) {
-        int16_t temp = (int16_t)(g_latest_telemetry.env.temperature * 100);
-        return os_mbuf_append(ctxt->om, &temp, sizeof temp) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
-    } else if (attr_handle == g_val_handle_press) {
-        uint32_t press = (uint32_t)(g_latest_telemetry.env.pressure * 10);
-        return os_mbuf_append(ctxt->om, &press, sizeof press) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
-    } else if (attr_handle == g_val_handle_hum) {
-        uint16_t hum = (uint16_t)(g_latest_telemetry.env.humidity * 100);
-        return os_mbuf_append(ctxt->om, &hum, sizeof hum) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
-    } else if (attr_handle == g_val_handle_lat) {
-        return os_mbuf_append(ctxt->om, &g_latest_telemetry.gps.lat, sizeof(int32_t)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
-    } else if (attr_handle == g_val_handle_lon) {
-        return os_mbuf_append(ctxt->om, &g_latest_telemetry.gps.lon, sizeof(int32_t)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
-    } else if (attr_handle == g_val_handle_alt) {
-        float alt = g_latest_telemetry.env.altitude; // Default to barometric altitude
-        return os_mbuf_append(ctxt->om, &alt, sizeof(float)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
-    } else if (attr_handle == g_val_handle_heading) {
-        float heading = g_latest_telemetry.mag.heading; // Use magnetometer heading
-        return os_mbuf_append(ctxt->om, &heading, sizeof(float)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+    if (ctxt->op == BLE_GATT_ACCESS_OP_READ_CHR) {
+        if (attr_handle == g_val_handle_temp) {
+            int16_t temp = (int16_t)(g_latest_telemetry.env.temperature * 100);
+            return os_mbuf_append(ctxt->om, &temp, sizeof temp) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+        } else if (attr_handle == g_val_handle_press) {
+            uint32_t press = (uint32_t)(g_latest_telemetry.env.pressure * 10);
+            return os_mbuf_append(ctxt->om, &press, sizeof press) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+        } else if (attr_handle == g_val_handle_hum) {
+            uint16_t hum = (uint16_t)(g_latest_telemetry.env.humidity * 100);
+            return os_mbuf_append(ctxt->om, &hum, sizeof hum) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+        } else if (attr_handle == g_val_handle_lat) {
+            return os_mbuf_append(ctxt->om, &g_latest_telemetry.gps.lat, sizeof(int32_t)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+        } else if (attr_handle == g_val_handle_lon) {
+            return os_mbuf_append(ctxt->om, &g_latest_telemetry.gps.lon, sizeof(int32_t)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+        } else if (attr_handle == g_val_handle_alt) {
+            float alt = g_latest_telemetry.env.altitude;
+            return os_mbuf_append(ctxt->om, &alt, sizeof(float)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+        } else if (attr_handle == g_val_handle_heading) {
+            float heading = g_latest_telemetry.mag.heading;
+            return os_mbuf_append(ctxt->om, &heading, sizeof(float)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+        } else if (attr_handle == g_val_handle_qnh) {
+            float qnh = bme280_handler_get_qnh();
+            return os_mbuf_append(ctxt->om, &qnh, sizeof(float)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+        }
+    } else if (ctxt->op == BLE_GATT_ACCESS_OP_WRITE_CHR) {
+        if (attr_handle == g_val_handle_poi) {
+            ESP_LOGI(TAG, "Remote POI Triggered via BLE");
+            if (xSemaphoreTake(g_telemetry_mutex, 100 / portTICK_PERIOD_MS) == pdTRUE) {
+                g_telemetry.poi_pressed = true;
+                xSemaphoreGive(g_telemetry_mutex);
+            }
+            return 0;
+        } else if (attr_handle == g_val_handle_qnh) {
+            float qnh;
+            if (OS_MBUF_PKTLEN(ctxt->om) != sizeof(float)) return BLE_ATT_ERR_INVALID_ATTR_VALUE_LEN;
+            ble_hs_mbuf_to_flat(ctxt->om, &qnh, sizeof(float), NULL);
+            bme280_handler_set_qnh(qnh);
+            return 0;
+        }
     }
 
     return BLE_ATT_ERR_UNLIKELY;

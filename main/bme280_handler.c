@@ -11,8 +11,7 @@ static struct bme280_dev dev;
 
 // --- CALIBRATION ---
 // Standard sea level pressure is 1013.25 hPa.
-// To calibrate altitude, set this to your local QNH (pressure at sea level today).
-#define SEALEVEL_PRESSURE_HPA (1013.25f)
+static float g_qnh_hpa = 1013.25f;
 
 // Interface functions for Bosch Driver
 static BME280_INTF_RET_TYPE user_i2c_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t len, void *intf_ptr) {
@@ -90,14 +89,27 @@ esp_err_t bme280_handler_read(bme280_data_t *data) {
         data->humidity = (float)comp_data.humidity;
         
         // Altitude calculation: 44330 * (1.0 - pow(pressure / QNH, 0.1903))
-        data->altitude = 44330.0f * (1.0f - powf(data->pressure / SEALEVEL_PRESSURE_HPA, 0.1902949f));
+        data->altitude = 44330.0f * (1.0f - powf(data->pressure / g_qnh_hpa, 0.1902949f));
         
         // Advanced Diagnostic logging
-        ESP_LOGD(TAG, "DIAG: P=%f hPa, T=%f C, H=%f %%, Alt=%f m", 
-                 data->pressure, data->temperature, data->humidity, data->altitude);
+        ESP_LOGD(TAG, "DIAG: P=%f hPa, T=%f C, H=%f %%, Alt=%f m, QNH=%f hPa", 
+                 data->pressure, data->temperature, data->humidity, data->altitude, g_qnh_hpa);
         return ESP_OK;
     } else {
         ESP_LOGE(TAG, "BME280 read failed (rslt %d)", rslt);
     }
     return ESP_FAIL;
+}
+
+void bme280_handler_set_qnh(float qnh_hpa) {
+    if (qnh_hpa < 800.0f || qnh_hpa > 1100.0f) {
+        ESP_LOGW(TAG, "Ignoring out-of-range QNH: %f", qnh_hpa);
+        return;
+    }
+    g_qnh_hpa = qnh_hpa;
+    ESP_LOGI(TAG, "Updated QNH to %f hPa", g_qnh_hpa);
+}
+
+float bme280_handler_get_qnh(void) {
+    return g_qnh_hpa;
 }
