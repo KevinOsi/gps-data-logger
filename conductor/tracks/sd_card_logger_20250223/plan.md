@@ -15,8 +15,8 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: CSV Recording' (Protocol in workflow.md)
 
 ## Phase 3: GPX & File Management
-- [ ] Task: Implement GPX Serialization.
-    - [ ] Write GPX XML structure with `<extensions>` for BME280/Mag data.
-- [ ] Task: Implement Dynamic Naming.
-    - [ ] Generate filenames from GPS timestamp.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: GPX & Final Polish' (Protocol in workflow.md)
+- [x] Task: Implement GPX Serialization. [9f87cfe]
+    - [x] Write GPX XML structure with `<extensions>` for BME280/Mag data.
+- [x] Task: Implement Dynamic Naming. [9f87cfe]
+    - [x] Generate filenames from GPS timestamp.
+- [~] Task: Conductor - User Manual Verification 'Phase 3: GPX & Final Polish' (Protocol in workflow.md)
