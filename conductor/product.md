@@ -20,7 +20,7 @@ A high-precision, portable data logging station designed for hobbyists and outdo
 * **High-Rate GNSS:** Parse u-blox UBX packets at 10Hz.
 * **Hybrid Altitude:** Smoothed elevation profile using BME280 barometric delta.
 * **Stationary Heading:** High-precision magnetometer (MMC35240) for orientation tracking without movement.
-* **Storage:** Concurrent logging to .CSV (raw) and .GPX (mapping) formats.
+* **Storage:** Concurrent logging to .CSV (raw) and .GPX (mapping) formats with dynamic UTC-based filenames.
 * **POI System:** Physical button interrupt to mark Points of Interest in the logs.
 * **I2C Shared Bus:** Sequential initialization and mutex-protected concurrent access for OLED, BME280, and Compass.
 
