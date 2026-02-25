@@ -10,6 +10,7 @@
 #include "bme280_handler.h"
 #include "mag_handler.h"
 #include "oled_handler.h"
+#include "sd_card_handler.h"
 #include "driver/i2c.h"
 
 static const char *TAG = "MAIN";
@@ -39,11 +40,16 @@ void app_main(void) {
     oled_handler_init();
     vTaskDelay(100 / portTICK_PERIOD_MS);
 
-    // 3. Start Background Tasks
+    // 3. Mount SD Card
+    if (sd_card_mount() != ESP_OK) {
+        ESP_LOGE(TAG, "SD Card mount failed. Logging will be disabled.");
+    }
+
+    // 4. Start Background Tasks
     telemetry_task_start();
     ui_task_start();
 
-    // 4. Main Loop
+    // 5. Main Loop
     while (1) {
         if (xSemaphoreTake(g_telemetry_mutex, 100 / portTICK_PERIOD_MS) == pdTRUE) {
             ESP_LOGI(TAG, "TOCK: Lat:%ld Lon:%ld Env:%.1fhPa %.1fC Mag:%.1f*",
