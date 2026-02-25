@@ -24,7 +24,7 @@
 #define SD_MOSI_PIN       23
 
 // User Input
-#define POI_BUTTON_PIN    4
+#define POI_BUTTON_PIN    0
 
 /**
  * @brief Initialize all hardware peripherals.

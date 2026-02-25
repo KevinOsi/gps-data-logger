@@ -1,8 +1,0 @@
-{
-  "track_id": "sd_card_logger_20250223",
-  "type": "feature",
-  "status": "new",
-  "created_at": "2025-02-23T00:00:00Z",
-  "updated_at": "2025-02-23T00:00:00Z",
-  "description": "SD Card Data Logger (CSV/GPX)"
-}

@@ -25,6 +25,7 @@ size_t gpx_format_point(char *buffer, size_t size, const global_telemetry_t *sna
         "    <press>%.1f</press>\n"
         "    <hum>%.1f</hum>\n"
         "    <magH>%.1f</magH>\n"
+        "    <poi>%s</poi>\n"
         "  </extensions>\n"
         "</trkpt>\n",
         snapshot->gps.lat / 10000000.0,
@@ -35,7 +36,8 @@ size_t gpx_format_point(char *buffer, size_t size, const global_telemetry_t *sna
         snapshot->env.temperature,
         snapshot->env.pressure,
         snapshot->env.humidity,
-        snapshot->mag.heading
+        snapshot->mag.heading,
+        snapshot->poi_pressed ? "true" : "false"
     );
 }
 

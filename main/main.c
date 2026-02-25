@@ -7,10 +7,12 @@
 #include "telemetry.h"
 #include "telemetry_task.h"
 #include "ui_task.h"
+#include "logger_task.h"
 #include "bme280_handler.h"
 #include "mag_handler.h"
 #include "oled_handler.h"
 #include "sd_card_handler.h"
+#include "button_handler.h"
 #include "driver/i2c.h"
 
 static const char *TAG = "MAIN";
@@ -23,6 +25,9 @@ void app_main(void) {
         ESP_LOGE(TAG, "Hardware initialization failed. System halted.");
         return;
     }
+
+    // 1.1 Initialize Button Handler
+    button_handler_init(POI_BUTTON_PIN);
 
     // 2. Sequential Sensor Initialization (No contention)
     ESP_LOGI(TAG, "Initializing Sensors...");
@@ -54,12 +59,12 @@ void app_main(void) {
     // 5. Main Loop
     while (1) {
         if (xSemaphoreTake(g_telemetry_mutex, 100 / portTICK_PERIOD_MS) == pdTRUE) {
-            ESP_LOGI(TAG, "TOCK: Lat:%ld Lon:%ld Env:%.1fhPa %.1fC Mag:%.1f*",
+            ESP_LOGI(TAG, "Lat:%ld Lon:%ld Env:%.1fhPa %.1fC Mag:%.1f*",
                      g_telemetry.gps.lat, g_telemetry.gps.lon,
                      g_telemetry.env.pressure, g_telemetry.env.temperature,
                      g_telemetry.mag.heading);
             xSemaphoreGive(g_telemetry_mutex);
         }
-        vTaskDelay(1000 / portTICK_PERIOD_MS); // 1Hz "Tick Tock"
+        vTaskDelay(5000 / portTICK_PERIOD_MS); // Log every 5 seconds
     }
 }

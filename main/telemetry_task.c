@@ -5,6 +5,7 @@
 #include "i2c_manager.h"
 #include "bme280_handler.h"
 #include "mag_handler.h"
+#include "sd_card_handler.h"
 #include "logger_task.h"
 #include "esp_log.h"
 #include <string.h>
@@ -18,6 +19,7 @@ void telemetry_task(void *pvParameters) {
     bme280_data_t local_env;
     mag_data_t local_mag;
     uint32_t last_env_poll = 0;
+    uint32_t last_sd_poll = 0;
     
     ESP_LOGI(TAG, "Telemetry task started on Core %d", xPortGetCoreID());
     
@@ -43,8 +45,9 @@ void telemetry_task(void *pvParameters) {
             }
         }
         
-        // 2. Poll Sensors every 100ms (10Hz)
         uint32_t now = xTaskGetTickCount() * portTICK_PERIOD_MS;
+
+        // 2. Poll Sensors every 100ms (10Hz)
         if (now - last_env_poll >= 100) {
             bool env_ok = (bme280_handler_read(&local_env) == ESP_OK);
             bool mag_ok = (mag_handler_read(&local_mag) == ESP_OK);
@@ -60,9 +63,25 @@ void telemetry_task(void *pvParameters) {
                 // 3. Enqueue Snapshot for Logging
                 logger_enqueue(&g_telemetry);
                 
+                // Clear POI flag after it's been sent to the logger queue
+                g_telemetry.poi_pressed = false;
+                
                 xSemaphoreGive(g_telemetry_mutex);
             }
             last_env_poll = now;
+        }
+
+        // 3. Poll SD Space every 30 seconds
+        if (now - last_sd_poll >= 30000) {
+            uint32_t total, free;
+            if (sd_card_get_info(&total, &free) == ESP_OK) {
+                if (xSemaphoreTake(g_telemetry_mutex, 50 / portTICK_PERIOD_MS) == pdTRUE) {
+                    g_telemetry.sd_total_mb = total;
+                    g_telemetry.sd_free_mb = free;
+                    xSemaphoreGive(g_telemetry_mutex);
+                }
+            }
+            last_sd_poll = now;
         }
 
         vTaskDelay(10 / portTICK_PERIOD_MS); // Yield to other tasks

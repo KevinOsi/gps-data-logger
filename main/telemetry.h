@@ -66,6 +66,8 @@ typedef struct {
     bme280_data_t env;
     mag_data_t mag;
     bool poi_pressed;
+    uint32_t sd_total_mb;
+    uint32_t sd_free_mb;
     uint32_t last_update_ms;
 } global_telemetry_t;
 

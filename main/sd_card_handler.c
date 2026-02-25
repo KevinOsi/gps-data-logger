@@ -5,11 +5,37 @@
 #include "driver/sdspi_host.h"
 #include "driver/spi_common.h"
 #include "esp_log.h"
+#include "ff.h"
 
 static const char *TAG = "SD_CARD_HANDLER";
 static sdmmc_card_t *card = NULL;
 
 #define MOUNT_POINT "/sd"
+
+esp_err_t sd_card_get_info(uint32_t *out_total_mb, uint32_t *out_free_mb) {
+    if (card == NULL) return ESP_FAIL;
+
+    FATFS *fs;
+    DWORD fre_clust, fre_sect, tot_sect;
+
+    /* Get volume information and free clusters of drive 0 */
+    FRESULT res = f_getfree("0:", &fre_clust, &fs);
+    if (res != FR_OK) {
+        ESP_LOGE(TAG, "Failed to get SD card info (res=%d)", res);
+        return ESP_FAIL;
+    }
+
+    /* Get total sectors and free sectors */
+    tot_sect = (fs->n_fatent - 2) * fs->csize;
+    fre_sect = fre_clust * fs->csize;
+
+    /* Convert to MB */
+    // Sector size is usually 512 bytes
+    *out_total_mb = (uint32_t)(tot_sect / (2048)); // (tot_sect * 512) / (1024 * 1024)
+    *out_free_mb = (uint32_t)(fre_sect / (2048));
+
+    return ESP_OK;
+}
 
 esp_err_t sd_card_mount(void) {
     esp_err_t ret;

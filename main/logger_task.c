@@ -46,7 +46,7 @@ void logger_task(void *pvParameters) {
                 
                 f_csv = fopen(filename, "w");
                 if (f_csv) {
-                    fprintf(f_csv, "Timestamp,Lat,Lon,Alt,Sats,Fix,Temp,Press,Hum,MagH\n");
+                    fprintf(f_csv, "Timestamp,Lat,Lon,Alt,Sats,Fix,Temp,Press,Hum,MagH,POI\n");
                     ESP_LOGI(TAG, "Created CSV log: %s", filename);
                 } else {
                     ESP_LOGE(TAG, "Failed to create CSV log: %s (errno: %d, %s)", 
@@ -75,12 +75,12 @@ void logger_task(void *pvParameters) {
             // 2. Logging Logic
             if (f_csv != NULL || f_gpx != NULL) {
                 if (f_csv != NULL) {
-                    fprintf(f_csv, "%" PRIu32 ",%ld,%ld,%.2f,%u,%u,%.2f,%.2f,%.2f,%.1f\n",
+                    fprintf(f_csv, "%" PRIu32 ",%ld,%ld,%.2f,%u,%u,%.2f,%.2f,%.2f,%.1f,%d\n",
                             snapshot.last_update_ms,
                             snapshot.gps.lat, snapshot.gps.lon, snapshot.env.altitude,
                             snapshot.gps.numSV, snapshot.gps.fixType,
                             snapshot.env.temperature, snapshot.env.pressure, snapshot.env.humidity,
-                            snapshot.mag.heading);
+                            snapshot.mag.heading, snapshot.poi_pressed);
                 }
 
                 if (f_gpx != NULL) {

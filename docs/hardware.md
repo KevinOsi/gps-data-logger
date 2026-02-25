@@ -13,7 +13,7 @@ This project uses an ESP-WROOM-32 38-pin development board. All connections use 
 | **MicroSD** | SPI MISO | **19** | Right | 8th from top |
 | **MicroSD** | SPI SCK | **18** | Right | 9th from top |
 | **MicroSD** | SPI CS | **5** | Right | 10th from top |
-| **POI Button** | Input | **4** | Right | 13th from top |
+| **POI Button** | Input | **0** | Onboard | BOOT Button |
 
 ## Sensors & Peripherals
 *   **GNSS:** u-blox M8030 configured for 10Hz UBX-PVT.

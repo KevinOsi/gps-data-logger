@@ -6,10 +6,15 @@ A high-precision, portable data station designed for high-rate telemetry and env
 *   **High-Rate GNSS:** 10Hz updates using u-blox UBX-PVT protocol.
 *   **Hybrid Altitude Fusion:** Combines GPS hMSL with BME280 barometric pressure for sub-meter relative elevation precision.
 *   **Stationary Heading:** High-precision magnetometer (MMC35240) for orientation tracking even when not in motion.
-*   **Real-time UI:** Smooth 5Hz OLED display refresh showing live coordinates, altitude, heading, and fix status.
+*   **Interactive Multi-Page UI:** Smooth 5Hz OLED display with three specialized pages:
+    *   **Navigation:** Real-time coordinates, altitude, heading, and fix status.
+    *   **Environmental:** Detailed Temperature, Pressure, Humidity, and Barometric Altitude.
+    *   **System Status:** Satellite count, SD card capacity/free space, and system uptime.
+*   **POI Marking System:** Physical button interface to mark "Points of Interest" during logging.
+*   **Robust Logging:** Synchronized CSV and GPX logging to MicroSD with POI markers and environmental metadata.
 *   **Dual-Core Architecture:** 
     *   **Core 0:** Protocol management (UART GPS, I2C Sensors).
-    *   **Core 1:** App logic, UI rendering, and future SD logging.
+    *   **Core 1:** App logic, UI rendering, Button handling, and SD logging.
 *   **Industrial Reliability:** Thread-safe I2C shared bus management and robust state-machine parsing.
 
 ## 🛠 Hardware List
@@ -18,8 +23,8 @@ A high-precision, portable data station designed for high-rate telemetry and env
 *   **Env Sensor:** BME280 (I2C).
 *   **Magnetometer:** MMC35240 / MMC3xxx series (I2C).
 *   **Display:** SSD1306 128x64 OLED (I2C).
-*   **Storage:** MicroSD Card (SPI) - *Implementation in progress*.
-*   **Input:** POI Button (GPIO 4) - *Implementation in progress*.
+*   **Storage:** MicroSD Card (SPI).
+*   **Input:** POI Button (GPIO 0 / BOOT button for testing).
 
 ## 📖 Documentation
 See the [docs/](./docs/) folder for detailed technical sheets:

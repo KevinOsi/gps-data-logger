@@ -11,6 +11,7 @@
 #define pdFALSE 0
 #define portTICK_PERIOD_MS 1
 #define portMAX_DELAY (TickType_t)0xffffffff
+#define pdMS_TO_TICKS(x) ((x) / portTICK_PERIOD_MS)
 typedef void* SemaphoreHandle_t;
 typedef void* TaskHandle_t;
 typedef uint32_t TickType_t;
@@ -25,6 +26,7 @@ void vTaskDelay(TickType_t xTicksToDelay);
 
 QueueHandle_t xQueueCreate(uint32_t uxQueueLength, uint32_t uxItemSize);
 bool xQueueSend(QueueHandle_t xQueue, const void * pvItemToQueue, TickType_t xTicksToWait);
+bool xQueueSendFromISR(QueueHandle_t xQueue, const void * pvItemToQueue, int *pxHigherPriorityTaskWoken);
 bool xQueueReceive(QueueHandle_t xQueue, void *pvBuffer, TickType_t xTicksToWait);
 
 typedef void (*TaskFunction_t)(void *);
@@ -36,6 +38,43 @@ typedef int esp_err_t;
 #define ESP_FAIL -1
 #define ESP_ERR_NOT_FOUND 0x105
 #define ESP_ERR_TIMEOUT 0x107
+
+#define IRAM_ATTR
+
+typedef enum {
+    GPIO_NUM_0 = 0,
+    GPIO_NUM_1,
+    GPIO_NUM_4 = 4,
+} gpio_num_t;
+
+typedef enum {
+    GPIO_INTR_DISABLE = 0,
+    GPIO_INTR_POSEDGE,
+    GPIO_INTR_NEGEDGE,
+    GPIO_INTR_ANYEDGE,
+    GPIO_INTR_LOW_LEVEL,
+    GPIO_INTR_HIGH_LEVEL,
+    GPIO_INTR_MAX,
+} gpio_int_type_t;
+
+typedef enum {
+    GPIO_MODE_INPUT = 1,
+    GPIO_MODE_OUTPUT = 2,
+} gpio_mode_t;
+
+typedef struct {
+    uint64_t pin_bit_mask;
+    gpio_mode_t mode;
+    int pull_up_en;
+    int pull_down_en;
+    gpio_int_type_t intr_type;
+} gpio_config_t;
+
+esp_err_t gpio_config(const gpio_config_t *pGPIOConfig);
+esp_err_t gpio_install_isr_service(int intr_alloc_flags);
+esp_err_t gpio_isr_handler_add(gpio_num_t gpio_num, void (*isr_handler)(void*), void* args);
+
+int64_t esp_timer_get_time();
 
 typedef enum {
     UART_NUM_0,
