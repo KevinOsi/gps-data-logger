@@ -4,7 +4,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: SD Card Data Logger (CSV/GPX)**
+- [x] **Track: SD Card Data Logger (CSV/GPX)**
   *Link: [./conductor/tracks/sd_card_logger_20250223/](./conductor/tracks/sd_card_logger_20250223/)*
 
 ---
