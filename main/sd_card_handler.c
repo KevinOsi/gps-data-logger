@@ -3,6 +3,7 @@
 #include "esp_vfs_fat.h"
 #include "sdmmc_cmd.h"
 #include "driver/sdspi_host.h"
+#include "driver/spi_common.h"
 #include "esp_log.h"
 
 static const char *TAG = "SD_CARD_HANDLER";
@@ -20,10 +21,23 @@ esp_err_t sd_card_mount(void) {
         .allocation_unit_size = 16 * 1024
     };
 
-    ESP_LOGI(TAG, "Initializing SD card...");
+    ESP_LOGD(TAG, "Initializing SD card on VSPI (SPI3)...");
 
-    // 2. Initialize SPI Bus
+    // 2. Physical "Warm-up" - SD cards need ~80 clock cycles with CS high to enter SPI mode
+    gpio_config_t io_conf = {
+        .pin_bit_mask = (1ULL << SD_CS_PIN),
+        .mode = GPIO_MODE_OUTPUT,
+        .pull_up_en = 1,
+    };
+    gpio_config(&io_conf);
+    gpio_set_level(SD_CS_PIN, 1); // CS High
+    vTaskDelay(100 / portTICK_PERIOD_MS);
+
+    // 3. Initialize SPI Bus
     sdmmc_host_t host = SDSPI_HOST_DEFAULT();
+    host.slot = SPI3_HOST; 
+    host.max_freq_khz = 400; // Initialization frequency must be low
+
     spi_bus_config_t bus_cfg = {
         .mosi_io_num = SD_MOSI_PIN,
         .miso_io_num = SD_MISO_PIN,
@@ -33,37 +47,41 @@ esp_err_t sd_card_mount(void) {
         .max_transfer_sz = 4000,
     };
     
-    // SPI bus is shared? No, dedicated pins here but let's be safe.
-    ret = spi_bus_initialize(host.slot, &bus_cfg, SDSPI_DEFAULT_DMA_CHAN);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize bus.");
+    // Attempt to initialize bus
+    ret = spi_bus_initialize(host.slot, &bus_cfg, SPI_DMA_CH_AUTO);
+    if (ret != ESP_OK && ret != ESP_ERR_INVALID_STATE) { // Ignore if already init
+        ESP_LOGE(TAG, "Failed to initialize SPI bus.");
         return ret;
     }
 
-    // 3. Attach SD card to the SPI bus
+    // 4. Attach SD card to the SPI bus
     sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
     slot_config.gpio_cs = SD_CS_PIN;
     slot_config.host_id = host.slot;
 
-    ESP_LOGI(TAG, "Mounting filesystem...");
-    ret = esp_vfs_fat_sdspi_mount(MOUNT_POINT, &host, &slot_config, &mount_config, &card);
+    ESP_LOGD(TAG, "Mounting filesystem...");
+    // We try multiple times as SD cards are temperamental
+    int retry = 3;
+    while (retry--) {
+        ret = esp_vfs_fat_sdspi_mount(MOUNT_POINT, &host, &slot_config, &mount_config, &card);
+        if (ret == ESP_OK) break;
+        ESP_LOGW(TAG, "Mount attempt failed (0x%x), retrying...", ret);
+        vTaskDelay(500 / portTICK_PERIOD_MS);
+    }
 
     if (ret != ESP_OK) {
-        if (ret == ESP_FAIL) {
-            ESP_LOGE(TAG, "Failed to mount filesystem. "
-                     "If you want the card to be formatted, set the CONFIG_FATFS_AUTO_FORMAT option.");
-        } else {
-            ESP_LOGE(TAG, "Failed to initialize the card (%s). "
-                     "Make sure SD card lines have pull-up resistors in place.", esp_err_to_name(ret));
-        }
+        ESP_LOGE(TAG, "Failed to initialize the card (0x%x). Check wiring/pull-ups.", ret);
         return ret;
     }
 
-    ESP_LOGI(TAG, "Filesystem mounted. Card: %s", card->cid.name);
+    ESP_LOGI(TAG, "SD Card mounted: %s", card->cid.name);
     return ESP_OK;
 }
 
 void sd_card_unmount(void) {
-    esp_vfs_fat_sdcard_unmount(MOUNT_POINT, card);
-    ESP_LOGI(TAG, "Card unmounted");
+    if (card) {
+        esp_vfs_fat_sdcard_unmount(MOUNT_POINT, card);
+        card = NULL;
+        ESP_LOGI(TAG, "SD Card unmounted");
+    }
 }

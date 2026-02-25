@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <inttypes.h>
+#include <unistd.h>
+#include <errno.h>
 
 static const char *TAG = "LOGGER_TASK";
 static QueueHandle_t logger_queue = NULL;
@@ -18,8 +21,9 @@ void logger_task(void *pvParameters) {
     global_telemetry_t snapshot;
     FILE *f_csv = NULL;
     FILE *f_gpx = NULL;
-    char filename[64];
-    bool files_opened = false;
+    char filename[32];
+    bool open_attempted = false;
+    uint32_t count = 0;
     
     ESP_LOGI(TAG, "Logger task started on Core %d", xPortGetCoreID());
 
@@ -27,39 +31,51 @@ void logger_task(void *pvParameters) {
 
     while (1) {
         if (xQueueReceive(logger_queue, &snapshot, portMAX_DELAY) == pdTRUE) {
-            // 1. Wait for valid time to open files
-            if (!files_opened && snapshot.gps.year >= 2025) {
-                // Generate CSV filename
-                snprintf(filename, sizeof(filename), MOUNT_POINT "/LOG_%04u%02u%02u_%02u%02u.csv",
-                         snapshot.gps.year, snapshot.gps.month, snapshot.gps.day,
-                         snapshot.gps.hour, snapshot.gps.minute);
+            // 1. Open files on first snapshot
+            if (!open_attempted) {
+                open_attempted = true;
+                
+                // Determine CSV filename (Must be 8.3 compliant: max 8 chars before dot)
+                if (snapshot.gps.year >= 2025) {
+                    // Format: LMMDDHH.CSV (7 chars)
+                    snprintf(filename, sizeof(filename), MOUNT_POINT "/L%02u%02u%02u.CSV",
+                             snapshot.gps.month, snapshot.gps.day, snapshot.gps.hour);
+                } else {
+                    snprintf(filename, sizeof(filename), MOUNT_POINT "/NOFIX.CSV");
+                }
                 
                 f_csv = fopen(filename, "w");
                 if (f_csv) {
                     fprintf(f_csv, "Timestamp,Lat,Lon,Alt,Sats,Fix,Temp,Press,Hum,MagH\n");
+                    ESP_LOGI(TAG, "Created CSV log: %s", filename);
+                } else {
+                    ESP_LOGE(TAG, "Failed to create CSV log: %s (errno: %d, %s)", 
+                             filename, errno, strerror(errno));
                 }
 
-                // Generate GPX filename
-                snprintf(filename, sizeof(filename), MOUNT_POINT "/LOG_%04u%02u%02u_%02u%02u.gpx",
-                         snapshot.gps.year, snapshot.gps.month, snapshot.gps.day,
-                         snapshot.gps.hour, snapshot.gps.minute);
+                // Determine GPX filename
+                if (snapshot.gps.year >= 2025) {
+                    // Format: LMMDDHH.GPX
+                    snprintf(filename, sizeof(filename), MOUNT_POINT "/L%02u%02u%02u.GPX",
+                             snapshot.gps.month, snapshot.gps.day, snapshot.gps.hour);
+                } else {
+                    snprintf(filename, sizeof(filename), MOUNT_POINT "/NOFIX.GPX");
+                }
                 
                 f_gpx = fopen(filename, "w");
                 if (f_gpx) {
                     fprintf(f_gpx, "%s", gpx_get_header());
-                }
-
-                if (f_csv || f_gpx) {
-                    files_opened = true;
-                    ESP_LOGI(TAG, "Log files opened with timestamp: %04u-%02u-%02u", 
-                             snapshot.gps.year, snapshot.gps.month, snapshot.gps.day);
+                    ESP_LOGI(TAG, "Created GPX log: %s", filename);
+                } else {
+                    ESP_LOGE(TAG, "Failed to create GPX log: %s (errno: %d, %s)", 
+                             filename, errno, strerror(errno));
                 }
             }
 
-            if (files_opened) {
-                // 2. Log CSV
+            // 2. Logging Logic
+            if (f_csv != NULL || f_gpx != NULL) {
                 if (f_csv != NULL) {
-                    fprintf(f_csv, "%u,%ld,%ld,%.2f,%u,%u,%.2f,%.2f,%.2f,%.1f\n",
+                    fprintf(f_csv, "%" PRIu32 ",%ld,%ld,%.2f,%u,%u,%.2f,%.2f,%.2f,%.1f\n",
                             snapshot.last_update_ms,
                             snapshot.gps.lat, snapshot.gps.lon, snapshot.env.altitude,
                             snapshot.gps.numSV, snapshot.gps.fixType,
@@ -67,7 +83,6 @@ void logger_task(void *pvParameters) {
                             snapshot.mag.heading);
                 }
 
-                // 3. Log GPX
                 if (f_gpx != NULL) {
                     char gpx_buf[512];
                     size_t len = gpx_format_point(gpx_buf, sizeof(gpx_buf), &snapshot);
@@ -76,12 +91,24 @@ void logger_task(void *pvParameters) {
                     }
                 }
                 
-                // 4. Periodic Sync
+                count++;
+                if (count % 100 == 0) {
+                    ESP_LOGI(TAG, "Logged %" PRIu32 " points...", count);
+                }
+
+                // 3. Periodic Sync (every 5 seconds)
                 uint32_t now = xTaskGetTickCount() * portTICK_PERIOD_MS;
                 if (now - last_sync > 5000) {
-                    if (f_csv) fflush(f_csv);
-                    if (f_gpx) fflush(f_gpx);
+                    if (f_csv) {
+                        fflush(f_csv);
+                        fsync(fileno(f_csv));
+                    }
+                    if (f_gpx) {
+                        fflush(f_gpx);
+                        fsync(fileno(f_gpx));
+                    }
                     last_sync = now;
+                    ESP_LOGD(TAG, "Synced files to SD");
                 }
             }
         }
