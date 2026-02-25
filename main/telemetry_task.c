@@ -7,6 +7,7 @@
 #include "mag_handler.h"
 #include "sd_card_handler.h"
 #include "logger_task.h"
+#include "ble_manager.h"
 #include "esp_log.h"
 #include <string.h>
 #include <inttypes.h>
@@ -20,6 +21,7 @@ void telemetry_task(void *pvParameters) {
     mag_data_t local_mag;
     uint32_t last_env_poll = 0;
     uint32_t last_sd_poll = 0;
+    uint32_t last_ble_push = 0;
     
     ESP_LOGI(TAG, "Telemetry task started on Core %d", xPortGetCoreID());
     
@@ -63,6 +65,12 @@ void telemetry_task(void *pvParameters) {
                 // 3. Enqueue Snapshot for Logging
                 logger_enqueue(&g_telemetry);
                 
+                // 4. Update BLE every 500ms if connected, or every 1s if not (throttled)
+                if (now - last_ble_push >= (ble_manager_is_connected() ? 500 : 1000)) {
+                    ble_manager_update_telemetry(&g_telemetry);
+                    last_ble_push = now;
+                }
+
                 // Clear POI flag after it's been sent to the logger queue
                 g_telemetry.poi_pressed = false;
                 

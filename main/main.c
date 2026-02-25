@@ -13,12 +13,22 @@
 #include "oled_handler.h"
 #include "sd_card_handler.h"
 #include "button_handler.h"
+#include "ble_manager.h"
 #include "driver/i2c.h"
+#include "nvs_flash.h"
 
 static const char *TAG = "MAIN";
 
 void app_main(void) {
     ESP_LOGI(TAG, "Starting ESP32 GPS Logger...");
+
+    // 0. Initialize NVS (Required for BLE)
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ret = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(ret);
 
     // 1. Initialize Hardware (Basic GPIO/UART/I2C Master)
     if (hw_config_init() != ESP_OK) {
@@ -28,6 +38,11 @@ void app_main(void) {
 
     // 1.1 Initialize Button Handler
     button_handler_init(POI_BUTTON_PIN);
+
+    // 1.2 Initialize BLE
+    if (ble_manager_init() != ESP_OK) {
+        ESP_LOGE(TAG, "BLE initialization failed.");
+    }
 
     // 2. Sequential Sensor Initialization (No contention)
     ESP_LOGI(TAG, "Initializing Sensors...");
