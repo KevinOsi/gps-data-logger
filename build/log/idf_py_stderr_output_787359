@@ -1,0 +1,30 @@
+In file included from /home/kevino/Programming/GPS Data Logger/main/ui_task.c:7:
+/home/kevino/Programming/GPS Data Logger/main/mag_handler.h:12:3: error: conflicting types for 'mag_data_t'; have 'struct <anonymous>'
+   12 | } mag_data_t;
+      |   ^~~~~~~~~~
+In file included from /home/kevino/Programming/GPS Data Logger/main/ui_task.c:4:
+/home/kevino/Programming/GPS Data Logger/main/telemetry.h:62:3: note: previous declaration of 'mag_data_t' with type 'mag_data_t'
+   62 | } mag_data_t;
+      |   ^~~~~~~~~~
+In file included from /home/kevino/Programming/GPS Data Logger/main/telemetry_task.c:7:
+/home/kevino/Programming/GPS Data Logger/main/mag_handler.h:12:3: error: conflicting types for 'mag_data_t'; have 'struct <anonymous>'
+   12 | } mag_data_t;
+      |   ^~~~~~~~~~
+In file included from /home/kevino/Programming/GPS Data Logger/main/telemetry_task.c:2:
+/home/kevino/Programming/GPS Data Logger/main/telemetry.h:62:3: note: previous declaration of 'mag_data_t' with type 'mag_data_t'
+   62 | } mag_data_t;
+      |   ^~~~~~~~~~
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:275: esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:93: esp-idf/main/CMakeFiles/__idf_main.dir/telemetry_task.c.obj] Error 1
+In file included from /home/kevino/Programming/GPS Data Logger/main/main.c:12:
+/home/kevino/Programming/GPS Data Logger/main/mag_handler.h:12:3: error: conflicting types for 'mag_data_t'; have 'struct <anonymous>'
+   12 | } mag_data_t;
+      |   ^~~~~~~~~~
+In file included from /home/kevino/Programming/GPS Data Logger/main/main.c:7:
+/home/kevino/Programming/GPS Data Logger/main/telemetry.h:62:3: note: previous declaration of 'mag_data_t' with type 'mag_data_t'
+   62 | } mag_data_t;
+      |   ^~~~~~~~~~
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:79: esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:7198: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

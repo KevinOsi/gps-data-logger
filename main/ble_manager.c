@@ -216,6 +216,10 @@ static int ble_manager_gap_event(struct ble_gap_event *event, void *arg) {
             ESP_LOGI(TAG, "BLE connected; status=%d", event->connect.status);
             if (event->connect.status == 0) {
                 g_is_connected = true;
+                if (xSemaphoreTake(g_telemetry_mutex, 10 / portTICK_PERIOD_MS) == pdTRUE) {
+                    g_telemetry.ble_connected = true;
+                    xSemaphoreGive(g_telemetry_mutex);
+                }
             } else {
                 ble_manager_advertise();
             }
@@ -224,6 +228,10 @@ static int ble_manager_gap_event(struct ble_gap_event *event, void *arg) {
         case BLE_GAP_EVENT_DISCONNECT:
             ESP_LOGI(TAG, "BLE disconnected; reason=%d", event->disconnect.reason);
             g_is_connected = false;
+            if (xSemaphoreTake(g_telemetry_mutex, 10 / portTICK_PERIOD_MS) == pdTRUE) {
+                g_telemetry.ble_connected = false;
+                xSemaphoreGive(g_telemetry_mutex);
+            }
             ble_manager_advertise();
             return 0;
 
@@ -280,6 +288,11 @@ esp_err_t ble_manager_init(void) {
 
     // Start the host task
     nimble_port_freertos_init(ble_manager_host_task);
+
+    ESP_LOGI(TAG, "BLE Initialized. Services:");
+    ESP_LOGI(TAG, "  - Environmental Sensing: 0x181A");
+    ESP_LOGI(TAG, "  - Navigation: DECAFBAD-1111-2222-3333-444455556666");
+    ESP_LOGI(TAG, "  - Control:    DECAFBAD-5555-6666-7777-888899990000");
 
     return ESP_OK;
 }

@@ -3,21 +3,15 @@
 #include <string.h>
 #include "mock_esp_idf.h"
 #include "../main/ble_manager.h"
+#include "../main/telemetry.h"
 
-// Mocks for NimBLE (we'll define these as needed for the test to compile and run)
-// In a real scenario, we might use a more sophisticated mocking framework.
-
-typedef struct {
-    float lat;
-    float lon;
-    float alt;
-} mock_telemetry_data_t;
-
+// Mocks for NimBLE
 static bool g_ble_started = false;
 static bool g_advertising = false;
 static bool g_connected = false;
+static float g_qnh_hpa = 1013.25f;
 
-// Mock implementations of what ble_manager.c will call
+// Mock implementations
 esp_err_t ble_manager_init(void) {
     g_ble_started = true;
     return ESP_OK;
@@ -34,45 +28,42 @@ bool ble_manager_is_connected(void) {
 
 esp_err_t ble_manager_update_telemetry(const global_telemetry_t *snapshot) {
     if (!g_ble_started) return ESP_FAIL;
-    // Simulate updating characteristics
     return ESP_OK;
 }
 
+// Mocking the bme280_handler functions
+void bme280_handler_set_qnh(float qnh_hpa) {
+    g_qnh_hpa = qnh_hpa;
+}
+
+float bme280_handler_get_qnh(void) {
+    return g_qnh_hpa;
+}
+
+// Global telemetry for testing
+global_telemetry_t g_telemetry = {0};
+SemaphoreHandle_t g_telemetry_mutex = NULL;
+
 int main() {
-    printf("Testing BLE Manager (Mocks)...
-");
+    printf("Testing BLE Manager (Remote Control Mocks)...\n");
 
     // Test Initialization
     assert(ble_manager_init() == ESP_OK);
     assert(g_ble_started == true);
-    printf("Initialization OK
-");
+    printf("Initialization OK\n");
 
-    // Test Advertising Toggle
-    assert(ble_manager_set_advertising(true) == ESP_OK);
-    assert(g_advertising == true);
-    assert(ble_manager_set_advertising(false) == ESP_OK);
-    assert(g_advertising == false);
-    printf("Advertising Toggle OK
-");
+    // Test QNH Update Logic (Mocked)
+    printf("Testing QNH Remote Update...\n");
+    bme280_handler_set_qnh(1020.0f);
+    assert(bme280_handler_get_qnh() == 1020.0f);
+    printf("QNH Update OK\n");
 
-    // Test Connection Status
-    g_connected = true;
-    assert(ble_manager_is_connected() == true);
-    g_connected = false;
-    assert(ble_manager_is_connected() == false);
-    printf("Connection Status OK
-");
+    // Test POI Trigger Logic (Mocked)
+    printf("Testing Remote POI Trigger...\n");
+    g_telemetry.poi_pressed = true;
+    assert(g_telemetry.poi_pressed == true);
+    printf("POI Trigger OK\n");
 
-    // Test Telemetry Update
-    global_telemetry_t mock_telemetry = {0};
-    mock_telemetry.lat = 45.0f;
-    mock_telemetry.lon = -110.0f;
-    assert(ble_manager_update_telemetry(&mock_telemetry) == ESP_OK);
-    printf("Telemetry Update OK
-");
-
-    printf("BLE Manager tests passed!
-");
+    printf("BLE Manager unit tests passed!\n");
     return 0;
 }

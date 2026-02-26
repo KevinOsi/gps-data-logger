@@ -2,6 +2,7 @@
 #include "ble_manager.h"
 #include "wifi_manager.h"
 #include "web_server.h"
+#include "logger_task.h"
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/semphr.h"
@@ -14,6 +15,9 @@ esp_err_t system_manager_set_mode(system_mode_t mode) {
     if (g_current_mode == mode) return ESP_OK;
 
     ESP_LOGI(TAG, "Switching system mode from %d to %d...", g_current_mode, mode);
+    char mode_msg[64];
+    snprintf(mode_msg, sizeof(mode_msg), "MODE SWITCH: %d -> %d", g_current_mode, mode);
+    logger_log_system_event(mode_msg);
 
     if (mode == SYSTEM_MODE_OFFLOAD) {
         // 1. Stop BLE

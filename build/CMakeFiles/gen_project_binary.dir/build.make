@@ -70,7 +70,7 @@ CMakeFiles/gen_project_binary: .bin_timestamp
 
 .bin_timestamp: gps-data-logger.elf
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Generating binary image from built executable"
-	/home/kevino/.espressif/python_env/idf5.3_py3.14_env/bin/python /home/kevino/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32 elf2image --flash_mode dio --flash_freq 40m --flash_size 2MB --elf-sha256-offset 0xb0 --min-rev-full 0 --max-rev-full 399 -o "/home/kevino/Programming/GPS Data Logger/build/gps-data-logger.bin" "/home/kevino/Programming/GPS Data Logger/build/gps-data-logger.elf"
+	/home/kevino/.espressif/python_env/idf5.3_py3.14_env/bin/python /home/kevino/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32 elf2image --flash_mode dio --flash_freq 40m --flash_size 4MB --elf-sha256-offset 0xb0 --min-rev-full 0 --max-rev-full 399 -o "/home/kevino/Programming/GPS Data Logger/build/gps-data-logger.bin" "/home/kevino/Programming/GPS Data Logger/build/gps-data-logger.elf"
 	/usr/bin/cmake -E echo "Generated /home/kevino/Programming/GPS Data Logger/build/gps-data-logger.bin"
 	/usr/bin/cmake -E md5sum "/home/kevino/Programming/GPS Data Logger/build/gps-data-logger.bin" > "/home/kevino/Programming/GPS Data Logger/build/.bin_timestamp"
 

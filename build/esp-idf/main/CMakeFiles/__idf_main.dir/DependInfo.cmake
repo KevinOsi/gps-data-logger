@@ -8,18 +8,28 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/kevino/Programming/GPS Data Logger/main/ble_manager.c" "esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/bme280/bme280.c" "esp-idf/main/CMakeFiles/__idf_main.dir/bme280/bme280.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/bme280/bme280.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/bme280_handler.c" "esp-idf/main/CMakeFiles/__idf_main.dir/bme280_handler.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/bme280_handler.c.obj.d"
+  "/home/kevino/Programming/GPS Data Logger/main/button_handler.c" "esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.obj.d"
+  "/home/kevino/Programming/GPS Data Logger/main/config_manager.c" "esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.obj.d"
+  "/home/kevino/Programming/GPS Data Logger/main/gps_config.c" "esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/gps_parser.c" "esp-idf/main/CMakeFiles/__idf_main.dir/gps_parser.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/gps_parser.c.obj.d"
+  "/home/kevino/Programming/GPS Data Logger/main/gpx_formatter.c" "esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/hw_config.c" "esp-idf/main/CMakeFiles/__idf_main.dir/hw_config.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/hw_config.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/i2c_manager.c" "esp-idf/main/CMakeFiles/__idf_main.dir/i2c_manager.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/i2c_manager.c.obj.d"
+  "/home/kevino/Programming/GPS Data Logger/main/logger_task.c" "esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/mag_handler.c" "esp-idf/main/CMakeFiles/__idf_main.dir/mag_handler.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/mag_handler.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/main.c" "esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/oled_handler.c" "esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.obj.d"
+  "/home/kevino/Programming/GPS Data Logger/main/sd_card_handler.c" "esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/ssd1306/ssd1306.c" "esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/ssd1306/ssd1306_i2c.c" "esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj.d"
+  "/home/kevino/Programming/GPS Data Logger/main/system_manager.c" "esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/telemetry_task.c" "esp-idf/main/CMakeFiles/__idf_main.dir/telemetry_task.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/telemetry_task.c.obj.d"
   "/home/kevino/Programming/GPS Data Logger/main/ui_task.c" "esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj.d"
+  "/home/kevino/Programming/GPS Data Logger/main/web_server.c" "esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj.d"
+  "/home/kevino/Programming/GPS Data Logger/main/wifi_manager.c" "esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -51,6 +51,7 @@
 /home/kevino/Programming/GPS Data Logger/build/esp-idf/wpa_supplicant/libwpa_supplicant.a
 /home/kevino/Programming/GPS Data Logger/build/esp-idf/esp_coex/libesp_coex.a
 /home/kevino/Programming/GPS Data Logger/build/esp-idf/esp_wifi/libesp_wifi.a
+/home/kevino/Programming/GPS Data Logger/build/esp-idf/bt/libbt.a
 /home/kevino/Programming/GPS Data Logger/build/esp-idf/unity/libunity.a
 /home/kevino/Programming/GPS Data Logger/build/esp-idf/cmock/libcmock.a
 /home/kevino/Programming/GPS Data Logger/build/esp-idf/console/libconsole.a

@@ -1,0 +1,24 @@
+/home/kevino/Programming/GPS Data Logger/main/button_handler.c: In function 'button_task':
+/home/kevino/Programming/GPS Data Logger/main/button_handler.c:70:29: error: 'last_release_time' undeclared (first use in this function)
+   70 |                             last_release_time = evt.timestamp;
+      |                             ^~~~~~~~~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/button_handler.c:70:29: note: each undeclared identifier is reported only once for each function it appears in
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:289: esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.obj] Error 1
+make[2]: *** Waiting for unfinished jobs....
+/home/kevino/Programming/GPS Data Logger/main/web_server.c: In function 'download_get_handler':
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:47:46: error: '%s' directive output may be truncated writing up to 512 bytes into a region of size 11 [-Werror=format-truncation=]
+   47 |     snprintf(filepath, sizeof(filepath), "%s/%s", BASE_PATH, filename);
+      |                                              ^~
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:47:5: note: 'snprintf' output between 5 and 517 bytes into a destination of size 15
+   47 |     snprintf(filepath, sizeof(filepath), "%s/%s", BASE_PATH, filename);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:36:66: error: '%s' directive output may be truncated writing up to 255 bytes into a region of size 242 [-Werror=format-truncation=]
+   36 |                     snprintf(link, sizeof(link), "<li><a href=\"/%s\">%s</a></li>", ent->d_name, ent->d_name);
+      |                                                                  ^~
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:36:21: note: 'snprintf' output between 26 and 536 bytes into a destination of size 256
+   36 |                     snprintf(link, sizeof(link), "<li><a href=\"/%s\">%s</a></li>", ent->d_name, ent->d_name);
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:331: esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:6963: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

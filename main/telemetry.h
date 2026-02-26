@@ -77,6 +77,8 @@ typedef struct {
     system_mode_t mode;
     bool ble_connected;
     bool wifi_active;
+    float fused_alt;       // Hybrid GPS/Baro altitude
+    bool alt_calibrated;   // True if QNH has been auto-calibrated
 } global_telemetry_t;
 
 extern global_telemetry_t g_telemetry;

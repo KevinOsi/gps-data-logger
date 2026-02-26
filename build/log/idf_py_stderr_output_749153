@@ -1,0 +1,6 @@
+/home/kevino/Programming/GPS Data Logger/main/i2c_manager.c:8:20: warning: 'TAG' defined but not used [-Wunused-variable]
+    8 | static const char *TAG = "I2C_MANAGER";
+      |                    ^~~
+info: INFO: Symbol IDF_TARGET_LINUX defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/kevino/esp/esp-idf/Kconfig:162
+    /home/kevino/esp/esp-idf/Kconfig:78

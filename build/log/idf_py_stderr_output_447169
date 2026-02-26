@@ -1,0 +1,44 @@
+/home/kevino/Programming/GPS Data Logger/main/web_server.c: In function 'download_get_handler':
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:67:13: error: '&deg;</span></div><div class...' directive output truncated writing 70 bytes into a region of size between 0 and 69 [-Werror=format-truncation=]
+   67 |             "<div class=\"sensor\"><label>Position</label><span>%.6f, %.6f</span></div>"
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:70:67: note: format string is defined here
+   69 |             "<div class=\"sensor\"><label>Heading</label><span>%.1f&deg;</span></div>"
+      |                                                                    ~~~~~~~~~~~~~~~~~~~
+   70 |             "<div class=\"sensor\"><label>Temperature</label><span>%.1f&deg;C</span></div>"
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:66:9: note: 'snprintf' output between 415 and 2588 bytes into a destination of size 256
+   66 |         snprintf(buf, sizeof(buf),
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   67 |             "<div class=\"sensor\"><label>Position</label><span>%.6f, %.6f</span></div>"
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   68 |             "<div class=\"sensor\"><label>Altitude</label><span>%.1fm</span></div>"
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   69 |             "<div class=\"sensor\"><label>Heading</label><span>%.1f&deg;</span></div>"
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   70 |             "<div class=\"sensor\"><label>Temperature</label><span>%.1f&deg;C</span></div>"
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   71 |             "<div class=\"sensor\"><label>Pressure</label><span>%.1f hPa</span></div>"
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   72 |             "<div class=\"sensor\"><label>Humidity</label><span>%.1f%%</span></div>",
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |             tele.gps.lat / 10000000.0, tele.gps.lon / 10000000.0,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |             tele.env.altitude, tele.mag.heading,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   75 |             tele.env.temperature, tele.env.pressure, tele.env.humidity);
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:94:34: error: '%s' directive output may be truncated writing up to 255 bytes into a region of size 248 [-Werror=format-truncation=]
+   94 |                         "<tr><td>%s</td><td>%ld bytes</td><td><a href=\"/%s\" class=\"btn\">Download</a></td></tr>",
+      |                                  ^~
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:93:21: note: 'snprintf' output between 80 and 600 bytes into a destination of size 256
+   93 |                     snprintf(buf, sizeof(buf),
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   94 |                         "<tr><td>%s</td><td>%ld bytes</td><td><a href=\"/%s\" class=\"btn\">Download</a></td></tr>",
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   95 |                         ent->d_name, size, ent->d_name);
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:331: esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:7198: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

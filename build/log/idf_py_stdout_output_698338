@@ -1,0 +1,153 @@
+-- Building ESP-IDF components for target esp32
+-- Project sdkconfig file /home/kevino/Programming/GPS Data Logger/sdkconfig
+-- Compiler supported targets: xtensa-esp-elf
+-- App "gps-data-logger" version: 7f45560-dirty
+-- Adding linker script /home/kevino/Programming/GPS Data Logger/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script /home/kevino/Programming/GPS Data Logger/build/esp-idf/esp_system/ld/sections.ld.in
+-- Adding linker script /home/kevino/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script /home/kevino/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script /home/kevino/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script /home/kevino/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-data.ld
+-- Adding linker script /home/kevino/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.syscalls.ld
+-- Adding linker script /home/kevino/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-funcs.ld
+-- Adding linker script /home/kevino/esp/esp-idf/components/soc/esp32/ld/esp32.peripherals.ld
+-- Components: app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_bootloader_format esp_coex esp_common esp_driver_ana_cmpr esp_driver_cam esp_driver_dac esp_driver_gpio esp_driver_gptimer esp_driver_i2c esp_driver_i2s esp_driver_isp esp_driver_jpeg esp_driver_ledc esp_driver_mcpwm esp_driver_parlio esp_driver_pcnt esp_driver_ppa esp_driver_rmt esp_driver_sdio esp_driver_sdm esp_driver_sdmmc esp_driver_sdspi esp_driver_spi esp_driver_tsens esp_driver_uart esp_driver_usb_serial_jtag esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_local_ctrl esp_mm esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_system esp_timer esp_vfs_console esp_wifi espcoredump esptool_py fatfs freertos hal heap http_parser idf_test ieee802154 json log lwip main mbedtls mqtt newlib nvs_flash nvs_sec_provider openthread partition_table perfmon protobuf-c protocomm pthread sdmmc soc spi_flash spiffs tcp_transport ulp unity usb vfs wear_levelling wifi_provisioning wpa_supplicant xtensa
+-- Component paths: /home/kevino/esp/esp-idf/components/app_trace /home/kevino/esp/esp-idf/components/app_update /home/kevino/esp/esp-idf/components/bootloader /home/kevino/esp/esp-idf/components/bootloader_support /home/kevino/esp/esp-idf/components/bt /home/kevino/esp/esp-idf/components/cmock /home/kevino/esp/esp-idf/components/console /home/kevino/esp/esp-idf/components/cxx /home/kevino/esp/esp-idf/components/driver /home/kevino/esp/esp-idf/components/efuse /home/kevino/esp/esp-idf/components/esp-tls /home/kevino/esp/esp-idf/components/esp_adc /home/kevino/esp/esp-idf/components/esp_app_format /home/kevino/esp/esp-idf/components/esp_bootloader_format /home/kevino/esp/esp-idf/components/esp_coex /home/kevino/esp/esp-idf/components/esp_common /home/kevino/esp/esp-idf/components/esp_driver_ana_cmpr /home/kevino/esp/esp-idf/components/esp_driver_cam /home/kevino/esp/esp-idf/components/esp_driver_dac /home/kevino/esp/esp-idf/components/esp_driver_gpio /home/kevino/esp/esp-idf/components/esp_driver_gptimer /home/kevino/esp/esp-idf/components/esp_driver_i2c /home/kevino/esp/esp-idf/components/esp_driver_i2s /home/kevino/esp/esp-idf/components/esp_driver_isp /home/kevino/esp/esp-idf/components/esp_driver_jpeg /home/kevino/esp/esp-idf/components/esp_driver_ledc /home/kevino/esp/esp-idf/components/esp_driver_mcpwm /home/kevino/esp/esp-idf/components/esp_driver_parlio /home/kevino/esp/esp-idf/components/esp_driver_pcnt /home/kevino/esp/esp-idf/components/esp_driver_ppa /home/kevino/esp/esp-idf/components/esp_driver_rmt /home/kevino/esp/esp-idf/components/esp_driver_sdio /home/kevino/esp/esp-idf/components/esp_driver_sdm /home/kevino/esp/esp-idf/components/esp_driver_sdmmc /home/kevino/esp/esp-idf/components/esp_driver_sdspi /home/kevino/esp/esp-idf/components/esp_driver_spi /home/kevino/esp/esp-idf/components/esp_driver_tsens /home/kevino/esp/esp-idf/components/esp_driver_uart /home/kevino/esp/esp-idf/components/esp_driver_usb_serial_jtag /home/kevino/esp/esp-idf/components/esp_eth /home/kevino/esp/esp-idf/components/esp_event /home/kevino/esp/esp-idf/components/esp_gdbstub /home/kevino/esp/esp-idf/components/esp_hid /home/kevino/esp/esp-idf/components/esp_http_client /home/kevino/esp/esp-idf/components/esp_http_server /home/kevino/esp/esp-idf/components/esp_https_ota /home/kevino/esp/esp-idf/components/esp_https_server /home/kevino/esp/esp-idf/components/esp_hw_support /home/kevino/esp/esp-idf/components/esp_lcd /home/kevino/esp/esp-idf/components/esp_local_ctrl /home/kevino/esp/esp-idf/components/esp_mm /home/kevino/esp/esp-idf/components/esp_netif /home/kevino/esp/esp-idf/components/esp_netif_stack /home/kevino/esp/esp-idf/components/esp_partition /home/kevino/esp/esp-idf/components/esp_phy /home/kevino/esp/esp-idf/components/esp_pm /home/kevino/esp/esp-idf/components/esp_psram /home/kevino/esp/esp-idf/components/esp_ringbuf /home/kevino/esp/esp-idf/components/esp_rom /home/kevino/esp/esp-idf/components/esp_system /home/kevino/esp/esp-idf/components/esp_timer /home/kevino/esp/esp-idf/components/esp_vfs_console /home/kevino/esp/esp-idf/components/esp_wifi /home/kevino/esp/esp-idf/components/espcoredump /home/kevino/esp/esp-idf/components/esptool_py /home/kevino/esp/esp-idf/components/fatfs /home/kevino/esp/esp-idf/components/freertos /home/kevino/esp/esp-idf/components/hal /home/kevino/esp/esp-idf/components/heap /home/kevino/esp/esp-idf/components/http_parser /home/kevino/esp/esp-idf/components/idf_test /home/kevino/esp/esp-idf/components/ieee802154 /home/kevino/esp/esp-idf/components/json /home/kevino/esp/esp-idf/components/log /home/kevino/esp/esp-idf/components/lwip /home/kevino/Programming/GPS Data Logger/main /home/kevino/esp/esp-idf/components/mbedtls /home/kevino/esp/esp-idf/components/mqtt /home/kevino/esp/esp-idf/components/newlib /home/kevino/esp/esp-idf/components/nvs_flash /home/kevino/esp/esp-idf/components/nvs_sec_provider /home/kevino/esp/esp-idf/components/openthread /home/kevino/esp/esp-idf/components/partition_table /home/kevino/esp/esp-idf/components/perfmon /home/kevino/esp/esp-idf/components/protobuf-c /home/kevino/esp/esp-idf/components/protocomm /home/kevino/esp/esp-idf/components/pthread /home/kevino/esp/esp-idf/components/sdmmc /home/kevino/esp/esp-idf/components/soc /home/kevino/esp/esp-idf/components/spi_flash /home/kevino/esp/esp-idf/components/spiffs /home/kevino/esp/esp-idf/components/tcp_transport /home/kevino/esp/esp-idf/components/ulp /home/kevino/esp/esp-idf/components/unity /home/kevino/esp/esp-idf/components/usb /home/kevino/esp/esp-idf/components/vfs /home/kevino/esp/esp-idf/components/wear_levelling /home/kevino/esp/esp-idf/components/wifi_provisioning /home/kevino/esp/esp-idf/components/wpa_supplicant /home/kevino/esp/esp-idf/components/xtensa
+-- Configuring done (3.5s)
+-- Generating done (0.8s)
+-- Build files have been written to: /home/kevino/Programming/GPS Data Logger/build
+[  0%] Built target _project_elf_src
+[  0%] Built target partition_table_bin
+[  0%] Built target memory.ld
+[  0%] Built target sections.ld.in
+[  0%] Built target blank_ota_data
+[  0%] Built target custom_bundle
+[  0%] Performing build step for 'bootloader'
+[  0%] Built target __idf_esp_https_ota
+[  1%] Built target __idf_esp_http_server
+[  2%] Built target _project_elf_src
+[  5%] Built target __idf_log
+[  1%] Built target __idf_esp_http_client
+[ 11%] Built target __idf_esp_rom
+[ 13%] Built target __idf_esp_common
+[  2%] Built target __idf_tcp_transport
+[ 23%] Built target __idf_esp_hw_support
+[  3%] Built target __idf_esp_gdbstub
+[ 25%] Built target __idf_esp_system
+[  4%] Built target __idf_esp_eth
+[ 32%] Built target __idf_efuse
+[  5%] Built target __idf_esp_adc
+[ 54%] Built target __idf_bootloader_support
+[ 56%] Built target __idf_esp_bootloader_format
+[  5%] Built target __idf_esp-tls
+[ 58%] Built target __idf_spi_flash
+[  5%] Built target __idf_http_parser
+[ 65%] Built target __idf_hal
+[  6%] Built target __idf_esp_wifi
+[ 67%] Built target __idf_micro-ecc
+[  6%] Built target __idf_esp_coex
+[ 91%] Built target __idf_soc
+[ 93%] Built target __idf_xtensa
+[ 95%] Built target __idf_main
+[ 98%] Built target bootloader.elf
+[ 13%] Built target __idf_wpa_supplicant
+[100%] Built target gen_project_binary
+[ 14%] Built target __idf_esp_netif
+Bootloader binary size 0x6880 bytes. 0x780 bytes (7%) free.
+[100%] Built target bootloader_check_size
+[100%] Built target app
+[ 14%] No install step for 'bootloader'
+[ 22%] Built target __idf_lwip
+[ 22%] Completed 'bootloader'
+[ 23%] Built target __idf_vfs
+[ 24%] Built target bootloader
+[ 24%] Built target __idf_esp_vfs_console
+[ 25%] Built target __idf_esp_phy
+[ 26%] Built target __idf_driver
+[ 26%] Built target __idf_esp_driver_ledc
+[ 26%] Built target __idf_esp_driver_i2c
+[ 27%] Built target __idf_esp_driver_sdm
+[ 27%] Built target __idf_esp_driver_rmt
+[ 27%] Built target __idf_esp_driver_dac
+[ 27%] Built target __idf_esp_driver_sdio
+[ 27%] Built target __idf_esp_driver_sdspi
+[ 27%] Built target __idf_esp_driver_sdmmc
+[ 27%] Built target __idf_sdmmc
+[ 28%] Built target __idf_esp_driver_i2s
+[ 29%] Built target __idf_esp_driver_mcpwm
+[ 30%] Built target __idf_esp_driver_spi
+[ 30%] Built target __idf_esp_driver_pcnt
+[ 31%] Built target __idf_nvs_flash
+[ 31%] Built target __idf_esp_event
+[ 31%] Built target __idf_esp_driver_uart
+[ 31%] Built target __idf_esp_ringbuf
+[ 32%] Built target __idf_esp_driver_gptimer
+[ 33%] Built target __idf_esp_timer
+[ 34%] Built target __idf_cxx
+[ 35%] Built target __idf_pthread
+[ 37%] Built target __idf_newlib
+[ 38%] Built target __idf_freertos
+[ 42%] Built target __idf_esp_hw_support
+[ 45%] Built target __idf_soc
+[ 45%] Built target __idf_heap
+[ 45%] Built target __idf_log
+[ 50%] Built target __idf_hal
+[ 51%] Built target __idf_esp_rom
+[ 51%] Built target __idf_esp_common
+[ 54%] Built target __idf_esp_system
+[ 55%] Built target __idf_spi_flash
+[ 56%] Built target __idf_esp_mm
+[ 58%] Built target __idf_bootloader_support
+[ 59%] Built target __idf_efuse
+[ 59%] Built target __idf_esp_partition
+[ 59%] Built target __idf_app_update
+[ 59%] Built target __idf_esp_bootloader_format
+[ 60%] Built target __idf_esp_app_format
+[ 62%] Built target mbedtls
+[ 63%] Built target mbedx509
+[ 72%] Built target mbedcrypto
+[ 72%] Built target p256m
+[ 73%] Built target everest
+[ 73%] Built target __idf_mbedtls
+[ 73%] Built target __idf_esp_pm
+[ 73%] Built target __idf_esp_driver_gpio
+[ 74%] Built target __idf_xtensa
+[ 75%] Built target __idf_json
+[ 76%] Built target __idf_protobuf-c
+[ 76%] Built target __idf_app_trace
+[ 77%] Built target __idf_console
+[ 77%] Built target __idf_unity
+[ 78%] Built target __idf_espcoredump
+[ 79%] Built target __idf_esp_driver_cam
+[ 79%] Built target __idf_esp_https_server
+[ 80%] Built target __idf_esp_lcd
+[ 81%] Built target __idf_wear_levelling
+[ 90%] Built target __idf_bt
+[ 91%] Built target __idf_mqtt
+[ 91%] Built target __idf_nvs_sec_provider
+[ 91%] Built target __idf_perfmon
+[ 92%] Built target __idf_cmock
+[ 93%] Built target __idf_spiffs
+[ 94%] Built target __idf_protocomm
+[ 95%] Built target __idf_fatfs
+[ 96%] Built target __idf_esp_hid
+[ 97%] Built target __idf_wifi_provisioning
+[ 97%] Built target __idf_esp_local_ctrl
+[ 97%] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+[ 97%] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.obj
+[ 97%] Linking C static library libmain.a
+[100%] Built target __idf_main
+[100%] Generating ld/sections.ld
+[100%] Built target __ldgen_output_sections.ld
+[100%] Linking CXX executable gps-data-logger.elf
+[100%] Built target gps-data-logger.elf
+[100%] Generating binary image from built executable
+esptool.py v4.11.0
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /home/kevino/Programming/GPS Data Logger/build/gps-data-logger.bin
+[100%] Built target gen_project_binary
+gps-data-logger.bin binary size 0x118c70 bytes. Smallest app partition is 0x180000 bytes. 0x67390 bytes (27%) free.
+[100%] Built target app_check_size
+[100%] Built target app

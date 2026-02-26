@@ -2322,6 +2322,9 @@ esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/startup_funcs.c.obj
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/sys/string.h
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/sys/syslimits.h
  /home/kevino/Programming/GPS Data Logger/build/config/sdkconfig.h
+ /home/kevino/esp/esp-idf/components/esp_coex/include/esp_coexist.h
+ /home/kevino/esp/esp-idf/components/esp_coex/include/private/esp_coexist_adapter.h
+ /home/kevino/esp/esp-idf/components/esp_coex/include/private/esp_coexist_internal.h
  /home/kevino/esp/esp-idf/components/esp_common/include/esp_assert.h
  /home/kevino/esp/esp-idf/components/esp_common/include/esp_attr.h
  /home/kevino/esp/esp-idf/components/esp_common/include/esp_bit_defs.h
@@ -2372,6 +2375,7 @@ esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/startup_funcs.c.obj
  /home/kevino/esp/esp-idf/components/hal/esp32/include/hal/spi_flash_ll.h
  /home/kevino/esp/esp-idf/components/hal/esp32/include/hal/uart_ll.h
  /home/kevino/esp/esp-idf/components/hal/include/hal/esp_flash_err.h
+ /home/kevino/esp/esp-idf/components/hal/include/hal/gpio_types.h
  /home/kevino/esp/esp-idf/components/hal/include/hal/spi_flash_hal.h
  /home/kevino/esp/esp-idf/components/hal/include/hal/spi_flash_types.h
  /home/kevino/esp/esp-idf/components/hal/include/hal/spi_types.h
@@ -2391,6 +2395,7 @@ esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/startup_funcs.c.obj
  /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/clk_tree_defs.h
  /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/dport_access.h
  /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/dport_reg.h
+ /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/gpio_num.h
  /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/gpio_sig_map.h
  /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/gpio_struct.h
  /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/interrupts.h

@@ -82,7 +82,15 @@ esp_err_t bme280_handler_init() {
 
 esp_err_t bme280_handler_read(bme280_data_t *data) {
     struct bme280_data comp_data;
-    int8_t rslt = bme280_get_sensor_data(BME280_ALL, &comp_data, &dev);
+    int8_t rslt = BME280_E_COMM_FAIL;
+    
+    // Retry up to 3 times if communication fails
+    for (int i = 0; i < 3; i++) {
+        rslt = bme280_get_sensor_data(BME280_ALL, &comp_data, &dev);
+        if (rslt == BME280_OK) break;
+        vTaskDelay(pdMS_TO_TICKS(10));
+    }
+
     if (rslt == BME280_OK) {
         data->temperature = (float)comp_data.temperature;
         data->pressure = (float)comp_data.pressure / 100.0f; // Pa to hPa

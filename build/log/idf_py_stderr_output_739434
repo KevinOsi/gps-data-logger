@@ -1,0 +1,20 @@
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c: In function 'ui_task':
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:41:27: error: 'button_event_queue' undeclared (first use in this function); did you mean 'button_event_t'?
+   41 |         if (xQueueReceive(button_event_queue, &btn_evt, 0)) {
+      |                           ^~~~~~~~~~~~~~~~~~
+      |                           button_event_t
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:41:27: note: each undeclared identifier is reported only once for each function it appears in
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:94:21: error: this 'if' clause does not guard... [-Werror=misleading-indentation]
+   94 |                     if (idx < 0) idx = 0; if (idx > 8) idx = 8;
+      |                     ^~
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:94:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+   94 |                     if (idx < 0) idx = 0; if (idx > 8) idx = 8;
+      |                                           ^~
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:114:9: error: implicit declaration of function 'ssd1306_show_screen'; did you mean 'ssd1306_clear_screen'? [-Werror=implicit-function-declaration]
+  114 |         ssd1306_show_screen(&dev, false);
+      |         ^~~~~~~~~~~~~~~~~~~
+      |         ssd1306_clear_screen
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:275: esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:7198: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

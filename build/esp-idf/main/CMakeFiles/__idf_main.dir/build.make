@@ -184,10 +184,52 @@ esp-idf/main/CMakeFiles/__idf_main.dir/mag_handler.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/mag_handler.c.s"
 	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/mag_handler.c" -o CMakeFiles/__idf_main.dir/mag_handler.c.s
 
+esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
+esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/sd_card_handler.c
+esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.obj"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.obj -MF CMakeFiles/__idf_main.dir/sd_card_handler.c.obj.d -o CMakeFiles/__idf_main.dir/sd_card_handler.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/sd_card_handler.c"
+
+esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_main.dir/sd_card_handler.c.i"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/kevino/Programming/GPS Data Logger/main/sd_card_handler.c" > CMakeFiles/__idf_main.dir/sd_card_handler.c.i
+
+esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/sd_card_handler.c.s"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/sd_card_handler.c" -o CMakeFiles/__idf_main.dir/sd_card_handler.c.s
+
+esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
+esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/logger_task.c
+esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.obj"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.obj -MF CMakeFiles/__idf_main.dir/logger_task.c.obj.d -o CMakeFiles/__idf_main.dir/logger_task.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/logger_task.c"
+
+esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_main.dir/logger_task.c.i"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/kevino/Programming/GPS Data Logger/main/logger_task.c" > CMakeFiles/__idf_main.dir/logger_task.c.i
+
+esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/logger_task.c.s"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/logger_task.c" -o CMakeFiles/__idf_main.dir/logger_task.c.s
+
+esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
+esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/gpx_formatter.c
+esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.obj"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.obj -MF CMakeFiles/__idf_main.dir/gpx_formatter.c.obj.d -o CMakeFiles/__idf_main.dir/gpx_formatter.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/gpx_formatter.c"
+
+esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_main.dir/gpx_formatter.c.i"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/kevino/Programming/GPS Data Logger/main/gpx_formatter.c" > CMakeFiles/__idf_main.dir/gpx_formatter.c.i
+
+esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/gpx_formatter.c.s"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/gpx_formatter.c" -o CMakeFiles/__idf_main.dir/gpx_formatter.c.s
+
 esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/ssd1306/ssd1306.c
 esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj"
 	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj -MF CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj.d -o CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/ssd1306/ssd1306.c"
 
 esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.i: cmake_force
@@ -201,7 +243,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.s: cmake_force
 esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/ssd1306/ssd1306_i2c.c
 esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj"
 	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj -MF CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj.d -o CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/ssd1306/ssd1306_i2c.c"
 
 esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.i: cmake_force
@@ -215,7 +257,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.s: cmake_force
 esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/oled_handler.c
 esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.obj"
 	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.obj -MF CMakeFiles/__idf_main.dir/oled_handler.c.obj.d -o CMakeFiles/__idf_main.dir/oled_handler.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/oled_handler.c"
 
 esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.i: cmake_force
@@ -229,7 +271,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.s: cmake_force
 esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/ui_task.c
 esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj"
 	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj -MF CMakeFiles/__idf_main.dir/ui_task.c.obj.d -o CMakeFiles/__idf_main.dir/ui_task.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/ui_task.c"
 
 esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.i: cmake_force
@@ -239,6 +281,104 @@ esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.i: cmake_force
 esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/ui_task.c.s"
 	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/ui_task.c" -o CMakeFiles/__idf_main.dir/ui_task.c.s
+
+esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
+esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/button_handler.c
+esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.obj"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.obj -MF CMakeFiles/__idf_main.dir/button_handler.c.obj.d -o CMakeFiles/__idf_main.dir/button_handler.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/button_handler.c"
+
+esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_main.dir/button_handler.c.i"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/kevino/Programming/GPS Data Logger/main/button_handler.c" > CMakeFiles/__idf_main.dir/button_handler.c.i
+
+esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/button_handler.c.s"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/button_handler.c" -o CMakeFiles/__idf_main.dir/button_handler.c.s
+
+esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
+esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/ble_manager.c
+esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.obj"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.obj -MF CMakeFiles/__idf_main.dir/ble_manager.c.obj.d -o CMakeFiles/__idf_main.dir/ble_manager.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/ble_manager.c"
+
+esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_main.dir/ble_manager.c.i"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/kevino/Programming/GPS Data Logger/main/ble_manager.c" > CMakeFiles/__idf_main.dir/ble_manager.c.i
+
+esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/ble_manager.c.s"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/ble_manager.c" -o CMakeFiles/__idf_main.dir/ble_manager.c.s
+
+esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
+esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/wifi_manager.c
+esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.obj"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.obj -MF CMakeFiles/__idf_main.dir/wifi_manager.c.obj.d -o CMakeFiles/__idf_main.dir/wifi_manager.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/wifi_manager.c"
+
+esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_main.dir/wifi_manager.c.i"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/kevino/Programming/GPS Data Logger/main/wifi_manager.c" > CMakeFiles/__idf_main.dir/wifi_manager.c.i
+
+esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/wifi_manager.c.s"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/wifi_manager.c" -o CMakeFiles/__idf_main.dir/wifi_manager.c.s
+
+esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
+esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/web_server.c
+esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj -MF CMakeFiles/__idf_main.dir/web_server.c.obj.d -o CMakeFiles/__idf_main.dir/web_server.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/web_server.c"
+
+esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_main.dir/web_server.c.i"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/kevino/Programming/GPS Data Logger/main/web_server.c" > CMakeFiles/__idf_main.dir/web_server.c.i
+
+esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/web_server.c.s"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/web_server.c" -o CMakeFiles/__idf_main.dir/web_server.c.s
+
+esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
+esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/system_manager.c
+esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.obj"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.obj -MF CMakeFiles/__idf_main.dir/system_manager.c.obj.d -o CMakeFiles/__idf_main.dir/system_manager.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/system_manager.c"
+
+esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_main.dir/system_manager.c.i"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/kevino/Programming/GPS Data Logger/main/system_manager.c" > CMakeFiles/__idf_main.dir/system_manager.c.i
+
+esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/system_manager.c.s"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/system_manager.c" -o CMakeFiles/__idf_main.dir/system_manager.c.s
+
+esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
+esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/gps_config.c
+esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.obj"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.obj -MF CMakeFiles/__idf_main.dir/gps_config.c.obj.d -o CMakeFiles/__idf_main.dir/gps_config.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/gps_config.c"
+
+esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_main.dir/gps_config.c.i"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/kevino/Programming/GPS Data Logger/main/gps_config.c" > CMakeFiles/__idf_main.dir/gps_config.c.i
+
+esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/gps_config.c.s"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/gps_config.c" -o CMakeFiles/__idf_main.dir/gps_config.c.s
+
+esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
+esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.obj: /home/kevino/Programming/GPS\ Data\ Logger/main/config_manager.c
+esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.obj"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.obj -MF CMakeFiles/__idf_main.dir/config_manager.c.obj.d -o CMakeFiles/__idf_main.dir/config_manager.c.obj -c "/home/kevino/Programming/GPS Data Logger/main/config_manager.c"
+
+esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_main.dir/config_manager.c.i"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/kevino/Programming/GPS Data Logger/main/config_manager.c" > CMakeFiles/__idf_main.dir/config_manager.c.i
+
+esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/config_manager.c.s"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/kevino/Programming/GPS Data Logger/main/config_manager.c" -o CMakeFiles/__idf_main.dir/config_manager.c.s
 
 # Object files for target __idf_main
 __idf_main_OBJECTS = \
@@ -250,10 +390,20 @@ __idf_main_OBJECTS = \
 "CMakeFiles/__idf_main.dir/bme280/bme280.c.obj" \
 "CMakeFiles/__idf_main.dir/bme280_handler.c.obj" \
 "CMakeFiles/__idf_main.dir/mag_handler.c.obj" \
+"CMakeFiles/__idf_main.dir/sd_card_handler.c.obj" \
+"CMakeFiles/__idf_main.dir/logger_task.c.obj" \
+"CMakeFiles/__idf_main.dir/gpx_formatter.c.obj" \
 "CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj" \
 "CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj" \
 "CMakeFiles/__idf_main.dir/oled_handler.c.obj" \
-"CMakeFiles/__idf_main.dir/ui_task.c.obj"
+"CMakeFiles/__idf_main.dir/ui_task.c.obj" \
+"CMakeFiles/__idf_main.dir/button_handler.c.obj" \
+"CMakeFiles/__idf_main.dir/ble_manager.c.obj" \
+"CMakeFiles/__idf_main.dir/wifi_manager.c.obj" \
+"CMakeFiles/__idf_main.dir/web_server.c.obj" \
+"CMakeFiles/__idf_main.dir/system_manager.c.obj" \
+"CMakeFiles/__idf_main.dir/gps_config.c.obj" \
+"CMakeFiles/__idf_main.dir/config_manager.c.obj"
 
 # External object files for target __idf_main
 __idf_main_EXTERNAL_OBJECTS =
@@ -266,13 +416,23 @@ esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/i2c_manager.c.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/bme280/bme280.c.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/bme280_handler.c.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/mag_handler.c.obj
+esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.obj
+esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.obj
+esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306.c.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj
+esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.obj
+esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.obj
+esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.obj
+esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj
+esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.obj
+esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.obj
+esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/build.make
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking C static library libmain.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/kevino/Programming/GPS Data Logger/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_23) "Linking C static library libmain.a"
 	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && $(CMAKE_COMMAND) -P CMakeFiles/__idf_main.dir/cmake_clean_target.cmake
 	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/main" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/__idf_main.dir/link.txt --verbose=$(VERBOSE)
 

@@ -175,6 +175,30 @@ __idf_main/fast:
 	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
 .PHONY : __idf_main/fast
 
+ble_manager.obj: ble_manager.c.obj
+.PHONY : ble_manager.obj
+
+# target to build an object file
+ble_manager.c.obj:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.obj
+.PHONY : ble_manager.c.obj
+
+ble_manager.i: ble_manager.c.i
+.PHONY : ble_manager.i
+
+# target to preprocess a source file
+ble_manager.c.i:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.i
+.PHONY : ble_manager.c.i
+
+ble_manager.s: ble_manager.c.s
+.PHONY : ble_manager.s
+
+# target to generate assembly for a file
+ble_manager.c.s:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.s
+.PHONY : ble_manager.c.s
+
 bme280/bme280.obj: bme280/bme280.c.obj
 .PHONY : bme280/bme280.obj
 
@@ -223,6 +247,78 @@ bme280_handler.c.s:
 	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/bme280_handler.c.s
 .PHONY : bme280_handler.c.s
 
+button_handler.obj: button_handler.c.obj
+.PHONY : button_handler.obj
+
+# target to build an object file
+button_handler.c.obj:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.obj
+.PHONY : button_handler.c.obj
+
+button_handler.i: button_handler.c.i
+.PHONY : button_handler.i
+
+# target to preprocess a source file
+button_handler.c.i:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.i
+.PHONY : button_handler.c.i
+
+button_handler.s: button_handler.c.s
+.PHONY : button_handler.s
+
+# target to generate assembly for a file
+button_handler.c.s:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.s
+.PHONY : button_handler.c.s
+
+config_manager.obj: config_manager.c.obj
+.PHONY : config_manager.obj
+
+# target to build an object file
+config_manager.c.obj:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.obj
+.PHONY : config_manager.c.obj
+
+config_manager.i: config_manager.c.i
+.PHONY : config_manager.i
+
+# target to preprocess a source file
+config_manager.c.i:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.i
+.PHONY : config_manager.c.i
+
+config_manager.s: config_manager.c.s
+.PHONY : config_manager.s
+
+# target to generate assembly for a file
+config_manager.c.s:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.s
+.PHONY : config_manager.c.s
+
+gps_config.obj: gps_config.c.obj
+.PHONY : gps_config.obj
+
+# target to build an object file
+gps_config.c.obj:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.obj
+.PHONY : gps_config.c.obj
+
+gps_config.i: gps_config.c.i
+.PHONY : gps_config.i
+
+# target to preprocess a source file
+gps_config.c.i:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.i
+.PHONY : gps_config.c.i
+
+gps_config.s: gps_config.c.s
+.PHONY : gps_config.s
+
+# target to generate assembly for a file
+gps_config.c.s:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/gps_config.c.s
+.PHONY : gps_config.c.s
+
 gps_parser.obj: gps_parser.c.obj
 .PHONY : gps_parser.obj
 
@@ -246,6 +342,30 @@ gps_parser.s: gps_parser.c.s
 gps_parser.c.s:
 	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/gps_parser.c.s
 .PHONY : gps_parser.c.s
+
+gpx_formatter.obj: gpx_formatter.c.obj
+.PHONY : gpx_formatter.obj
+
+# target to build an object file
+gpx_formatter.c.obj:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.obj
+.PHONY : gpx_formatter.c.obj
+
+gpx_formatter.i: gpx_formatter.c.i
+.PHONY : gpx_formatter.i
+
+# target to preprocess a source file
+gpx_formatter.c.i:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.i
+.PHONY : gpx_formatter.c.i
+
+gpx_formatter.s: gpx_formatter.c.s
+.PHONY : gpx_formatter.s
+
+# target to generate assembly for a file
+gpx_formatter.c.s:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/gpx_formatter.c.s
+.PHONY : gpx_formatter.c.s
 
 hw_config.obj: hw_config.c.obj
 .PHONY : hw_config.obj
@@ -294,6 +414,30 @@ i2c_manager.s: i2c_manager.c.s
 i2c_manager.c.s:
 	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/i2c_manager.c.s
 .PHONY : i2c_manager.c.s
+
+logger_task.obj: logger_task.c.obj
+.PHONY : logger_task.obj
+
+# target to build an object file
+logger_task.c.obj:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.obj
+.PHONY : logger_task.c.obj
+
+logger_task.i: logger_task.c.i
+.PHONY : logger_task.i
+
+# target to preprocess a source file
+logger_task.c.i:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.i
+.PHONY : logger_task.c.i
+
+logger_task.s: logger_task.c.s
+.PHONY : logger_task.s
+
+# target to generate assembly for a file
+logger_task.c.s:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.s
+.PHONY : logger_task.c.s
 
 mag_handler.obj: mag_handler.c.obj
 .PHONY : mag_handler.obj
@@ -367,6 +511,30 @@ oled_handler.c.s:
 	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/oled_handler.c.s
 .PHONY : oled_handler.c.s
 
+sd_card_handler.obj: sd_card_handler.c.obj
+.PHONY : sd_card_handler.obj
+
+# target to build an object file
+sd_card_handler.c.obj:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.obj
+.PHONY : sd_card_handler.c.obj
+
+sd_card_handler.i: sd_card_handler.c.i
+.PHONY : sd_card_handler.i
+
+# target to preprocess a source file
+sd_card_handler.c.i:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.i
+.PHONY : sd_card_handler.c.i
+
+sd_card_handler.s: sd_card_handler.c.s
+.PHONY : sd_card_handler.s
+
+# target to generate assembly for a file
+sd_card_handler.c.s:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.s
+.PHONY : sd_card_handler.c.s
+
 ssd1306/ssd1306.obj: ssd1306/ssd1306.c.obj
 .PHONY : ssd1306/ssd1306.obj
 
@@ -414,6 +582,30 @@ ssd1306/ssd1306_i2c.s: ssd1306/ssd1306_i2c.c.s
 ssd1306/ssd1306_i2c.c.s:
 	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/ssd1306/ssd1306_i2c.c.s
 .PHONY : ssd1306/ssd1306_i2c.c.s
+
+system_manager.obj: system_manager.c.obj
+.PHONY : system_manager.obj
+
+# target to build an object file
+system_manager.c.obj:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.obj
+.PHONY : system_manager.c.obj
+
+system_manager.i: system_manager.c.i
+.PHONY : system_manager.i
+
+# target to preprocess a source file
+system_manager.c.i:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.i
+.PHONY : system_manager.c.i
+
+system_manager.s: system_manager.c.s
+.PHONY : system_manager.s
+
+# target to generate assembly for a file
+system_manager.c.s:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/system_manager.c.s
+.PHONY : system_manager.c.s
 
 telemetry_task.obj: telemetry_task.c.obj
 .PHONY : telemetry_task.obj
@@ -463,6 +655,54 @@ ui_task.c.s:
 	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.s
 .PHONY : ui_task.c.s
 
+web_server.obj: web_server.c.obj
+.PHONY : web_server.obj
+
+# target to build an object file
+web_server.c.obj:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj
+.PHONY : web_server.c.obj
+
+web_server.i: web_server.c.i
+.PHONY : web_server.i
+
+# target to preprocess a source file
+web_server.c.i:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.i
+.PHONY : web_server.c.i
+
+web_server.s: web_server.c.s
+.PHONY : web_server.s
+
+# target to generate assembly for a file
+web_server.c.s:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.s
+.PHONY : web_server.c.s
+
+wifi_manager.obj: wifi_manager.c.obj
+.PHONY : wifi_manager.obj
+
+# target to build an object file
+wifi_manager.c.obj:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.obj
+.PHONY : wifi_manager.c.obj
+
+wifi_manager.i: wifi_manager.c.i
+.PHONY : wifi_manager.i
+
+# target to preprocess a source file
+wifi_manager.c.i:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.i
+.PHONY : wifi_manager.c.i
+
+wifi_manager.s: wifi_manager.c.s
+.PHONY : wifi_manager.s
+
+# target to generate assembly for a file
+wifi_manager.c.s:
+	cd "/home/kevino/Programming/GPS Data Logger/build" && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.s
+.PHONY : wifi_manager.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -476,21 +716,39 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... __idf_main"
+	@echo "... ble_manager.obj"
+	@echo "... ble_manager.i"
+	@echo "... ble_manager.s"
 	@echo "... bme280/bme280.obj"
 	@echo "... bme280/bme280.i"
 	@echo "... bme280/bme280.s"
 	@echo "... bme280_handler.obj"
 	@echo "... bme280_handler.i"
 	@echo "... bme280_handler.s"
+	@echo "... button_handler.obj"
+	@echo "... button_handler.i"
+	@echo "... button_handler.s"
+	@echo "... config_manager.obj"
+	@echo "... config_manager.i"
+	@echo "... config_manager.s"
+	@echo "... gps_config.obj"
+	@echo "... gps_config.i"
+	@echo "... gps_config.s"
 	@echo "... gps_parser.obj"
 	@echo "... gps_parser.i"
 	@echo "... gps_parser.s"
+	@echo "... gpx_formatter.obj"
+	@echo "... gpx_formatter.i"
+	@echo "... gpx_formatter.s"
 	@echo "... hw_config.obj"
 	@echo "... hw_config.i"
 	@echo "... hw_config.s"
 	@echo "... i2c_manager.obj"
 	@echo "... i2c_manager.i"
 	@echo "... i2c_manager.s"
+	@echo "... logger_task.obj"
+	@echo "... logger_task.i"
+	@echo "... logger_task.s"
 	@echo "... mag_handler.obj"
 	@echo "... mag_handler.i"
 	@echo "... mag_handler.s"
@@ -500,18 +758,30 @@ help:
 	@echo "... oled_handler.obj"
 	@echo "... oled_handler.i"
 	@echo "... oled_handler.s"
+	@echo "... sd_card_handler.obj"
+	@echo "... sd_card_handler.i"
+	@echo "... sd_card_handler.s"
 	@echo "... ssd1306/ssd1306.obj"
 	@echo "... ssd1306/ssd1306.i"
 	@echo "... ssd1306/ssd1306.s"
 	@echo "... ssd1306/ssd1306_i2c.obj"
 	@echo "... ssd1306/ssd1306_i2c.i"
 	@echo "... ssd1306/ssd1306_i2c.s"
+	@echo "... system_manager.obj"
+	@echo "... system_manager.i"
+	@echo "... system_manager.s"
 	@echo "... telemetry_task.obj"
 	@echo "... telemetry_task.i"
 	@echo "... telemetry_task.s"
 	@echo "... ui_task.obj"
 	@echo "... ui_task.i"
 	@echo "... ui_task.s"
+	@echo "... web_server.obj"
+	@echo "... web_server.i"
+	@echo "... web_server.s"
+	@echo "... wifi_manager.obj"
+	@echo "... wifi_manager.i"
+	@echo "... wifi_manager.s"
 .PHONY : help
 
 

@@ -1,15 +1,19 @@
-# ESP32 Professional GNSS & Environmental Logger
+# ESP32 GNSS & Environmental Logger
 
-A high-precision, portable data station designed for high-rate telemetry and environmental mapping. This system leverages **ESP-IDF** and **FreeRTOS** to capture 10Hz GNSS data fused with barometric precision.
+Making use of salvaged toy drone parts and other odds and ends. This is A high-precision, portable data station designed for high-rate telemetry and environmental mapping. This system leverages **ESP-IDF** and **FreeRTOS** to capture 10Hz GNSS data fused with barometric precision.
 
 ## 🚀 Features
 *   **High-Rate GNSS:** 10Hz updates using u-blox UBX-PVT protocol.
 *   **Hybrid Altitude Fusion:** Combines GPS hMSL with BME280 barometric pressure for sub-meter relative elevation precision.
 *   **Stationary Heading:** High-precision magnetometer (MMC35240) for orientation tracking even when not in motion.
-*   **Interactive Multi-Page UI:** Smooth 5Hz OLED display with three specialized pages:
-    *   **Navigation:** Real-time coordinates, altitude, heading, and fix status.
-    *   **Environmental:** Detailed Temperature, Pressure, Humidity, and Barometric Altitude.
-    *   **System Status:** Satellite count, SD card capacity/free space, and system uptime.
+*   **Interactive Multi-Page UI:** Smooth 10Hz OLED display (800kHz I2C) with four specialized pages:
+    *   **GPS Status:** Real-time coordinates, altitude, and fix status.
+    *   **Environmental:** Temperature, Pressure, Humidity, and Fused Altitude.
+    *   **Graphical Compass:** Visual needle pointing to True North with cardinal directions.
+    *   **Offload Mode:** Wi-Fi control page for data retrieval.
+*   **Smart Boot Persistence:** Automatically saves/loads magnetometer offsets and pressure calibration to SD card (`device.cfg`) to speed up deployment.
+*   **Dynamic True North:** Automatically calculates magnetic declination based on GPS location to correct magnetic heading to true north.
+*   **Industrial Stability:** Mutex-protected I2C manager with advanced clock-stretching and retry logic to prevent bus hangs and watchdog resets.
 *   **POI Marking System:** Physical button interface to mark "Points of Interest" during logging.
 *   **Robust Logging:** Synchronized CSV and GPX logging to MicroSD with POI markers and environmental metadata.
 *   **Dual-Core Architecture:** 
@@ -30,6 +34,7 @@ A high-precision, portable data station designed for high-rate telemetry and env
 See the [docs/](./docs/) folder for detailed technical sheets:
 *   [Hardware & Wiring](./docs/hardware.md)
 *   [Software Architecture](./docs/software.md)
+*   [Wireless Connectivity (BLE/Wi-Fi)](./docs/wireless.md)
 
 ## ⚡️ Quick Start
 

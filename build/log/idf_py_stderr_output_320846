@@ -1,0 +1,31 @@
+info: INFO: Symbol IDF_TARGET_LINUX defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/kevino/esp/esp-idf/Kconfig:78
+    /home/kevino/esp/esp-idf/Kconfig:162
+CMake Deprecation Warning at /home/kevino/esp/esp-idf/components/mbedtls/mbedtls/CMakeLists.txt:21 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+/home/kevino/Programming/GPS Data Logger/main/button_handler.c: In function 'button_task':
+/home/kevino/Programming/GPS Data Logger/main/button_handler.c:37:14: warning: variable 'last_release_time' set but not used [-Wunused-but-set-variable]
+   37 |     uint32_t last_release_time = 0;
+      |              ^~~~~~~~~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/wifi_manager.c: In function 'wifi_manager_stop':
+/home/kevino/Programming/GPS Data Logger/main/wifi_manager.c:93:9: error: implicit declaration of function 'esp_netif_destroy_default_wifi_ap'; did you mean 'esp_netif_destroy_default_wifi'? [-Werror=implicit-function-declaration]
+   93 |         esp_netif_destroy_default_wifi_ap(ap_netif);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         esp_netif_destroy_default_wifi
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:317: esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.obj] Error 1
+make[2]: *** Waiting for unfinished jobs....
+/home/kevino/Programming/GPS Data Logger/main/web_server.c: In function 'download_get_handler':
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:36:65: error: expected expression before '%' token
+   36 |                     snprintf(link, sizeof(link), "<li><a href="/%s">%s</a></li>", ent->d_name, ent->d_name);
+      |                                                                 ^
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:331: esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:6963: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

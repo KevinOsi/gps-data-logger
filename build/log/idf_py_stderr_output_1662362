@@ -1,0 +1,42 @@
+info: INFO: Symbol IDF_TARGET_LINUX defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/kevino/esp/esp-idf/Kconfig:78
+    /home/kevino/esp/esp-idf/Kconfig:162
+CMake Deprecation Warning at /home/kevino/esp/esp-idf/components/mbedtls/mbedtls/CMakeLists.txt:21 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+/home/kevino/Programming/GPS Data Logger/main/logger_task.c: In function 'logger_task':
+/home/kevino/Programming/GPS Data Logger/main/logger_task.c:62:38: error: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+   62 |                     fprintf(f_csv, "%u,%ld,%ld,%.2f,%u,%u,%.2f,%.2f,%.2f,%.1f\n",
+      |                                     ~^
+      |                                      |
+      |                                      unsigned int
+      |                                     %lu
+   63 |                             snapshot.last_update_ms,
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     |
+      |                                     uint32_t {aka long unsigned int}
+/home/kevino/Programming/GPS Data Logger/main/main.c: In function 'app_main':
+/home/kevino/Programming/GPS Data Logger/main/main.c:45:9: error: implicit declaration of function 'logger_task_start'; did you mean 'ui_task_start'? [-Werror=implicit-function-declaration]
+   45 |         logger_task_start();
+      |         ^~~~~~~~~~~~~~~~~
+      |         ui_task_start
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:205: esp-idf/main/CMakeFiles/__idf_main.dir/logger_task.c.obj] Error 1
+make[2]: *** Waiting for unfinished jobs....
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:79: esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj] Error 1
+/home/kevino/Programming/GPS Data Logger/main/sd_card_handler.c: In function 'sd_card_mount':
+/home/kevino/Programming/GPS Data Logger/main/sd_card_handler.c:37:51: error: 'SDSPI_DEFAULT_DMA_CHAN' undeclared (first use in this function); did you mean 'SDSPI_DEFAULT_DMA'?
+   37 |     ret = spi_bus_initialize(host.slot, &bus_cfg, SDSPI_DEFAULT_DMA_CHAN);
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~
+      |                                                   SDSPI_DEFAULT_DMA
+/home/kevino/Programming/GPS Data Logger/main/sd_card_handler.c:37:51: note: each undeclared identifier is reported only once for each function it appears in
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:191: esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:6923: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

@@ -69,7 +69,7 @@ include esp-idf/partition_table/CMakeFiles/partition-table.dir/progress.make
 esp-idf/partition_table/CMakeFiles/partition-table:
 	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/partition_table" && /usr/bin/cmake -E echo "Partition table binary generated. Contents:"
 	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/partition_table" && /usr/bin/cmake -E echo "*******************************************************************************"
-	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/partition_table" && /home/kevino/.espressif/python_env/idf5.3_py3.14_env/bin/python /home/kevino/esp/esp-idf/components/partition_table/gen_esp32part.py -q --offset 0x8000 --flash-size 2MB -- "/home/kevino/Programming/GPS Data Logger/build/partition_table/partition-table.bin"
+	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/partition_table" && /home/kevino/.espressif/python_env/idf5.3_py3.14_env/bin/python /home/kevino/esp/esp-idf/components/partition_table/gen_esp32part.py -q --offset 0x8000 --flash-size 4MB -- "/home/kevino/Programming/GPS Data Logger/build/partition_table/partition-table.bin"
 	cd "/home/kevino/Programming/GPS Data Logger/build/esp-idf/partition_table" && /usr/bin/cmake -E echo "*******************************************************************************"
 
 esp-idf/partition_table/CMakeFiles/partition-table.dir/codegen:

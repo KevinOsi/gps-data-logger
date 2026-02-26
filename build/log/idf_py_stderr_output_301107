@@ -1,0 +1,25 @@
+/home/kevino/Programming/GPS Data Logger/main/ble_manager.c: In function 'ble_manager_gatt_cb':
+/home/kevino/Programming/GPS Data Logger/main/ble_manager.c:109:52: error: 'global_telemetry_t' has no member named 'temp'
+  109 |         int16_t temp = (int16_t)(g_latest_telemetry.temp * 100);
+      |                                                    ^
+/home/kevino/Programming/GPS Data Logger/main/ble_manager.c:112:55: error: 'global_telemetry_t' has no member named 'press'
+  112 |         uint32_t press = (uint32_t)(g_latest_telemetry.press * 10);
+      |                                                       ^
+/home/kevino/Programming/GPS Data Logger/main/ble_manager.c:115:53: error: 'global_telemetry_t' has no member named 'hum'
+  115 |         uint16_t hum = (uint16_t)(g_latest_telemetry.hum * 100);
+      |                                                     ^
+/home/kevino/Programming/GPS Data Logger/main/ble_manager.c:118:60: error: 'global_telemetry_t' has no member named 'lat'
+  118 |         return os_mbuf_append(ctxt->om, &g_latest_telemetry.lat, sizeof(double)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+      |                                                            ^
+/home/kevino/Programming/GPS Data Logger/main/ble_manager.c:120:60: error: 'global_telemetry_t' has no member named 'lon'
+  120 |         return os_mbuf_append(ctxt->om, &g_latest_telemetry.lon, sizeof(double)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+      |                                                            ^
+/home/kevino/Programming/GPS Data Logger/main/ble_manager.c:122:60: error: 'global_telemetry_t' has no member named 'alt'
+  122 |         return os_mbuf_append(ctxt->om, &g_latest_telemetry.alt, sizeof(float)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+      |                                                            ^
+/home/kevino/Programming/GPS Data Logger/main/ble_manager.c:124:60: error: 'global_telemetry_t' has no member named 'heading'
+  124 |         return os_mbuf_append(ctxt->om, &g_latest_telemetry.heading, sizeof(float)) == 0 ? 0 : BLE_ATT_ERR_INSUFFICIENT_RES;
+      |                                                            ^
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:303: esp-idf/main/CMakeFiles/__idf_main.dir/ble_manager.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:6963: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

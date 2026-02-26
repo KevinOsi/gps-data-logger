@@ -1,0 +1,57 @@
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c: In function 'ui_task':
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:50:27: error: 'button_event_queue' undeclared (first use in this function); did you mean 'button_event_t'?
+   50 |         if (xQueueReceive(button_event_queue, &btn_evt, 0)) {
+      |                           ^~~~~~~~~~~~~~~~~~
+      |                           button_event_t
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:50:27: note: each undeclared identifier is reported only once for each function it appears in
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:68:9: error: unknown type name 'telemetry_snapshot_t'
+   68 |         telemetry_snapshot_t snap;
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:69:9: error: implicit declaration of function 'telemetry_get_snapshot' [-Werror=implicit-function-declaration]
+   69 |         telemetry_get_snapshot(&snap);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:74:68: error: request for member 'gps' in something not a structure or union
+   74 |                 snprintf(buf, sizeof(buf), "Sats: %d Fix: %d", snap.gps.numSV, snap.gps.fixType);
+      |                                                                    ^
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:74:84: error: request for member 'gps' in something not a structure or union
+   74 |                 snprintf(buf, sizeof(buf), "Sats: %d Fix: %d", snap.gps.numSV, snap.gps.fixType);
+      |                                                                                    ^
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:76:61: error: request for member 'gps' in something not a structure or union
+   76 |                 snprintf(buf, sizeof(buf), "Lat: %.5f", snap.gps.lat / 1e7);
+      |                                                             ^
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:78:61: error: request for member 'gps' in something not a structure or union
+   78 |                 snprintf(buf, sizeof(buf), "Lon: %.5f", snap.gps.lon / 1e7);
+      |                                                             ^
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:80:62: error: request for member 'gps' in something not a structure or union
+   80 |                 snprintf(buf, sizeof(buf), "Alt: %.1fm", snap.gps.hMSL / 1000.0);
+      |                                                              ^
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:86:64: error: request for member 'env' in something not a structure or union
+   86 |                 snprintf(buf, sizeof(buf), "Temp: %.1f C", snap.env.temperature);
+      |                                                                ^
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:88:66: error: request for member 'env' in something not a structure or union
+   88 |                 snprintf(buf, sizeof(buf), "Pres: %.1f hPa", snap.env.pressure);
+      |                                                                  ^
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:90:65: error: request for member 'env' in something not a structure or union
+   90 |                 snprintf(buf, sizeof(buf), "Hum:  %.1f %%", snap.env.humidity);
+      |                                                                 ^
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:96:59: error: request for member 'mag' in something not a structure or union
+   96 |                 snprintf(buf, sizeof(buf), "H: %.1f", snap.mag.heading);
+      |                                                           ^
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:100:38: error: request for member 'mag' in something not a structure or union
+  100 |                 int idx = (int)((snap.mag.heading + 22.5) / 45.0);
+      |                                      ^
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:103:39: error: request for member 'mag' in something not a structure or union
+  103 |                 draw_needle(&dev, snap.mag.heading);
+      |                                       ^
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:119:9: error: implicit declaration of function 'ssd1306_show_screen'; did you mean 'ssd1306_clear_screen'? [-Werror=implicit-function-declaration]
+  119 |         ssd1306_show_screen(&dev, 0); // Corrected signature
+      |         ^~~~~~~~~~~~~~~~~~~
+      |         ssd1306_clear_screen
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c: At top level:
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:11:20: warning: 'TAG' defined but not used [-Wunused-variable]
+   11 | static const char *TAG = "UI_TASK";
+      |                    ^~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:275: esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:7198: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

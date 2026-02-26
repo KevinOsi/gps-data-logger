@@ -1,0 +1,95 @@
+info: INFO: Symbol IDF_TARGET_LINUX defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/kevino/esp/esp-idf/Kconfig:78
+    /home/kevino/esp/esp-idf/Kconfig:162
+CMake Deprecation Warning at /home/kevino/esp/esp-idf/components/mbedtls/mbedtls/CMakeLists.txt:21 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c: In function 'config_save':
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:22:16: warning: missing terminating " character
+   22 |     fprintf(f, "mag_offset=%.2f
+      |                ^
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:22:16: error: missing terminating " character
+   22 |     fprintf(f, "mag_offset=%.2f
+      |                ^~~~~~~~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:23:1: warning: missing terminating " character
+   23 | ", mag_offset);
+      | ^
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:23:1: error: missing terminating " character
+   23 | ", mag_offset);
+      | ^~~~~~~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:24:16: warning: missing terminating " character
+   24 |     fprintf(f, "qnh=%.2f
+      |                ^
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:24:16: error: missing terminating " character
+   24 |     fprintf(f, "qnh=%.2f
+      |                ^~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:25:1: warning: missing terminating " character
+   25 | ", qnh);
+      | ^
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:25:1: error: missing terminating " character
+   25 | ", qnh);
+      | ^~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:26:14: error: expected ')' before ';' token
+   26 |     fclose(f);
+      |              ^
+      |              )
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:24:12: note: to match this '('
+   24 |     fprintf(f, "qnh=%.2f
+      |            ^
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:26:5: warning: passing argument 2 of 'fprintf' makes pointer from integer without a cast [-Wint-conversion]
+   26 |     fclose(f);
+      |     ^~~~~~~~~
+      |     |
+      |     int
+In file included from /home/kevino/esp/esp-idf/components/esp_common/include/esp_err.h:10,
+                 from /home/kevino/Programming/GPS Data Logger/main/config_manager.c:2:
+/home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/stdio.h:202:36: note: expected 'const char * restrict' but argument is of type 'int'
+  202 | int     fprintf (FILE *__restrict, const char *__restrict, ...)
+      |                                    ^
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:28:19: error: expected ')' before '}' token
+   28 |     return ESP_OK;
+      |                   ^
+      |                   )
+   29 | }
+      | ~                  
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:22:12: note: to match this '('
+   22 |     fprintf(f, "mag_offset=%.2f
+      |            ^
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:24:5: warning: passing argument 2 of 'fprintf' makes pointer from integer without a cast [-Wint-conversion]
+   24 |     fprintf(f, "qnh=%.2f
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     |
+      |     int
+   25 | ", qnh);
+      | ~~~~~~~~
+   26 |     fclose(f);
+      |     ~~~~~~~~~~
+   27 |     ESP_LOGI(TAG, "Configuration saved to SD: MagOffset=%.1f, QNH=%.1f", mag_offset, qnh);
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   28 |     return ESP_OK;
+      |     ~~~~~~~~~~~~~~
+   29 | }
+      | ~    
+/home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/stdio.h:202:36: note: expected 'const char * restrict' but argument is of type 'int'
+  202 | int     fprintf (FILE *__restrict, const char *__restrict, ...)
+      |                                    ^
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:28:19: error: expected ';' before '}' token
+   28 |     return ESP_OK;
+      |                   ^
+      |                   ;
+   29 | }
+      | ~                  
+/home/kevino/Programming/GPS Data Logger/main/config_manager.c:29:1: error: control reaches end of non-void function [-Werror=return-type]
+   29 | }
+      | ^
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:373: esp-idf/main/CMakeFiles/__idf_main.dir/config_manager.c.obj] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:7198: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

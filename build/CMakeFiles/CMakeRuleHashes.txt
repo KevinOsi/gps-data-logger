@@ -1,5 +1,5 @@
 # Hashes of file build rules.
-33a99464e45745f84fc23890792e227b .bin_timestamp
+0af8db1935eab70132c73ac92e598e2f .bin_timestamp
 627abdb5f024af5de21df7b2cd936987 CMakeFiles/_project_elf_src
 627abdb5f024af5de21df7b2cd936987 CMakeFiles/app
 627abdb5f024af5de21df7b2cd936987 CMakeFiles/bootloader
@@ -25,6 +25,13 @@ c6dfdccd91170da2b3f681ff4706d398 bootloader-prefix/src/bootloader-stamp/bootload
 66ec0647d122beb23a98a4f4bd15104f bootloader-prefix/src/bootloader-stamp/bootloader-mkdir
 21c414341b138ff65f1483db7b9b81d9 bootloader-prefix/src/bootloader-stamp/bootloader-patch
 2d411180020d864c0ab77d9d82af4bdc bootloader-prefix/src/bootloader-stamp/bootloader-update
+feff64e21ba27b03c009591d42a1bdc4 esp-idf/app_update/CMakeFiles/blank_ota_data
+270c5cd1a209f472c7dc4bbdf77705a3 esp-idf/app_update/CMakeFiles/encrypted-otadata-flash
+7103544c541986b47bb4157b8ecc5492 esp-idf/app_update/CMakeFiles/erase-otadata
+e5dadbb9636f429227992c10e2b16f4f esp-idf/app_update/CMakeFiles/erase_otadata
+9b0d7b8e62ca6be7b53194764e7c87a5 esp-idf/app_update/CMakeFiles/otadata-flash
+09206438cab7d1f1fefd4d861dff74d1 esp-idf/app_update/CMakeFiles/read-otadata
+e5dadbb9636f429227992c10e2b16f4f esp-idf/app_update/CMakeFiles/read_otadata
 cdd479782812503eb86182aabc3708c9 esp-idf/bootloader/CMakeFiles/bootloader-flash
 1674d69973295df10ca7c2b5055a2723 esp-idf/bootloader/CMakeFiles/encrypted-bootloader-flash
 3235d7d500626ec44285db0239b00cd3 esp-idf/efuse/CMakeFiles/efuse-common-table
@@ -37,7 +44,7 @@ cdd479782812503eb86182aabc3708c9 esp-idf/bootloader/CMakeFiles/bootloader-flash
 62151d74df9fdabf30c577edb437db5a esp-idf/esp_system/CMakeFiles/memory.ld
 62151d74df9fdabf30c577edb437db5a esp-idf/esp_system/CMakeFiles/sections.ld.in
 e8835e123aeb76b726b1376f70a6cac6 esp-idf/esp_system/ld/memory.ld
-bf9e6fb365f138bf6241713af894dee3 esp-idf/esp_system/ld/sections.ld
+9e0bf5475f9fdd42a36ea9175838f943 esp-idf/esp_system/ld/sections.ld
 734876580a857854ad64bf5bdd8708b2 esp-idf/esp_system/ld/sections.ld.in
 a80f2f0d74b4515f42f44a30c745cd52 esp-idf/esptool_py/CMakeFiles/app-flash
 6567825edb99c89d2782183b7697a870 esp-idf/esptool_py/CMakeFiles/app_check_size
@@ -46,11 +53,12 @@ a80f2f0d74b4515f42f44a30c745cd52 esp-idf/esptool_py/CMakeFiles/app-flash
 6757aff35939b9c9d5fba06973a6b84b esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib
 68eb78c5ec52b30c701e12da992bdc62 esp-idf/mbedtls/x509_crt_bundle
 42d167555eb072fcea7b79fee0e9a391 esp-idf/partition_table/CMakeFiles/encrypted-partition-table-flash
-67f96099be69dbab3f13341453728b2b esp-idf/partition_table/CMakeFiles/partition-table
+540eb44727e5fcefd9a61eefcfbd93e6 esp-idf/partition_table/CMakeFiles/partition-table
 a539c002fffca8ea35322dd100a069c1 esp-idf/partition_table/CMakeFiles/partition-table-flash
 b0a8280a395e7d7d9f2389cf08e24863 esp-idf/partition_table/CMakeFiles/partition_table
 b0a8280a395e7d7d9f2389cf08e24863 esp-idf/partition_table/CMakeFiles/partition_table-flash
 df9a4ed73016420b215b834c24b07092 esp-idf/partition_table/CMakeFiles/partition_table_bin
-6fdca7c98c0faa59fb9965ad5af52688 partition_table/partition-table.bin
+6fd2514e3cb41a5c3bde30afcd1af5eb ota_data_initial.bin
+82bf864d6211077bb6acf38cb26590a7 partition_table/partition-table.bin
 08b77c88b0c088072918e4becbcd2886 project_elf_src_esp32.c
 663614a318940087d062f6c3ddf3f537 x509_crt_bundle.S

@@ -1,21 +1,19 @@
 #ifndef MAG_HANDLER_H
 #define MAG_HANDLER_H
 
-#include <stdint.h>
 #include "esp_err.h"
-#include "telemetry.h"
+#include <stdint.h>
+#include "telemetry.h" // Use centralized mag_data_t
 
-/**
- * @brief Initialize the MMC5603 magnetometer
- * @return ESP_OK on success
- */
 esp_err_t mag_handler_init(void);
+esp_err_t mag_handler_read(mag_data_t *data);
+void mag_handler_set_offset(float dummy);
+void mag_handler_set_offset_direct(float offset);
+float mag_handler_get_offset(void);
 
 /**
- * @brief Read data from the magnetometer
- * @param data Pointer to store the data
- * @return ESP_OK on success
+ * @brief Calculate magnetic declination for a given lat/lon.
  */
-esp_err_t mag_handler_read(mag_data_t *data);
+float mag_handler_calculate_declination(double lat, double lon);
 
 #endif // MAG_HANDLER_H

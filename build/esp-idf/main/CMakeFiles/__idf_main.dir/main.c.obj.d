@@ -121,6 +121,22 @@ esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj: \
  /home/kevino/Programming/GPS\ Data\ Logger/main/telemetry.h \
  /home/kevino/Programming/GPS\ Data\ Logger/main/telemetry_task.h \
  /home/kevino/Programming/GPS\ Data\ Logger/main/ui_task.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/logger_task.h \
  /home/kevino/Programming/GPS\ Data\ Logger/main/bme280_handler.h \
  /home/kevino/Programming/GPS\ Data\ Logger/main/mag_handler.h \
- /home/kevino/Programming/GPS\ Data\ Logger/main/oled_handler.h
+ /home/kevino/Programming/GPS\ Data\ Logger/main/oled_handler.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/sd_card_handler.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/button_handler.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/ble_manager.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/gps_config.h \
+ /home/kevino/esp/esp-idf/components/nvs_flash/include/nvs_flash.h \
+ /home/kevino/esp/esp-idf/components/nvs_flash/include/nvs.h \
+ /home/kevino/esp/esp-idf/components/esp_partition/include/esp_partition.h \
+ /home/kevino/esp/esp-idf/components/esp_netif/include/esp_netif.h \
+ /home/kevino/esp/esp-idf/components/esp_netif/include/esp_netif_ip_addr.h \
+ /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/machine/endian.h \
+ /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/machine/_endian.h \
+ /home/kevino/esp/esp-idf/components/esp_netif/include/esp_netif_types.h \
+ /home/kevino/esp/esp-idf/components/esp_event/include/esp_event_base.h \
+ /home/kevino/esp/esp-idf/components/esp_netif/include/esp_netif_defaults.h \
+ /home/kevino/esp/esp-idf/components/esp_event/include/esp_event.h

@@ -1,0 +1,7 @@
+/home/kevino/Programming/GPS Data Logger/main/telemetry_task.c: In function 'telemetry_task':
+/home/kevino/Programming/GPS Data Logger/main/telemetry_task.c:94:31: warning: unused variable 'current_offset' [-Wunused-variable]
+   94 |                         float current_offset = 0.0f; // In a real app we'd get this from mag_handler
+      |                               ^~~~~~~~~~~~~~
+info: INFO: Symbol IDF_TARGET_LINUX defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/kevino/esp/esp-idf/Kconfig:78
+    /home/kevino/esp/esp-idf/Kconfig:162

@@ -110,11 +110,25 @@ esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/src/esp_hidh.c.obj: \
  /home/kevino/esp/esp-idf/components/esp_event/include/esp_event_base.h \
  /home/kevino/esp/esp-idf/components/esp_hid/include/esp_hid_common.h \
  /home/kevino/esp/esp-idf/components/esp_hid/include/esp_hidh_transport.h \
+ /home/kevino/esp/esp-idf/components/esp_hid/include/esp_hidh_nimble.h \
  /home/kevino/esp/esp-idf/components/esp_timer/include/esp_timer.h \
  /home/kevino/esp/esp-idf/components/esp_hw_support/include/esp_etm.h \
- /home/kevino/esp/esp-idf/components/esp_hid/private/bt_hidh.h \
- /home/kevino/esp/esp-idf/components/esp_hid/private/ble_hidh.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/nimble/nimble/include/nimble/ble.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/string.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/strings.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/sys/string.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/nimble/porting/nimble/include/syscfg/syscfg.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/port/include/esp_nimble_cfg.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/nimble/porting/nimble/include/os/os.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/nimble/nimble/include/nimble/nimble_npl.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/nimble/porting/npl/freertos/include/nimble/nimble_npl_os.h \
+ /home/kevino/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/nimble/porting/npl/freertos/include/nimble/npl_freertos.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/nimble/porting/nimble/include/os/endian.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/nimble/porting/nimble/include/os/queue.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/nimble/porting/nimble/include/os/os_error.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/nimble/porting/nimble/include/os/os_mbuf.h \
+ /home/kevino/esp/esp-idf/components/bt/host/nimble/nimble/porting/nimble/include/os/os_mempool.h \
+ /home/kevino/esp/esp-idf/components/esp_hid/private/bt_hidh.h \
+ /home/kevino/esp/esp-idf/components/esp_hid/private/ble_hidh.h \
  /home/kevino/esp/esp-idf/components/esp_common/include/esp_check.h

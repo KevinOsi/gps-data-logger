@@ -1,0 +1,17 @@
+/home/kevino/Programming/GPS Data Logger/main/web_server.c: In function 'download_get_handler':
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:47:46: error: '%s' directive output may be truncated writing up to 512 bytes into a region of size 252 [-Werror=format-truncation=]
+   47 |     snprintf(filepath, sizeof(filepath), "%s/%s", BASE_PATH, filename);
+      |                                              ^~
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:47:5: note: 'snprintf' output between 5 and 517 bytes into a destination of size 256
+   47 |     snprintf(filepath, sizeof(filepath), "%s/%s", BASE_PATH, filename);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:36:71: error: '%s' directive output may be truncated writing up to 255 bytes into a region of size between 241 and 496 [-Werror=format-truncation=]
+   36 |                     snprintf(link, sizeof(link), "<li><a href=\"/%s\">%s</a></li>", ent->d_name, ent->d_name);
+      |                                                                       ^~
+/home/kevino/Programming/GPS Data Logger/main/web_server.c:36:21: note: 'snprintf' output between 26 and 536 bytes into a destination of size 512
+   36 |                     snprintf(link, sizeof(link), "<li><a href=\"/%s\">%s</a></li>", ent->d_name, ent->d_name);
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:331: esp-idf/main/CMakeFiles/__idf_main.dir/web_server.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:6963: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

@@ -122,8 +122,12 @@ esp-idf/main/CMakeFiles/__idf_main.dir/telemetry_task.c.obj: \
  /home/kevino/Programming/GPS\ Data\ Logger/main/i2c_manager.h \
  /home/kevino/Programming/GPS\ Data\ Logger/main/bme280_handler.h \
  /home/kevino/Programming/GPS\ Data\ Logger/main/mag_handler.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/sd_card_handler.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/logger_task.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/ble_manager.h \
  /home/kevino/esp/esp-idf/components/log/include/esp_log.h \
  /home/kevino/esp/esp-idf/components/log/include/esp_log_internal.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/string.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/strings.h \
- /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/sys/string.h
+ /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/sys/string.h \
+ /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/math.h

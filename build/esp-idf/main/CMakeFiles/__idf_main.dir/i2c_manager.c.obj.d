@@ -34,11 +34,10 @@ esp-idf/main/CMakeFiles/__idf_main.dir/i2c_manager.c.obj: \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/assert.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/sys/stdio.h \
  /home/kevino/esp/esp-idf/components/esp_common/include/esp_compiler.h \
- /home/kevino/Programming/GPS\ Data\ Logger/main/hw_config.h \
- /home/kevino/esp/esp-idf/components/esp_driver_uart/include/driver/uart.h \
+ /home/kevino/esp/esp-idf/components/driver/i2c/include/driver/i2c.h \
+ /home/kevino/esp/esp-idf/components/esp_common/include/esp_types.h \
  /home/kevino/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h \
  /home/kevino/esp/esp-idf/components/esp_hw_support/include/esp_intr_types.h \
- /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/soc_caps.h \
  /home/kevino/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h \
  /home/kevino/esp/esp-idf/components/freertos/config/include/freertos/FreeRTOSConfig.h \
  /home/kevino/esp/esp-idf/components/freertos/config/xtensa/include/freertos/FreeRTOSConfig_arch.h \
@@ -64,6 +63,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/i2c_manager.c.obj: \
  /home/kevino/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h \
  /home/kevino/esp/esp-idf/components/esp_hw_support/include/spinlock.h \
  /home/kevino/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h \
+ /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/soc_caps.h \
  /home/kevino/esp/esp-idf/components/xtensa/include/xtensa_api.h \
  /home/kevino/esp/esp-idf/components/xtensa/include/xt_utils.h \
  /home/kevino/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/extreg.h \
@@ -104,10 +104,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/i2c_manager.c.obj: \
  /home/kevino/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h \
  /home/kevino/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h \
  /home/kevino/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h \
- /home/kevino/esp/esp-idf/components/hal/include/hal/uart_types.h \
- /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/clk_tree_defs.h \
- /home/kevino/esp/esp-idf/components/driver/i2c/include/driver/i2c.h \
- /home/kevino/esp/esp-idf/components/esp_common/include/esp_types.h \
  /home/kevino/esp/esp-idf/components/esp_driver_gpio/include/driver/gpio.h \
  /home/kevino/esp/esp-idf/components/hal/include/hal/gpio_types.h \
  /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/gpio_num.h \
@@ -116,6 +112,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/i2c_manager.c.obj: \
  /home/kevino/esp/esp-idf/components/esp_driver_gpio/include/driver/gpio_etm.h \
  /home/kevino/esp/esp-idf/components/esp_hw_support/include/esp_etm.h \
  /home/kevino/esp/esp-idf/components/hal/include/hal/i2c_types.h \
+ /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/clk_tree_defs.h \
  /home/kevino/esp/esp-idf/components/hal/include/hal/hal_utils.h \
  /home/kevino/esp/esp-idf/components/log/include/esp_log.h \
  /home/kevino/esp/esp-idf/components/log/include/esp_log_internal.h \

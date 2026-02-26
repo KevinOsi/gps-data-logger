@@ -152,6 +152,7 @@ gps-data-logger.elf: esp-idf/esp_netif/libesp_netif.a
 gps-data-logger.elf: esp-idf/wpa_supplicant/libwpa_supplicant.a
 gps-data-logger.elf: esp-idf/esp_coex/libesp_coex.a
 gps-data-logger.elf: esp-idf/esp_wifi/libesp_wifi.a
+gps-data-logger.elf: esp-idf/bt/libbt.a
 gps-data-logger.elf: esp-idf/unity/libunity.a
 gps-data-logger.elf: esp-idf/cmock/libcmock.a
 gps-data-logger.elf: esp-idf/console/libconsole.a
@@ -199,6 +200,7 @@ gps-data-logger.elf: esp-idf/perfmon/libperfmon.a
 gps-data-logger.elf: esp-idf/spiffs/libspiffs.a
 gps-data-logger.elf: esp-idf/wifi_provisioning/libwifi_provisioning.a
 gps-data-logger.elf: esp-idf/protocomm/libprotocomm.a
+gps-data-logger.elf: esp-idf/bt/libbt.a
 gps-data-logger.elf: esp-idf/console/libconsole.a
 gps-data-logger.elf: esp-idf/protobuf-c/libprotobuf-c.a
 gps-data-logger.elf: esp-idf/json/libjson.a
@@ -268,6 +270,7 @@ gps-data-logger.elf: esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/library/libmbedx509.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a
+gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_coex/lib/esp32/libcoexist.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libcore.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libespnow.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libmesh.a
@@ -341,6 +344,7 @@ gps-data-logger.elf: esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/library/libmbedx509.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a
+gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_coex/lib/esp32/libcoexist.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libcore.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libespnow.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libmesh.a
@@ -414,6 +418,7 @@ gps-data-logger.elf: esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/library/libmbedx509.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a
+gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_coex/lib/esp32/libcoexist.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libcore.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libespnow.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libmesh.a
@@ -487,6 +492,7 @@ gps-data-logger.elf: esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/library/libmbedx509.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a
+gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_coex/lib/esp32/libcoexist.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libcore.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libespnow.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libmesh.a
@@ -560,6 +566,7 @@ gps-data-logger.elf: esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/library/libmbedx509.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a
 gps-data-logger.elf: esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a
+gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_coex/lib/esp32/libcoexist.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libcore.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libespnow.a
 gps-data-logger.elf: /home/kevino/esp/esp-idf/components/esp_wifi/lib/esp32/libmesh.a

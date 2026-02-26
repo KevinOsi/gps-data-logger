@@ -20,8 +20,9 @@ esp_err_t hw_config_init() {
     }
     memset(&g_telemetry, 0, sizeof(global_telemetry_t));
 
-    // 2. Initialize I2C Manager (Mutex)
-    if (i2c_manager_init() != ESP_OK) {
+    // 2. Initialize I2C Manager (This handles driver installation exactly once)
+    if (i2c_manager_init(I2C_MASTER_SDA_IO, I2C_MASTER_SCL_IO, I2C_MASTER_FREQ_HZ) != ESP_OK) {
+        ESP_LOGE(TAG, "I2C Manager initialization failed");
         return ESP_FAIL;
     }
 
@@ -38,19 +39,6 @@ esp_err_t hw_config_init() {
     ESP_ERROR_CHECK(uart_driver_install(GPS_UART_NUM, 2048, 0, 0, NULL, 0));
     ESP_ERROR_CHECK(uart_param_config(GPS_UART_NUM, &uart_config));
     ESP_ERROR_CHECK(uart_set_pin(GPS_UART_NUM, GPS_TX_PIN, GPS_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
-
-    // 3. Configure I2C Master
-    i2c_config_t conf = {
-        .mode = I2C_MODE_MASTER,
-        .sda_io_num = I2C_MASTER_SDA_IO,
-        .sda_pullup_en = GPIO_PULLUP_ENABLE,
-        .scl_io_num = I2C_MASTER_SCL_IO,
-        .scl_pullup_en = GPIO_PULLUP_ENABLE,
-        .master.clk_speed = I2C_MASTER_FREQ_HZ,
-    };
-    
-    ESP_ERROR_CHECK(i2c_param_config(I2C_MASTER_NUM, &conf));
-    ESP_ERROR_CHECK(i2c_driver_install(I2C_MASTER_NUM, conf.mode, 0, 0, 0));
 
     ESP_LOGI(TAG, "Hardware initialized successfully");
     return ESP_OK;

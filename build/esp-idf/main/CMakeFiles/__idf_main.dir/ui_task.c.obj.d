@@ -1,7 +1,8 @@
 esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj: \
  /home/kevino/Programming/GPS\ Data\ Logger/main/ui_task.c \
  /home/kevino/Programming/GPS\ Data\ Logger/main/ui_task.h \
- /home/kevino/Programming/GPS\ Data\ Logger/main/oled_handler.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/ssd1306/ssd1306.h \
+ /home/kevino/esp/esp-idf/components/esp_driver_spi/include/driver/spi_master.h \
  /home/kevino/esp/esp-idf/components/esp_common/include/esp_err.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/13.2.0/include/stdint.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/stdint.h \
@@ -34,8 +35,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj: \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/assert.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/sys/stdio.h \
  /home/kevino/esp/esp-idf/components/esp_common/include/esp_compiler.h \
- /home/kevino/Programming/GPS\ Data\ Logger/main/ssd1306/ssd1306.h \
- /home/kevino/esp/esp-idf/components/esp_driver_spi/include/driver/spi_master.h \
  /home/kevino/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h \
  /home/kevino/esp/esp-idf/components/freertos/config/include/freertos/FreeRTOSConfig.h \
  /home/kevino/esp/esp-idf/components/freertos/config/xtensa/include/freertos/FreeRTOSConfig_arch.h \
@@ -115,10 +114,23 @@ esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj: \
  /home/kevino/esp/esp-idf/components/hal/include/hal/hal_utils.h \
  /home/kevino/esp/esp-idf/components/hal/include/hal/gpio_types.h \
  /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/gpio_num.h \
- /home/kevino/Programming/GPS\ Data\ Logger/main/telemetry.h \
- /home/kevino/Programming/GPS\ Data\ Logger/main/i2c_manager.h \
  /home/kevino/esp/esp-idf/components/log/include/esp_log.h \
  /home/kevino/esp/esp-idf/components/log/include/esp_log_internal.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/telemetry.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/button_handler.h \
+ /home/kevino/esp/esp-idf/components/esp_driver_gpio/include/driver/gpio.h \
+ /home/kevino/esp/esp-idf/components/esp_rom/include/esp_rom_gpio.h \
+ /home/kevino/esp/esp-idf/components/soc/esp32/include/soc/gpio_pins.h \
+ /home/kevino/esp/esp-idf/components/esp_driver_gpio/include/driver/gpio_etm.h \
+ /home/kevino/esp/esp-idf/components/esp_hw_support/include/esp_etm.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/system_manager.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/mag_handler.h \
+ /home/kevino/Programming/GPS\ Data\ Logger/main/hw_config.h \
+ /home/kevino/esp/esp-idf/components/esp_driver_uart/include/driver/uart.h \
+ /home/kevino/esp/esp-idf/components/hal/include/hal/uart_types.h \
+ /home/kevino/esp/esp-idf/components/driver/i2c/include/driver/i2c.h \
+ /home/kevino/esp/esp-idf/components/esp_common/include/esp_types.h \
+ /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/math.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/string.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/strings.h \
  /home/kevino/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/sys/string.h

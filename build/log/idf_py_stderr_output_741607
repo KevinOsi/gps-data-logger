@@ -1,0 +1,11 @@
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c: In function 'ui_task':
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:99:21: error: this 'if' clause does not guard... [-Werror=misleading-indentation]
+   99 |                     if (idx < 0) idx = 0; if (idx > 8) idx = 8;
+      |                     ^~
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:99:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+   99 |                     if (idx < 0) idx = 0; if (idx > 8) idx = 8;
+      |                                           ^~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:275: esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:7198: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

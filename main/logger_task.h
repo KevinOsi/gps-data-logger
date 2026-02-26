@@ -17,4 +17,11 @@ void logger_task_start(void);
  */
 esp_err_t logger_enqueue(const global_telemetry_t *snapshot);
 
+/**
+ * @brief Log a system event (reboot, error, mode change) to a persistent file.
+ * 
+ * @param event String describing the event.
+ */
+void logger_log_system_event(const char *event);
+
 #endif // LOGGER_TASK_H

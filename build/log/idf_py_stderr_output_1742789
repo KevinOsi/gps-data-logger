@@ -1,0 +1,71 @@
+info: INFO: Symbol IDF_TARGET_LINUX defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/kevino/esp/esp-idf/Kconfig:78
+    /home/kevino/esp/esp-idf/Kconfig:162
+CMake Deprecation Warning at /home/kevino/esp/esp-idf/components/mbedtls/mbedtls/CMakeLists.txt:21 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+/home/kevino/Programming/GPS Data Logger/main/sd_card_handler.c:8:10: fatal error: sys/statvfs.h: No such file or directory
+    8 | #include <sys/statvfs.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:191: esp-idf/main/CMakeFiles/__idf_main.dir/sd_card_handler.c.obj] Error 1
+make[2]: *** Waiting for unfinished jobs....
+In file included from /home/kevino/Programming/GPS Data Logger/main/button_handler.c:1:
+/home/kevino/Programming/GPS Data Logger/main/button_handler.h:31:59: error: unknown type name 'TickType_t'
+   31 | esp_err_t button_handler_get_event(button_event_t *event, TickType_t wait_ticks);
+      |                                                           ^~~~~~~~~~
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c: In function 'render_status_page':
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:83:43: error: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+   83 |     snprintf(buf, sizeof(buf), "SD Free: %u MB  ", tele->sd_free_mb);
+      |                                          ~^        ~~~~~~~~~~~~~~~~
+      |                                           |            |
+      |                                           unsigned int uint32_t {aka long unsigned int}
+      |                                          %lu
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:86:44: error: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+   86 |     snprintf(buf, sizeof(buf), "SD Total: %u MB ", tele->sd_total_mb);
+      |                                           ~^       ~~~~~~~~~~~~~~~~~
+      |                                            |           |
+      |                                            |           uint32_t {aka long unsigned int}
+      |                                            unsigned int
+      |                                           %lu
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:90:44: error: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'long unsigned int' [-Werror=format=]
+   90 |     snprintf(buf, sizeof(buf), "Uptime: %02u:%02u:%02u",
+      |                                         ~~~^
+      |                                            |
+      |                                            unsigned int
+      |                                         %02lu
+   91 |              (uptime_sec / 3600), (uptime_sec / 60) % 60, uptime_sec % 60);
+      |              ~~~~~~~~~~~~~~~~~~~            
+      |                          |
+      |                          long unsigned int
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:90:49: error: format '%u' expects argument of type 'unsigned int', but argument 5 has type 'long unsigned int' [-Werror=format=]
+   90 |     snprintf(buf, sizeof(buf), "Uptime: %02u:%02u:%02u",
+      |                                              ~~~^
+      |                                                 |
+      |                                                 unsigned int
+      |                                              %02lu
+   91 |              (uptime_sec / 3600), (uptime_sec / 60) % 60, uptime_sec % 60);
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~
+      |                                                     |
+      |                                                     long unsigned int
+/home/kevino/Programming/GPS Data Logger/main/ui_task.c:90:54: error: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+   90 |     snprintf(buf, sizeof(buf), "Uptime: %02u:%02u:%02u",
+      |                                                   ~~~^
+      |                                                      |
+      |                                                      unsigned int
+      |                                                   %02lu
+   91 |              (uptime_sec / 3600), (uptime_sec / 60) % 60, uptime_sec % 60);
+      |                                                           ~~~~~~~~~~~~~~~
+      |                                                                      |
+      |                                                                      long unsigned int
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:289: esp-idf/main/CMakeFiles/__idf_main.dir/button_handler.c.obj] Error 1
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:275: esp-idf/main/CMakeFiles/__idf_main.dir/ui_task.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:6923: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2
